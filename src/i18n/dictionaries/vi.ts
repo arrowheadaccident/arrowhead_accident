@@ -1,0 +1,250 @@
+import type { Dictionary } from "./en";
+
+// Vietnamese, addressing the reader as "quý vị". The staff speak English and Spanish only, so the copy says so
+// instead of "Hablamos Español". Machine-assisted translation: have a native speaker review it before launch
+// (docs/CONTENT-NOTES.md).
+export const vi: Dictionary = {
+  meta: {
+    homeTitle: "Nắn chỉnh cột sống sau tai nạn xe hơi tại Glendale, AZ",
+    homeDescription:
+      "Bị thương trong tai nạn xe hơi ở Glendale hoặc Arrowhead Ranch? Khám nắn chỉnh cột sống trong ngày và không phải tự chi trả khi tài xế khác có lỗi.",
+    ogImageAlt: "{name}, Glendale, AZ. Gọi {phone}",
+  },
+
+  common: {
+    skipLink: "Chuyển đến nội dung chính",
+    home: "Trang chủ",
+    call: "Gọi {phone}",
+    requestCallback: "Yêu cầu gọi lại",
+    mainNav: "Điều hướng chính",
+    breadcrumb: "Đường dẫn",
+    openMenu: "Mở menu",
+    closeMenu: "Đóng menu",
+    language: "Ngôn ngữ",
+    officeHours: "Giờ làm việc",
+  },
+
+  spoken: {
+    lang: undefined,
+    badge: "Chúng tôi nói tiếng Anh và tiếng Tây Ban Nha",
+    title: "Tiếng Anh và tiếng Tây Ban Nha",
+    text: "Bác sĩ và nhân viên của chúng tôi nói tiếng Anh và tiếng Tây Ban Nha. Các cuộc gọi và buổi khám đều bằng tiếng Anh hoặc tiếng Tây Ban Nha.",
+    interpreter: "Quý vị có thể đi cùng người thân hoặc bạn bè để thông dịch.",
+    callToday: "",
+    cta: "Gọi {phone}",
+  },
+
+  nav: {
+    about: "Giới thiệu",
+    treatments: "Điều trị chấn thương",
+    painManagement: "Giảm đau",
+    noCost: "Không phải tự chi trả",
+    faq: "Hỏi đáp",
+    blog: "Blog",
+    contact: "Liên hệ",
+  },
+
+  legal: {
+    terms: "Điều khoản sử dụng",
+    privacy: "Chính sách quyền riêng tư",
+    disclosure: "Chính sách công bố thông tin",
+    englishOnly: " (tiếng Anh)",
+  },
+
+  footer: {
+    treatments: "Điều trị chấn thương do tai nạn",
+    clinic: "Phòng khám",
+    languages: "Ngôn ngữ",
+    disclaimer:
+      "Thông tin trên trang web này là thông tin chung, không phải lời khuyên y tế hay pháp lý, và không tạo ra quan hệ bác sĩ – bệnh nhân. Nếu gặp trường hợp cấp cứu y tế, hãy gọi 911.",
+    notAssociated: "Trang web này không có liên hệ với bác sĩ Vaughn Movses hay Arrowhead Accident Group.",
+  },
+
+  ctaBand: {
+    title: "Bị thương trong tai nạn xe hơi? Hãy đi khám ngay hôm nay.",
+    text: "Hẹn khám trong ngày, và không phải tự chi trả khi tài xế khác có lỗi.",
+  },
+
+  callCta: {
+    label: "Đặt lịch khám trong ngày",
+    title: "Khám trong ngày cho chấn thương do tai nạn xe hơi.",
+    before: "Hãy gọi ngay, hoặc ",
+    link: "yêu cầu chúng tôi gọi lại",
+    after: ".",
+  },
+
+  sidebar: {
+    label: "Liên hệ phòng khám",
+    title: "Bị thương trong tai nạn? Khám ngay trong ngày.",
+  },
+
+  costAndQuestions: {
+    title: "Có thắc mắc về chi phí hoặc bảo hiểm?",
+    noCost: "Tìm hiểu về điều trị không phải tự chi trả",
+    faq: "Hỏi đáp về tai nạn xe hơi",
+  },
+
+  hours: {
+    closed: "Đóng cửa",
+    openUntil: "Hôm nay mở cửa đến {time}",
+    opensToday: "Hôm nay mở cửa lúc {time}",
+    opensTomorrow: "Hiện đã đóng cửa. Mở cửa lúc {time} ngày mai",
+    opensOn: "Hiện đã đóng cửa. Mở cửa lúc {time} {day}",
+    closedNow: "Hiện đã đóng cửa",
+  },
+
+  howItWorks: {
+    title: "Chăm sóc từ lúc khám đến khi hồi phục",
+    lead: "Quý vị tập trung hồi phục. Chúng tôi phối hợp việc khám, hồ sơ điều trị và thanh toán với bảo hiểm.",
+    steps: [
+      {
+        title: "Gọi cho chúng tôi",
+        text: "Gọi điện hoặc yêu cầu gọi lại. Có lịch hẹn trong ngày và ngày hôm sau, kể cả khi quý vị đã đến phòng cấp cứu.",
+      },
+      {
+        title: "Khám kỹ và lập hồ sơ",
+        text: "Khám kỹ cột sống và kiểm tra chỉnh hình giúp xác định chấn thương. Chúng tôi ghi nhận kết quả để hỗ trợ việc chăm sóc và hồ sơ bồi thường.",
+      },
+      {
+        title: "Kế hoạch điều trị của quý vị",
+        text: "Kế hoạch có thể gồm nắn chỉnh cột sống và điều trị giảm đau, kèm giới thiệu chụp MRI hoặc khám chỉnh hình khi cần.",
+      },
+      {
+        title: "Chúng tôi lo việc thanh toán",
+        text: "Khi tài xế khác có lỗi, chúng tôi gửi hóa đơn cho bảo hiểm của họ và phối hợp với luật sư của quý vị, nếu có. Hãy gọi để trao đổi về cách thanh toán.",
+      },
+    ],
+  },
+
+  valueProps: [
+    { title: "Hẹn khám trong ngày", text: "Gọi hôm nay và gặp bác sĩ ngay hôm nay hoặc ngày mai." },
+    { title: "Không phải tự chi trả", text: "Nếu tài xế khác gây ra tai nạn, chúng tôi gửi hóa đơn cho bảo hiểm của họ và chờ thanh toán." },
+    { title: "Không cần bảo hiểm sức khỏe", text: "Quý vị vẫn được điều trị dù không có bảo hiểm sức khỏe." },
+    { title: "Làm việc với luật sư của quý vị", text: "Chúng tôi có thể hoãn thu tiền theo thỏa thuận thanh toán từ khoản bồi thường (lien) và chia sẻ hồ sơ điều trị với luật sư của quý vị." },
+    { title: "Bác sĩ nắn chỉnh cột sống và bác sĩ y khoa", text: "Phối hợp nắn chỉnh cột sống và điều trị giảm đau, kèm giới thiệu khám chỉnh hình khi cần." },
+    {
+      title: "Tiếng Anh và tiếng Tây Ban Nha",
+      text: "Bác sĩ và nhân viên của chúng tôi nói tiếng Anh và tiếng Tây Ban Nha. Quý vị có thể đi cùng người thân hoặc bạn bè để thông dịch.",
+    },
+  ],
+
+  team: {
+    sampleTag: "Hồ sơ mẫu",
+    sampleBio: "Tiểu sử mẫu.",
+    roles: {
+      "Chiropractic Physician": "Bác sĩ nắn chỉnh cột sống",
+      "Pain Management Physician": "Bác sĩ điều trị giảm đau",
+    },
+  },
+
+  cards: {
+    readArticle: "Đọc bài viết",
+  },
+
+  form: {
+    title: "Yêu cầu gọi lại",
+    intro: "Điền biểu mẫu mất chưa đến một phút. Các mục đều bắt buộc, trừ mục được ghi là không bắt buộc.",
+    name: "Họ và tên",
+    phone: "Số điện thoại",
+    email: "Email",
+    accidentDate: "Ngày xảy ra tai nạn",
+    message: "Chúng tôi có thể giúp gì?",
+    optional: "(không bắt buộc)",
+    honeypot: "Để trống ô này",
+    consent: "Tôi đồng ý được liên hệ qua điện thoại, tin nhắn hoặc email về yêu cầu của tôi.",
+    submit: "Yêu cầu gọi lại",
+    sending: "Đang gửi…",
+    note: "Vui lòng không ghi chi tiết y tế. Chúng tôi sẽ gọi lại trong giờ làm việc, bằng tiếng Anh hoặc tiếng Tây Ban Nha.",
+    sentTitle: "Cảm ơn quý vị. Chúng tôi sẽ gọi lại trong giờ làm việc.",
+    sentBefore: "Cần giúp ngay? Hãy gọi ",
+    sentAfter: ".",
+    errors: {
+      name_short: "Nhập họ và tên của quý vị.",
+      name_long: "Dùng tối đa {max} ký tự.",
+      phone: "Nhập số điện thoại Mỹ gồm 10 chữ số, ví dụ (623) 555-0123.",
+      email: "Nhập địa chỉ email như ten@example.com, hoặc để trống.",
+      accident_date: "Ngày tai nạn không thể là một ngày trong tương lai.",
+      message_long: "Dùng tối đa {max} ký tự.",
+      consent: "Đánh dấu ô này để chúng tôi có thể liên hệ với quý vị.",
+      bad_request: "Không gửi được yêu cầu. Vui lòng thử lại hoặc gọi cho chúng tôi theo số {phone}.",
+      send_failed: "Không gửi được yêu cầu. Vui lòng gọi cho chúng tôi theo số {phone}.",
+      too_many: "Quá nhiều yêu cầu. Vui lòng gọi cho chúng tôi theo số {phone}.",
+      network: "Không kết nối được với máy chủ. Hãy kiểm tra kết nối và thử lại, hoặc gọi cho chúng tôi theo số {phone}.",
+    },
+  },
+
+  home: {
+    h1: "Nắn chỉnh cột sống cho chấn thương do tai nạn xe hơi tại Glendale, Arizona",
+    intro:
+      "Nếu quý vị hoặc người thân gặp tai nạn xe hơi, khám kỹ có thể giúp xác định chấn thương và định hướng chăm sóc. Triệu chứng có thể chưa xuất hiện ngay. Hãy gọi hôm nay để đặt lịch khám trong ngày hoặc ngày hôm sau.",
+    heroPoints: ["Hẹn khám trong ngày", "Không phải tự chi trả khi tài xế khác có lỗi", "Không cần bảo hiểm sức khỏe"],
+    injuriesTitle: "Các chấn thương do tai nạn xe hơi chúng tôi điều trị",
+    injuriesLead:
+      "Bác sĩ nắn chỉnh cột sống và bác sĩ y khoa của chúng tôi tập trung vào chấn thương do tai nạn xe hơi và tai nạn lao động. Chọn triệu chứng hoặc chấn thương để tìm hiểu thêm.",
+    costTitle: "Không phải tự chi trả khi quý vị không có lỗi",
+    costText:
+      "Nếu người khác gây ra tai nạn, phòng khám sẽ gửi hóa đơn cho bảo hiểm của người có lỗi và chờ thanh toán. Phòng khám của chúng tôi có hơn 10 năm kinh nghiệm chăm sóc nạn nhân tai nạn mà họ không phải tự trả tiền.",
+    costLink: "Tìm hiểu về điều trị không phải tự chi trả",
+    billingPoints: [
+      "Chúng tôi gửi hóa đơn cho bảo hiểm của người có lỗi và chờ thanh toán.",
+      "Không cần bảo hiểm sức khỏe.",
+      "Nếu có luật sư, quý vị có thể được hoãn thanh toán theo thỏa thuận thanh toán từ khoản bồi thường (lien) đến khi hồ sơ được giải quyết.",
+      "Mọi giấy tờ đều do chúng tôi lo.",
+    ],
+    careLabel: "Điều trị giảm đau và ngôn ngữ",
+    painTitle: "Điều trị giảm đau ngay tại phòng khám",
+    painText:
+      "Chúng tôi phối hợp nắn chỉnh cột sống với điều trị giảm đau bằng các phương pháp y khoa, và giới thiệu khám chỉnh hình khi cần. Quý vị có thể được điều trị mà không phải tự chi trả khi tài xế khác có lỗi. Hãy gọi để đặt lịch khám trong ngày và trao đổi về trường hợp của quý vị.",
+    painLink: "Về điều trị giảm đau",
+    teamTitle: "Bác sĩ nắn chỉnh cột sống và bác sĩ y khoa tại cùng phòng khám",
+    teamLead: "Bốn bác sĩ nắn chỉnh cột sống và một bác sĩ điều trị giảm đau thường xuyên chăm sóc bệnh nhân bị chấn thương do tai nạn xe hơi.",
+    teamLink: "Tìm hiểu thêm về phòng khám",
+    faqTitle: "Thắc mắc sau tai nạn xe hơi",
+    faqLead: "Giải đáp rõ ràng về việc đi cấp cứu, xe hư hại nhẹ và chi phí điều trị.",
+    faqLink: "Đọc cả {count} câu hỏi",
+    areasTitle: "Khu vực chúng tôi phục vụ",
+    areasLead: "Bệnh nhân tai nạn xe hơi đến với chúng tôi từ Glendale, Arrowhead Ranch và các khu dân cư lân cận sau đây.",
+    blogTitle: "Từ blog",
+    blogLink: "Tất cả bài viết",
+  },
+
+  page: {
+    ourDoctors: "Các bác sĩ của chúng tôi",
+    relatedInjuries: "Chấn thương liên quan",
+    aboutTeamLead: "Các bác sĩ nắn chỉnh cột sống và một bác sĩ y khoa chuyên điều trị giảm đau cùng làm việc tại một phòng khám.",
+  },
+
+  blog: {
+    title: "Bài viết về chấn thương do tai nạn xe hơi | Glendale",
+    description:
+      "Bài viết về chấn thương do tai nạn xe hơi, nắn chỉnh cột sống và những lầm tưởng về bảo hiểm, từ phòng khám của chúng tôi ở Glendale, Arizona.",
+    crumb: "Blog",
+    h1: "Bài viết về chấn thương do tai nạn xe hơi",
+    lead: "Nghiên cứu và câu trả lời dễ hiểu về chấn thương do tai nạn xe hơi, nắn chỉnh cột sống và bảo hiểm.",
+    published: "Đăng ngày",
+    updated: "Cập nhật",
+  },
+
+  contact: {
+    title: "Liên hệ | Nắn chỉnh cột sống sau tai nạn tại Glendale",
+    description:
+      "Gọi {phone} hoặc yêu cầu gọi lại. Hẹn khám trong ngày cho chấn thương do tai nạn xe hơi tại Glendale, AZ. Chúng tôi nói tiếng Anh và tiếng Tây Ban Nha.",
+    h1: "Liên hệ",
+    lead: "Gọi để đặt lịch khám trong ngày, hoặc gửi biểu mẫu và chúng tôi sẽ gọi lại trong giờ làm việc.",
+    formTitle: "Yêu cầu gọi lại",
+    required: "Các mục đều bắt buộc, trừ mục được ghi là không bắt buộc.",
+    visit: "Đến phòng khám",
+    mapTitle: "Bản đồ đến {name}",
+    mapPlaceholder: "Bản đồ sẽ hiển thị khi địa chỉ được xác nhận",
+  },
+
+  notFound: {
+    title: "Không tìm thấy trang | {name}",
+    description: "Trang quý vị tìm không tồn tại hoặc đã được chuyển đi.",
+    eyebrow: "Không tìm thấy trang",
+    h1: "Trang này đã rẽ nhầm đường",
+    text: "Trang quý vị tìm không tồn tại hoặc đã được chuyển đi. Nếu quý vị bị thương trong tai nạn xe hơi, quý vị vẫn có thể gọi cho chúng tôi ngay hoặc bắt đầu từ trang chủ.",
+    home: "Về trang chủ",
+    contact: "Liên hệ",
+  },
+};

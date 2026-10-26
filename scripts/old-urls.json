@@ -1,0 +1,19 @@
+{
+  "keep": [
+    "/", "/about-us/", "/pain-management/", "/contact/", "/emergency-car-collision-treatment/",
+    "/whiplash-injury/", "/neck-chiropractor-arrowhead-az/", "/headaches-closed-head-injury/",
+    "/low-back-pain/", "/spinal-ligament-injury-treatment/", "/no-cost-for-your-treatment-ever/",
+    "/car-collision-injury-chiropractor-arrowhead-glendale-arizona/", "/blog/",
+    "/terms-of-use/", "/privacy-policy/", "/disclosure-policy/"
+  ],
+  "redirect": {
+    "/neck-pain-whiplash/": "/whiplash-injury/",
+    "/mutiple-injuries/": "/multiple-injuries/",
+    "/2016/06/24/insurance-mantas-myths-concerning-auto-accidents-phoenix-arizona/": "/blog/car-accident-insurance-myths/",
+    "/2016/06/24/phoenix-car-accident-injury-us-military-study-states-youre-better-off-seeing-chiropractor/": "/blog/chiropractic-vs-standard-care-study/",
+    "/category/chiropractic-collision-treatment/": "/blog/",
+    "/category/insurance-car-accidents/": "/blog/",
+    "/sitemap/": "/",
+    "/sitemap_index.xml": "/sitemap.xml"
+  }
+}
