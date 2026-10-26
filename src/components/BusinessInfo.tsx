@@ -58,7 +58,7 @@ export function ServiceAreas({ className = "" }: { className?: string }) {
   );
 }
 
-/** In-content call prompt; replaces the old "Call Now 1(623) 400-6362" headings. */
+/** In-content call prompt; replaces the old "Call Now 1(623) 444-1111" headings. */
 export async function CallCta() {
   const { locale, t } = await getI18n();
   return (

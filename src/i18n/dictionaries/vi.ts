@@ -7,7 +7,7 @@ export const vi: Dictionary = {
   meta: {
     homeTitle: "Nắn chỉnh cột sống sau tai nạn xe hơi tại Glendale, AZ",
     homeDescription:
-      "Bị thương trong tai nạn xe hơi ở Glendale hoặc Arrowhead Ranch? Khám nắn chỉnh cột sống trong ngày và không tốn tiền túi khi tài xế khác có lỗi.",
+      "Bị thương trong tai nạn xe hơi ở Glendale hoặc Arrowhead Ranch? Khám nắn chỉnh cột sống trong ngày và không phải tự chi trả khi tài xế khác có lỗi.",
     ogImageAlt: "{name}, Glendale, AZ. Gọi {phone}",
   },
 
@@ -16,7 +16,7 @@ export const vi: Dictionary = {
     home: "Trang chủ",
     call: "Gọi {phone}",
     requestCallback: "Yêu cầu gọi lại",
-    mainNav: "Menu chính",
+    mainNav: "Điều hướng chính",
     breadcrumb: "Đường dẫn",
     openMenu: "Mở menu",
     closeMenu: "Đóng menu",
@@ -36,9 +36,9 @@ export const vi: Dictionary = {
 
   nav: {
     about: "Giới thiệu",
-    treatments: "Điều trị tai nạn",
+    treatments: "Điều trị chấn thương",
     painManagement: "Giảm đau",
-    noCost: "Không tốn tiền túi",
+    noCost: "Không phải tự chi trả",
     faq: "Hỏi đáp",
     blog: "Blog",
     contact: "Liên hệ",
@@ -57,12 +57,12 @@ export const vi: Dictionary = {
     languages: "Ngôn ngữ",
     disclaimer:
       "Thông tin trên trang web này là thông tin chung, không phải lời khuyên y tế hay pháp lý, và không tạo ra quan hệ bác sĩ – bệnh nhân. Nếu gặp trường hợp cấp cứu y tế, hãy gọi 911.",
-    notAssociated: "Trang web này hoàn toàn không liên quan đến Dr. Vaughn Movses hay Arrowhead Accident Group.",
+    notAssociated: "Trang web này không có liên hệ với bác sĩ Vaughn Movses hay Arrowhead Accident Group.",
   },
 
   ctaBand: {
     title: "Bị thương trong tai nạn xe hơi? Hãy đi khám ngay hôm nay.",
-    text: "Hẹn khám trong ngày, và không tốn tiền túi khi tài xế khác có lỗi.",
+    text: "Hẹn khám trong ngày, và không phải tự chi trả khi tài xế khác có lỗi.",
   },
 
   callCta: {
@@ -80,7 +80,7 @@ export const vi: Dictionary = {
 
   costAndQuestions: {
     title: "Có thắc mắc về chi phí hoặc bảo hiểm?",
-    noCost: "Vì sao quý vị không tốn tiền túi",
+    noCost: "Tìm hiểu về điều trị không phải tự chi trả",
     faq: "Hỏi đáp về tai nạn xe hơi",
   },
 
@@ -94,8 +94,8 @@ export const vi: Dictionary = {
   },
 
   howItWorks: {
-    title: "Từ lúc tai nạn đến khi hồi phục: quy trình như sau",
-    lead: "Quý vị tập trung vào việc hồi phục. Chúng tôi lo phần khám, giấy tờ và bảo hiểm.",
+    title: "Chăm sóc từ lúc khám đến khi hồi phục",
+    lead: "Quý vị tập trung hồi phục. Chúng tôi phối hợp việc khám, hồ sơ điều trị và thanh toán với bảo hiểm.",
     steps: [
       {
         title: "Gọi cho chúng tôi",
@@ -103,25 +103,25 @@ export const vi: Dictionary = {
       },
       {
         title: "Khám kỹ và lập hồ sơ",
-        text: "Khám toàn diện cột sống và chỉnh hình giúp phát hiện chấn thương tiềm ẩn, và mọi kết quả đều được ghi lại cho hồ sơ bồi thường của quý vị.",
+        text: "Khám kỹ cột sống và kiểm tra chỉnh hình giúp xác định chấn thương. Chúng tôi ghi nhận kết quả để hỗ trợ việc chăm sóc và hồ sơ bồi thường.",
       },
       {
         title: "Kế hoạch điều trị của quý vị",
-        text: "Nắn chỉnh cột sống và điều trị giảm đau, kèm giới thiệu chụp MRI và khám chỉnh hình khi cần.",
+        text: "Kế hoạch có thể gồm nắn chỉnh cột sống và điều trị giảm đau, kèm giới thiệu chụp MRI hoặc khám chỉnh hình khi cần.",
       },
       {
         title: "Chúng tôi lo việc thanh toán",
-        text: "Chúng tôi gửi hóa đơn cho bảo hiểm của tài xế có lỗi và làm việc với luật sư của quý vị, nên quý vị không phải tự trả tiền.",
+        text: "Khi tài xế khác có lỗi, chúng tôi gửi hóa đơn cho bảo hiểm của họ và phối hợp với luật sư của quý vị, nếu có. Hãy gọi để trao đổi về cách thanh toán.",
       },
     ],
   },
 
   valueProps: [
     { title: "Hẹn khám trong ngày", text: "Gọi hôm nay và gặp bác sĩ ngay hôm nay hoặc ngày mai." },
-    { title: "Không tốn tiền túi", text: "Nếu tài xế khác gây ra tai nạn, chúng tôi gửi hóa đơn cho bảo hiểm của họ và chờ thanh toán." },
+    { title: "Không phải tự chi trả", text: "Nếu tài xế khác gây ra tai nạn, chúng tôi gửi hóa đơn cho bảo hiểm của họ và chờ thanh toán." },
     { title: "Không cần bảo hiểm sức khỏe", text: "Quý vị vẫn được điều trị dù không có bảo hiểm sức khỏe." },
-    { title: "Làm việc với luật sư của quý vị", text: "Chúng tôi chấp nhận quyền lưu giữ (lien) và gửi hồ sơ, báo cáo cho luật sư của quý vị." },
-    { title: "Bác sĩ nắn chỉnh cột sống và bác sĩ y khoa", text: "Nắn chỉnh cột sống, điều trị giảm đau và giới thiệu chỉnh hình tại cùng một nơi." },
+    { title: "Làm việc với luật sư của quý vị", text: "Chúng tôi có thể hoãn thu tiền theo thỏa thuận thanh toán từ khoản bồi thường (lien) và chia sẻ hồ sơ điều trị với luật sư của quý vị." },
+    { title: "Bác sĩ nắn chỉnh cột sống và bác sĩ y khoa", text: "Phối hợp nắn chỉnh cột sống và điều trị giảm đau, kèm giới thiệu khám chỉnh hình khi cần." },
     {
       title: "Tiếng Anh và tiếng Tây Ban Nha",
       text: "Bác sĩ và nhân viên của chúng tôi nói tiếng Anh và tiếng Tây Ban Nha. Quý vị có thể đi cùng người thân hoặc bạn bè để thông dịch.",
@@ -143,7 +143,7 @@ export const vi: Dictionary = {
 
   form: {
     title: "Yêu cầu gọi lại",
-    intro: "Chưa đến một phút. Các mục không ghi “không bắt buộc” đều phải điền.",
+    intro: "Điền biểu mẫu mất chưa đến một phút. Các mục đều bắt buộc, trừ mục được ghi là không bắt buộc.",
     name: "Họ và tên",
     phone: "Số điện thoại",
     email: "Email",
@@ -155,7 +155,7 @@ export const vi: Dictionary = {
     submit: "Yêu cầu gọi lại",
     sending: "Đang gửi…",
     note: "Vui lòng không ghi chi tiết y tế. Chúng tôi sẽ gọi lại trong giờ làm việc, bằng tiếng Anh hoặc tiếng Tây Ban Nha.",
-    sentTitle: "Cảm ơn quý vị, chúng tôi sẽ gọi lại sớm.",
+    sentTitle: "Cảm ơn quý vị. Chúng tôi sẽ gọi lại trong giờ làm việc.",
     sentBefore: "Cần giúp ngay? Hãy gọi ",
     sentAfter: ".",
     errors: {
@@ -176,31 +176,31 @@ export const vi: Dictionary = {
   home: {
     h1: "Nắn chỉnh cột sống cho chấn thương do tai nạn xe hơi tại Glendale, Arizona",
     intro:
-      "Nếu quý vị hoặc người thân vừa gặp tai nạn xe hơi, quý vị nên được khám nắn chỉnh cột sống kỹ lưỡng để tìm ra những chấn thương tiềm ẩn có thể ảnh hưởng đến mình nhiều năm sau. Điều tệ nhất là chờ xem cơn đau có tự hết hay không. Hãy gọi hôm nay để được hẹn khám trong ngày hoặc ngày hôm sau.",
-    heroPoints: ["Hẹn khám trong ngày", "Không tốn tiền túi khi tài xế khác có lỗi", "Không cần bảo hiểm sức khỏe"],
+      "Nếu quý vị hoặc người thân gặp tai nạn xe hơi, khám kỹ có thể giúp xác định chấn thương và định hướng chăm sóc. Triệu chứng có thể chưa xuất hiện ngay. Hãy gọi hôm nay để đặt lịch khám trong ngày hoặc ngày hôm sau.",
+    heroPoints: ["Hẹn khám trong ngày", "Không phải tự chi trả khi tài xế khác có lỗi", "Không cần bảo hiểm sức khỏe"],
     injuriesTitle: "Các chấn thương do tai nạn xe hơi chúng tôi điều trị",
     injuriesLead:
-      "Bác sĩ nắn chỉnh cột sống và bác sĩ y khoa của chúng tôi chỉ điều trị chấn thương do tai nạn xe hơi và tai nạn lao động. Chọn triệu chứng của quý vị để tìm hiểu thêm.",
-    costTitle: "Không tốn tiền túi khi quý vị không có lỗi",
+      "Bác sĩ nắn chỉnh cột sống và bác sĩ y khoa của chúng tôi tập trung vào chấn thương do tai nạn xe hơi và tai nạn lao động. Chọn triệu chứng hoặc chấn thương để tìm hiểu thêm.",
+    costTitle: "Không phải tự chi trả khi quý vị không có lỗi",
     costText:
       "Nếu người khác gây ra tai nạn, phòng khám sẽ gửi hóa đơn cho bảo hiểm của người có lỗi và chờ thanh toán. Phòng khám của chúng tôi có hơn 10 năm kinh nghiệm chăm sóc nạn nhân tai nạn mà họ không phải tự trả tiền.",
-    costLink: "Vì sao quý vị không tốn tiền túi",
+    costLink: "Tìm hiểu về điều trị không phải tự chi trả",
     billingPoints: [
       "Chúng tôi gửi hóa đơn cho bảo hiểm của người có lỗi và chờ thanh toán.",
       "Không cần bảo hiểm sức khỏe.",
-      "Nếu quý vị có luật sư, chúng tôi làm việc theo quyền lưu giữ (lien) và chờ thanh toán.",
+      "Nếu có luật sư, quý vị có thể được hoãn thanh toán theo thỏa thuận thanh toán từ khoản bồi thường (lien) đến khi hồ sơ được giải quyết.",
       "Mọi giấy tờ đều do chúng tôi lo.",
     ],
     careLabel: "Điều trị giảm đau và ngôn ngữ",
     painTitle: "Điều trị giảm đau ngay tại phòng khám",
     painText:
-      "Chúng tôi điều trị giảm đau cho các chấn thương của quý vị với bác sĩ y khoa, bác sĩ chỉnh hình và bác sĩ chuyên khoa giảm đau, không tốn tiền túi khi tài xế khác có lỗi. Có lịch hẹn khẩn cấp: gọi hôm nay và gặp bác sĩ ngay hôm nay.",
+      "Chúng tôi phối hợp nắn chỉnh cột sống với điều trị giảm đau bằng các phương pháp y khoa, và giới thiệu khám chỉnh hình khi cần. Quý vị có thể được điều trị mà không phải tự chi trả khi tài xế khác có lỗi. Hãy gọi để đặt lịch khám trong ngày và trao đổi về trường hợp của quý vị.",
     painLink: "Về điều trị giảm đau",
-    teamTitle: "Bác sĩ nắn chỉnh cột sống và bác sĩ y khoa dưới một mái nhà",
-    teamLead: "Bốn bác sĩ nắn chỉnh cột sống và một bác sĩ điều trị giảm đau, ngày nào cũng điều trị chấn thương do tai nạn xe hơi.",
+    teamTitle: "Bác sĩ nắn chỉnh cột sống và bác sĩ y khoa tại cùng phòng khám",
+    teamLead: "Bốn bác sĩ nắn chỉnh cột sống và một bác sĩ điều trị giảm đau thường xuyên chăm sóc bệnh nhân bị chấn thương do tai nạn xe hơi.",
     teamLink: "Tìm hiểu thêm về phòng khám",
     faqTitle: "Thắc mắc sau tai nạn xe hơi",
-    faqLead: "Câu trả lời thẳng thắn về phòng cấp cứu, hư hại nhẹ và ai là người trả tiền.",
+    faqLead: "Giải đáp rõ ràng về việc đi cấp cứu, xe hư hại nhẹ và chi phí điều trị.",
     faqLink: "Đọc cả {count} câu hỏi",
     areasTitle: "Khu vực chúng tôi phục vụ",
     areasLead: "Bệnh nhân tai nạn xe hơi đến với chúng tôi từ Glendale, Arrowhead Ranch và các khu dân cư lân cận sau đây.",
@@ -230,9 +230,9 @@ export const vi: Dictionary = {
     description:
       "Gọi {phone} hoặc yêu cầu gọi lại. Hẹn khám trong ngày cho chấn thương do tai nạn xe hơi tại Glendale, AZ. Chúng tôi nói tiếng Anh và tiếng Tây Ban Nha.",
     h1: "Liên hệ",
-    lead: "Gọi để được hẹn khám trong ngày, hoặc gửi biểu mẫu và chúng tôi sẽ gọi lại.",
+    lead: "Gọi để đặt lịch khám trong ngày, hoặc gửi biểu mẫu và chúng tôi sẽ gọi lại trong giờ làm việc.",
     formTitle: "Yêu cầu gọi lại",
-    required: "Các mục không ghi “không bắt buộc” đều phải điền.",
+    required: "Các mục đều bắt buộc, trừ mục được ghi là không bắt buộc.",
     visit: "Đến phòng khám",
     mapTitle: "Bản đồ đến {name}",
     mapPlaceholder: "Bản đồ sẽ hiển thị khi địa chỉ được xác nhận",

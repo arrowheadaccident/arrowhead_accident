@@ -13,8 +13,8 @@ export const es: Dictionary = {
     skipLink: "Saltar al contenido principal",
     home: "Inicio",
     call: "Llame al {phone}",
-    requestCallback: "Solicitar una llamada",
-    mainNav: "Principal",
+    requestCallback: "Solicitar que me llamen",
+    mainNav: "Navegación principal",
     breadcrumb: "Ruta de navegación",
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
@@ -36,8 +36,8 @@ export const es: Dictionary = {
     about: "Nosotros",
     treatments: "Tratamientos",
     painManagement: "Manejo del dolor",
-    noCost: "Sin costo",
-    faq: "Preguntas",
+    noCost: "Sin costo de su bolsillo",
+    faq: "Preguntas frecuentes",
     blog: "Blog",
     contact: "Contacto",
   },
@@ -50,11 +50,11 @@ export const es: Dictionary = {
   },
 
   footer: {
-    treatments: "Tratamientos por accidente",
+    treatments: "Tratamientos de lesiones por accidentes",
     clinic: "Nuestra clínica",
     languages: "Idiomas",
     disclaimer:
-      "La información de este sitio web es información general, no consejo médico ni legal, y no crea una relación médico-paciente. Si tiene una emergencia médica, llame al 911.",
+      "Este sitio web proporciona información general. No ofrece asesoría médica ni legal ni establece una relación médico-paciente. Si tiene una emergencia médica, llame al 911.",
     notAssociated: "Este sitio web no tiene ninguna relación con el Dr. Vaughn Movses ni con Arrowhead Accident Group.",
   },
 
@@ -67,7 +67,7 @@ export const es: Dictionary = {
     label: "Reserve un examen el mismo día",
     title: "Exámenes el mismo día para lesiones por accidente de auto.",
     before: "Llame ahora o ",
-    link: "solicite una llamada",
+    link: "solicite que le llamemos",
     after: ".",
   },
 
@@ -92,8 +92,8 @@ export const es: Dictionary = {
   },
 
   howItWorks: {
-    title: "Del choque a la recuperación: así funciona",
-    lead: "Usted se concentra en recuperarse. Nosotros nos encargamos del examen, el papeleo y el seguro.",
+    title: "Su atención, desde el examen hasta la recuperación",
+    lead: "Concéntrese en recuperarse. Coordinamos su examen, los expedientes de tratamiento y la facturación al seguro.",
     steps: [
       {
         title: "Llámenos",
@@ -101,15 +101,15 @@ export const es: Dictionary = {
       },
       {
         title: "Examen completo y documentación",
-        text: "Un examen completo de la columna y ortopédico detecta lesiones ocultas, y cada hallazgo se documenta para su reclamo.",
+        text: "Un examen completo de la columna y del sistema musculoesquelético ayuda a identificar lesiones. Documentamos los resultados para respaldar su atención y su reclamo.",
       },
       {
         title: "Su plan de tratamiento",
-        text: "Atención quiropráctica y manejo del dolor, con referidos para resonancia magnética (MRI) y ortopedia cuando los necesite.",
+        text: "Su plan puede incluir atención quiropráctica y manejo del dolor, con derivaciones para una resonancia magnética o a ortopedia cuando sea necesario.",
       },
       {
         title: "Nos encargamos de la facturación",
-        text: "Facturamos al seguro del conductor culpable y trabajamos con su abogado, para que usted no pague nada de su bolsillo.",
+        text: "Cuando otro conductor tiene la culpa, facturamos a su seguro y colaboramos con su abogado, si tiene uno. Llámenos para hablar sobre las condiciones de facturación.",
       },
     ],
   },
@@ -118,8 +118,8 @@ export const es: Dictionary = {
     { title: "Citas el mismo día", text: "Llame hoy y vea a un médico hoy o al día siguiente." },
     { title: "Sin costo de su bolsillo", text: "Si otro conductor causó su accidente, facturamos a su seguro y esperamos el pago." },
     { title: "No necesita seguro médico", text: "Puede recibir tratamiento aunque no tenga seguro médico." },
-    { title: "Trabajamos con su abogado", text: "Aceptamos gravámenes (liens) y enviamos sus expedientes e informes a su abogado." },
-    { title: "Quiroprácticos y médicos", text: "Atención quiropráctica, manejo del dolor y referidos ortopédicos en un solo lugar." },
+    { title: "Trabajamos con su abogado", text: "Podemos aplazar el pago mediante un gravamen (lien) y compartir los expedientes de tratamiento con su abogado." },
+    { title: "Quiroprácticos y médicos", text: "Atención quiropráctica y manejo del dolor coordinados, con derivaciones a ortopedia cuando sea necesario." },
     { title: "Hablamos español", text: "Nuestros médicos y asistentes hablan español." },
   ],
 
@@ -137,8 +137,8 @@ export const es: Dictionary = {
   },
 
   form: {
-    title: "Solicite una llamada",
-    intro: "Toma menos de un minuto. Los campos sin “opcional” son obligatorios.",
+    title: "Solicite que le llamemos",
+    intro: "Completar el formulario toma menos de un minuto. Todos los campos son obligatorios salvo los marcados como opcionales.",
     name: "Nombre completo",
     phone: "Teléfono",
     email: "Correo electrónico",
@@ -147,18 +147,18 @@ export const es: Dictionary = {
     optional: "(opcional)",
     honeypot: "Deje este campo vacío",
     consent: "Acepto que me contacten por teléfono, mensaje de texto o correo electrónico sobre mi solicitud.",
-    submit: "Solicitar una llamada",
+    submit: "Solicitar que me llamen",
     sending: "Enviando…",
     note: "Por favor, no incluya detalles médicos. Le devolveremos la llamada en horario de atención.",
-    sentTitle: "Gracias, le llamaremos pronto.",
+    sentTitle: "Gracias. Le llamaremos durante el horario de atención.",
     sentBefore: "¿Necesita ayuda ahora? Llame al ",
     sentAfter: ".",
     errors: {
       name_short: "Escriba su nombre completo.",
       name_long: "Use {max} caracteres o menos.",
       phone: "Escriba un número de teléfono de EE. UU. de 10 dígitos, como (623) 555-0123.",
-      email: "Escriba un correo electrónico como nombre@ejemplo.com, o déjelo vacío.",
-      accident_date: "La fecha del accidente no puede ser futura.",
+      email: "Escriba una dirección de correo válida, como nombre@ejemplo.com, o deje el campo vacío.",
+      accident_date: "La fecha del accidente no puede ser posterior a hoy.",
       message_long: "Use {max} caracteres o menos.",
       consent: "Marque esta casilla para que podamos contactarle.",
       bad_request: "No pudimos enviar su solicitud. Inténtelo de nuevo o llámenos al {phone}.",
@@ -171,31 +171,31 @@ export const es: Dictionary = {
   home: {
     h1: "Quiropráctico para lesiones por accidentes de auto en Glendale, Arizona",
     intro:
-      "Si usted o un ser querido ha tenido un choque, se debe a sí mismo un examen quiropráctico completo para encontrar lesiones ocultas que podrían afectarle durante años. Lo peor que puede hacer es esperar a ver si el dolor desaparece. Llame hoy para una cita el mismo día o al día siguiente.",
+      "Si usted o un ser querido ha tenido un accidente de auto, un examen completo puede ayudar a identificar lesiones y orientar su atención. Los síntomas no siempre aparecen de inmediato. Llame hoy para una cita el mismo día o al día siguiente.",
     heroPoints: ["Citas el mismo día", "Sin costo de su bolsillo cuando otro conductor tiene la culpa", "No necesita seguro médico"],
     injuriesTitle: "Lesiones por accidente de auto que tratamos",
     injuriesLead:
-      "Nuestros quiroprácticos y médicos tratan solo lesiones por accidentes de auto y del trabajo. Elija su síntoma para saber más.",
+      "Nuestros quiroprácticos y médicos se centran en lesiones por accidentes de auto y laborales. Elija un síntoma o una lesión para obtener más información.",
     costTitle: "Sin costo de su bolsillo si usted no tuvo la culpa",
     costText:
-      "Si otra persona causó su accidente, nuestra clínica factura al seguro de la persona culpable y espera el pago. Nuestra oficina tiene más de 10 años de experiencia atendiendo a víctimas de accidentes sin costo de su bolsillo.",
+      "Si otra persona causó su accidente, nuestra clínica factura al seguro de la persona responsable y espera el pago. Nuestra oficina tiene más de 10 años de experiencia atendiendo a víctimas de accidentes sin costo de su bolsillo.",
     costLink: "Cómo funciona la atención sin costo",
     billingPoints: [
-      "Facturamos al seguro de la persona culpable y esperamos el pago.",
+      "Facturamos al seguro de la persona responsable y esperamos el pago.",
       "No necesita seguro médico.",
-      "Si tiene abogado, trabajamos con un gravamen (lien) y esperamos el pago.",
+      "Si tiene abogado, podemos aplazar el pago mediante un gravamen (lien) hasta que su caso se resuelva.",
       "Nos encargamos de todo el papeleo.",
     ],
     careLabel: "Manejo del dolor y atención en español",
     painTitle: "Manejo del dolor en la misma clínica",
     painText:
-      "Ofrecemos manejo del dolor para sus lesiones con médicos generales, ortopedistas y especialistas en manejo del dolor, sin costo de su bolsillo cuando otro conductor tiene la culpa. Hay citas de emergencia: llame hoy y vea al médico hoy mismo.",
+      "Coordinamos la atención quiropráctica y el manejo médico del dolor, con derivaciones a ortopedia cuando sea necesario. Ofrecemos tratamiento sin costo de su bolsillo cuando otro conductor tiene la culpa. Llámenos para programar una cita el mismo día y hablar sobre su situación.",
     painLink: "Sobre el manejo del dolor",
     teamTitle: "Quiroprácticos y un médico bajo un mismo techo",
     teamLead: "Cuatro médicos quiroprácticos y un médico especialista en manejo del dolor que tratan lesiones por accidentes de auto todos los días.",
     teamLink: "Más sobre nuestra clínica",
     faqTitle: "Preguntas después de un accidente de auto",
-    faqLead: "Respuestas claras sobre la sala de emergencias, los daños menores y quién paga.",
+    faqLead: "Respuestas claras sobre las visitas a emergencias, los daños menores del vehículo y los costos del tratamiento.",
     faqLink: "Lea las {count} preguntas",
     areasTitle: "Zonas que atendemos",
     areasLead: "Pacientes de accidentes de auto vienen a vernos desde Glendale, Arrowhead Ranch y estos vecindarios cercanos.",
@@ -225,11 +225,11 @@ export const es: Dictionary = {
     description:
       "Llame al {phone} o solicite una llamada. Citas el mismo día para lesiones por accidentes de auto en Glendale, AZ. Hablamos español.",
     h1: "Contáctenos",
-    lead: "Llame para una cita el mismo día, o envíe el formulario y le devolveremos la llamada.",
-    formTitle: "Solicite una llamada",
-    required: "Los campos sin “opcional” son obligatorios.",
+    lead: "Llame para una cita el mismo día o envíe el formulario y le llamaremos durante el horario de atención.",
+    formTitle: "Solicite que le llamemos",
+    required: "Todos los campos son obligatorios salvo los marcados como opcionales.",
     visit: "Visítenos",
-    mapTitle: "Mapa a {name}",
+    mapTitle: "Mapa de ubicación de {name}",
     mapPlaceholder: "El mapa aparecerá cuando se confirme la dirección",
   },
 

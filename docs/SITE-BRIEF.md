@@ -40,7 +40,7 @@ Replace the old WordPress/Elementor site with a fast, clean Next.js site that:
 | Problem on the old site | Requirement for the new site |
 |---|---|
 | **10,377 Cyrillic look-alike letters** (20–32% of all letters on most pages): `whірlаѕh` is not "whiplash" to Google or to screen readers | Normalize all text (§7.1). Content check: **zero** chars in U+0400–U+052F |
-| **2 addresses** (16390 N 59th Ave 85306 in the text, 20229 N 67th Ave 85308 in the maps) and **3 phones** (623-400-6362, 602-313-1925, 602-449-9430) | One NAP (name, address, phone) from `business.ts`. No phone numbers or addresses hard-coded in content |
+| **2 addresses** (16390 N 59th Ave 85306 in the text, 20229 N 67th Ave 85308 in the maps) and **3 phones** (623-444-1111, 602-313-1925, 602-449-9430) | One NAP (name, address, phone) from `business.ts`. No phone numbers or addresses hard-coded in content |
 | No H1 on Home/About/Pain Management/Contact, empty H2s, phone numbers inside headings | Exactly **one H1** per page; no phone numbers in headings |
 | Two SEO plugins (Yoast + Rank Math) output duplicate, conflicting JSON-LD; no LocalBusiness schema | One JSON-LD `@graph` per page from `lib/schema.ts` (§9.3) |
 | Mobile PageSpeed 63, LCP 8.1 s, a preloader spinner, 84 requests / ~590 KB, 26 CSS + 27 JS files | Budgets in §10; no preloader |
@@ -71,7 +71,7 @@ export const business = {
   name: "Arrowhead Car Accident Chiropractor",
   legalName: "Arrowhead Glendale Arizona Collision Injury Chiropractic", // confirm
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://arrowheadcaraccidentchiropractor.com",
-  phone: { display: "(623) 400-6362", e164: "+16234006362" }, // main number on the old site, confirm
+  phone: { display: "(623) 444-1111", e164: "+16234001111" }, // main number on the old site, confirm
   email: "info@example.com", // PLACEHOLDER
   address: {
     // PLACEHOLDER
@@ -262,7 +262,7 @@ Calm, clinical, and trustworthy, with urgency reserved for the call buttons. The
 | `TopBar` | `md+` only. Today's hours · "Hablamos Español" · phone link |
 | `Header` | Wordmark logo (text: **Arrowhead** / small "Car Accident Chiropractor"), nav, red **Call** button. Mobile: logo + call icon button + menu button |
 | `NavDropdown` | "Accident Treatments" is a `<button aria-expanded>` that opens on click and keyboard, not hover-only. Closes on Esc and outside click |
-| `MobileCallBar` | Fixed to the bottom below `md`. Two buttons: **Call (623) 400-6362** (red) and **Request a call back** (links to `/contact/#form`). Add bottom padding to `<body>` so the bar never covers the footer |
+| `MobileCallBar` | Fixed to the bottom below `md`. Two buttons: **Call (623) 444-1111** (red) and **Request a call back** (links to `/contact/#form`). Add bottom padding to `<body>` so the bar never covers the footer |
 | `Footer` | NAP, hours, treatment links, legal links, medical disclaimer, and the old disclaimer: *"This website is not associated in any way with Dr. Vaughn Movses or Arrowhead Accident Group."* Dynamic copyright year |
 | `CtaBand` | "Hurt in a car accident? Get checked today." + Call + Request a call back |
 | `Breadcrumbs` | Every page except Home; emits `BreadcrumbList` |
@@ -330,10 +330,10 @@ const HOMOGLYPHS = {
 };
 
 export function normalizeHomoglyphs(text) {
-  return text.replace(/[\u0400-\u052F]/g, (c) => HOMOGLYPHS[c] ?? c);
+  return text.replace(/[\u0444-\u052F]/g, (c) => HOMOGLYPHS[c] ?? c);
 }
 
-export const hasCyrillic = (text) => /[\u0400-\u052F]/.test(text);
+export const hasCyrillic = (text) => /[\u0444-\u052F]/.test(text);
 ```
 
 ### 7.2 Cleaning rules
@@ -343,9 +343,9 @@ Apply these to every file, then review each one by hand.
 1. **Zero Cyrillic characters.**
 2. **No phone numbers or addresses in the text.** Use `<Phone />` / `<Address />`. Delete **602-313-1925** and **602-449-9430** everywhere.
 3. **One H1 per page**, from the frontmatter `h1` and rendered by the template. The MDX body starts at H2. Take the phone numbers out of the headings:
-   - "Emergency Car Accident Injury Treatment Call 1(623) 400-6362" → "Emergency Car Accident Injury Treatment"
+   - "Emergency Car Accident Injury Treatment Call 1(623) 444-1111" → "Emergency Car Accident Injury Treatment"
    - "Spinal Ligament Injury Treatment Call 1 602-313-1925" → "Spinal Ligament Injury Treatment"
-   - H2s like "Call Now 1(623) 400-6362 for an appointment today!" → replace with `<CallCta />`
+   - H2s like "Call Now 1(623) 444-1111 for an appointment today!" → replace with `<CallCta />`
 4. **Remove:**
    - the "Recent News" lists
    - the About page paragraph *"Thank you for visiting https://arrowheadcaraccdidentchiropractor.com … help us spread the word…"*
@@ -441,7 +441,7 @@ Helper text under the button: *"Please don't include medical details. We'll call
 **Client (`ContactForm`, `"use client"`):**
 - Accepts a `variant: "card" | "inline" | "compact"` prop.
 - Shows inline errors linked with `aria-describedby`, and disables the button while sending.
-- On success, replaces the form with: *"Thank you, we'll call you shortly. Need help now? Call (623) 400-6362."*
+- On success, replaces the form with: *"Thank you, we'll call you shortly. Need help now? Call (623) 444-1111."*
 - Fires the GA4 `generate_lead` event on success.
 
 **Server (`src/app/api/contact/route.ts`, Node runtime):**
@@ -520,7 +520,7 @@ Use these exactly. Titles must be ≤ 60 characters and descriptions ≤ 155.
   description: "A 2013 study by Goertz et al. compared standard medical care with and without chiropractic care for low back pain. Here is what it found."
 "/contact/":
   title: "Contact Us | Glendale Car Accident Chiropractor"
-  description: "Call (623) 400-6362 or request a call back. Same-day appointments for car accident injuries in Glendale, AZ. Hablamos Español."
+  description: "Call (623) 444-1111 or request a call back. Same-day appointments for car accident injuries in Glendale, AZ. Hablamos Español."
 "/terms-of-use/":
   title: "Terms of Use | Arrowhead Car Accident Chiropractor"
   description: "The terms that apply when you use this website."
@@ -549,7 +549,7 @@ Use these exactly. Titles must be ≤ 60 characters and descriptions ≤ 155.
   "@id": "https://arrowheadcaraccidentchiropractor.com/#clinic",
   "name": "Arrowhead Car Accident Chiropractor",
   "url": "https://arrowheadcaraccidentchiropractor.com/",
-  "telephone": "+16234006362",
+  "telephone": "+16234001111",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "1234 W Example Rd, Suite 100",
@@ -728,7 +728,7 @@ Do these in order. Commit after each phase.
   - canonical with a trailing slash
   - one JSON-LD script that parses as valid JSON
   - `noindex, nofollow` present while `SITE_IS_PLACEHOLDER` is true
-- [ ] Every `tel:` link is `tel:+16234006362`.
+- [ ] Every `tel:` link is `tel:+16234001111`.
 - [ ] Lighthouse mobile on `/`, `/whiplash-injury/` and `/contact/` meets §10.
 
 **Manual**

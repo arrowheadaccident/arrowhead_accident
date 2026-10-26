@@ -2,7 +2,7 @@
 // npm run check:html (SITE-BRIEF §14 "Rendered HTML of every page"). Run against `next start`:
 //   BASE_URL=http://localhost:3000 npm run check:html
 // For every URL in /sitemap.xml: one <h1>, a trailing-slash canonical, one valid JSON-LD script,
-// noindex while SITE_IS_PLACEHOLDER, only tel:+16234006362, alt on images, title on iframes,
+// noindex while SITE_IS_PLACEHOLDER, only tel:+16234001111, alt on images, title on iframes,
 // unique titles, <html lang> of the URL's language, hreflang links that point both ways,
 // og/twitter/icon URLs that answer 200 without a redirect, and first-load JS (gzipped). The JS budget is reported as a warning: on Next 16.4 + React 19 the
 // framework runtime alone is ~136 KB gzipped, above the brief's 120 KB target (see README).
@@ -13,7 +13,7 @@ import { loadTs } from "./load-ts.mjs";
 const { LOCALE_INFO, splitLocale } = await loadTs("src/i18n/config.ts");
 
 const BASE = (process.env.BASE_URL ?? "http://localhost:3000").replace(/\/$/, "");
-const TEL = "tel:+16234006362";
+const TEL = "tel:+16234001111";
 const JS_BUDGET_KB = 120;
 const PLACEHOLDER = (process.env.SITE_IS_PLACEHOLDER ?? "true") !== "false";
 

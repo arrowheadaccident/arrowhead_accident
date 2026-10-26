@@ -1,5 +1,9 @@
 # Content cleanup notes
 
+**Later review:** [Multilingual copy review](COPY-REVIEW.md) records the October 26,
+2026 language and meaning corrections. It supersedes the wording examples and
+terminology below where they differ. The remaining owner-confirmation items still apply.
+
 What changed when the old WordPress text was cleaned (SITE-BRIEF §7.2), and
 what still needs a decision from the clinic. Source: `npm run extract`
 on 2026-10-26 (19 pages, 0 look-alike characters left after normalizing).

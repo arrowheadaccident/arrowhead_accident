@@ -15,8 +15,8 @@ export const en = {
     skipLink: "Skip to main content",
     home: "Home",
     call: "Call {phone}",
-    requestCallback: "Request a call back",
-    mainNav: "Main",
+    requestCallback: "Request a callback",
+    mainNav: "Main navigation",
     breadcrumb: "Breadcrumb",
     openMenu: "Open menu",
     closeMenu: "Close menu",
@@ -28,8 +28,8 @@ export const en = {
   spoken: {
     /** lang attribute when the text is not in the page's language. */
     lang: "es" as string | undefined,
-    badge: "Hablamos Español",
-    title: "Hablamos Español",
+    badge: "Hablamos español",
+    title: "Hablamos español",
     text: "Nuestros médicos y asistentes hablan español.",
     /** Only for languages the staff don't speak. */
     interpreter: "",
@@ -61,20 +61,20 @@ export const en = {
     clinic: "Our clinic",
     languages: "Languages",
     disclaimer:
-      "The information on this website is general information, not medical or legal advice, and does not create a doctor–patient relationship. If you have a medical emergency, call 911.",
+      "This website provides general information. It does not offer medical or legal advice or establish a doctor–patient relationship. For a medical emergency, call 911.",
     notAssociated: "This website is not associated in any way with Dr. Vaughn Movses or Arrowhead Accident Group.",
   },
 
   ctaBand: {
     title: "Hurt in a car accident? Get checked today.",
-    text: "Same-day appointments, and no out-of-pocket cost when another driver is at fault.",
+    text: "Same-day appointments and no out-of-pocket cost when another driver is at fault.",
   },
 
   callCta: {
     label: "Book a same-day exam",
     title: "Same-day exams for car accident injuries.",
     before: "Call now, or ",
-    link: "request a call back",
+    link: "request a callback",
     after: ".",
   },
 
@@ -99,24 +99,24 @@ export const en = {
   },
 
   howItWorks: {
-    title: "From the crash to recovery, here is how it works",
-    lead: "You focus on getting better. We take care of the exam, the paperwork and the insurance.",
+    title: "Your care, from examination to recovery",
+    lead: "Focus on getting better. We coordinate your examination, treatment records and insurance billing.",
     steps: [
       {
         title: "Call us",
-        text: "Call or request a call back. Same-day and next-day appointments are available, even if you've already been to the ER.",
+        text: "Call or request a callback. Same-day and next-day appointments are available, even if you've already been to the ER.",
       },
       {
         title: "Thorough exam and documentation",
-        text: "A full spinal and orthopedic exam finds hidden injuries, and every finding is documented for your claim.",
+        text: "A thorough spinal and orthopedic examination helps identify injuries. We document the findings to support your care and your claim.",
       },
       {
         title: "Your treatment plan",
-        text: "Chiropractic care and pain management, with MRI and orthopedic referrals when you need them.",
+        text: "Your plan may include chiropractic care and pain management, with MRI or orthopedic referrals when needed.",
       },
       {
         title: "We handle the billing",
-        text: "We bill the at-fault driver's insurance and work with your attorney, so you pay nothing out of pocket.",
+        text: "When another driver is at fault, we bill their insurance and work with your attorney, if you have one. Call us to discuss your billing arrangements.",
       },
     ],
   },
@@ -126,9 +126,9 @@ export const en = {
     { title: "Same-day appointments", text: "Call today and see a doctor today or the next day." },
     { title: "No out-of-pocket cost", text: "If another driver caused your accident, we bill their insurance and wait for payment." },
     { title: "No health insurance needed", text: "You can be treated even if you don't have health insurance." },
-    { title: "We work with your attorney", text: "We accept liens and send your records and reports to your attorney." },
-    { title: "Chiropractors and medical doctors", text: "Chiropractic care, pain management and orthopedic referrals in one place." },
-    { title: "Hablamos Español", text: "Nuestros médicos y asistentes hablan español.", lang: "es" },
+    { title: "We work with your attorney", text: "We can defer payment under a lien and share treatment records with your attorney." },
+    { title: "Chiropractors and medical doctors", text: "Coordinated chiropractic care and pain management, with orthopedic referrals when needed." },
+    { title: "Hablamos español", text: "Nuestros médicos y asistentes hablan español.", lang: "es" },
   ] as ValueProp[],
 
   team: {
@@ -146,8 +146,8 @@ export const en = {
   },
 
   form: {
-    title: "Request a call back",
-    intro: "It takes less than a minute. Fields without “optional” are required.",
+    title: "Request a callback",
+    intro: "This takes less than a minute. All fields are required unless marked optional.",
     name: "Full name",
     phone: "Phone",
     email: "Email",
@@ -156,10 +156,10 @@ export const en = {
     optional: "(optional)",
     honeypot: "Leave this field empty",
     consent: "I agree to be contacted by phone, text or email about my request.",
-    submit: "Request a call back",
+    submit: "Request a callback",
     sending: "Sending…",
     note: "Please don't include medical details. We'll call you back during business hours.",
-    sentTitle: "Thank you, we'll call you shortly.",
+    sentTitle: "Thank you. We'll call you during business hours.",
     sentBefore: "Need help now? Call ",
     sentAfter: ".",
     /** Keys are the codes in src/lib/contact-schema.ts and POST /api/contact. */
@@ -167,7 +167,7 @@ export const en = {
       name_short: "Enter your full name.",
       name_long: "Use {max} characters or fewer.",
       phone: "Enter a 10-digit US phone number, like (623) 555-0123.",
-      email: "Enter an email address like name@example.com, or leave it empty.",
+      email: "Enter a valid email address, such as name@example.com, or leave this field empty.",
       accident_date: "The accident date can't be in the future.",
       message_long: "Use {max} characters or fewer.",
       consent: "Check this box so we can contact you.",
@@ -179,13 +179,13 @@ export const en = {
   },
 
   home: {
-    h1: "Glendale Arizona Car Accident Injury Chiropractor",
+    h1: "Car Accident Injury Chiropractor in Glendale, Arizona",
     intro:
-      "If you or a loved one has been in a car collision, you owe it to yourself to get a thorough chiropractic exam to find any underlying injuries that could affect you years from now. The worst thing you can do is wait and see if the pain goes away. Call today for a same-day or next-day appointment.",
+      "If you or a loved one has been in a car accident, a thorough examination can help identify injuries and guide your care. Symptoms may not appear right away. Call today for a same-day or next-day appointment.",
     heroPoints: ["Same-day appointments", "No out-of-pocket cost when another driver is at fault", "No health insurance needed"],
     injuriesTitle: "Car accident injuries we treat",
     injuriesLead:
-      "Our chiropractors and medical doctors treat only car accident and work injuries. Pick your symptom to learn more.",
+      "Our chiropractors and medical doctors focus on car accident and work-related injuries. Choose a symptom or injury to learn more.",
     costTitle: "No out-of-pocket cost when you're not at fault",
     costText:
       "If your accident was caused by another person, our clinic bills the at-fault person's insurance and waits for payment. Our office has over 10 years of experience caring for accident victims with no out-of-pocket costs.",
@@ -193,19 +193,19 @@ export const en = {
     billingPoints: [
       "We bill the at-fault person's insurance and wait for payment.",
       "Health insurance is not necessary.",
-      "If you have an attorney, we work on a lien and wait for payment.",
+      "If you have an attorney, we can defer payment under a lien until your case settles.",
       "All paperwork is handled for you.",
     ],
     careLabel: "Pain management and Spanish-speaking care",
     painTitle: "Pain management in the same clinic",
     painText:
-      "We offer pain management for your injuries with medical physicians, orthopedic physicians and pain management physicians, with no out-of-pocket cost when another driver is at fault. Emergency appointments are available: call today and see the doctor today.",
+      "We coordinate chiropractic care and medical pain management, with orthopedic referrals when needed. Treatment is available with no out-of-pocket cost when another driver is at fault. Call us to arrange a same-day appointment and discuss your situation.",
     painLink: "About pain management",
-    teamTitle: "Chiropractors and a medical doctor, under one roof",
+    teamTitle: "Chiropractors and a medical doctor under one roof",
     teamLead: "Four chiropractic physicians and a pain management physician who treat car accident injuries every day.",
     teamLink: "More about our clinic",
     faqTitle: "Questions after a car accident",
-    faqLead: "Straight answers about ER visits, minor damage and who pays.",
+    faqLead: "Clear answers about ER visits, minor vehicle damage and treatment costs.",
     faqLink: "Read all {count} questions",
     areasTitle: "Areas we serve",
     areasLead: "Car accident patients come to us from Glendale, Arrowhead Ranch and these nearby neighborhoods.",
@@ -233,13 +233,13 @@ export const en = {
   contact: {
     title: "Contact Us | Glendale Car Accident Chiropractor",
     description:
-      "Call {phone} or request a call back. Same-day appointments for car accident injuries in Glendale, AZ. Hablamos Español.",
+      "Call {phone} or request a callback. Same-day appointments for car accident injuries in Glendale, AZ. Hablamos español.",
     h1: "Contact Us",
-    lead: "Call for a same-day appointment, or send the form and we'll call you back.",
-    formTitle: "Request a call back",
-    required: "Fields without “optional” are required.",
+    lead: "Call for a same-day appointment, or submit the form and we'll call you back during business hours.",
+    formTitle: "Request a callback",
+    required: "All fields are required unless marked optional.",
     visit: "Visit us",
-    mapTitle: "Map to {name}",
+    mapTitle: "Map showing {name}",
     mapPlaceholder: "Map will appear once the address is confirmed",
   },
 

@@ -4,9 +4,9 @@ import type { Dictionary } from "./en";
 // Machine-assisted translation: have a native speaker review it before launch (docs/CONTENT-NOTES.md).
 export const de: Dictionary = {
   meta: {
-    homeTitle: "Unfall-Chiropraktiker in Glendale, AZ | Termin am selben Tag",
+    homeTitle: "Chiropraktik nach Autounfällen in Glendale, AZ",
     homeDescription:
-      "Nach einem Autounfall in Glendale oder Arrowhead Ranch verletzt? Chiropraktische Untersuchung am selben Tag, keine Kosten für Sie, wenn ein anderer schuld ist.",
+      "Nach einem Autounfall in Glendale oder Arrowhead Ranch verletzt? Untersuchung am selben Tag, ohne eigene Kosten bei Fremdverschulden.",
     ogImageAlt: "{name}, Glendale, AZ. Anrufen: {phone}",
   },
 
@@ -37,7 +37,7 @@ export const de: Dictionary = {
     about: "Über uns",
     treatments: "Behandlungen",
     painManagement: "Schmerztherapie",
-    noCost: "Keine Kosten",
+    noCost: "Keine eigenen Kosten",
     faq: "FAQ",
     blog: "Blog",
     contact: "Kontakt",
@@ -55,7 +55,7 @@ export const de: Dictionary = {
     clinic: "Unsere Praxis",
     languages: "Sprachen",
     disclaimer:
-      "Die Informationen auf dieser Website sind allgemeine Informationen, keine medizinische oder rechtliche Beratung, und begründen kein Arzt-Patienten-Verhältnis. Bei einem medizinischen Notfall rufen Sie 911 an.",
+      "Diese Website bietet allgemeine Informationen. Sie ersetzt keine medizinische oder rechtliche Beratung und begründet kein Arzt-Patienten-Verhältnis. Rufen Sie bei einem medizinischen Notfall 911 an.",
     notAssociated: "Diese Website steht in keinerlei Verbindung mit Dr. Vaughn Movses oder der Arrowhead Accident Group.",
   },
 
@@ -93,8 +93,8 @@ export const de: Dictionary = {
   },
 
   howItWorks: {
-    title: "Vom Unfall bis zur Genesung: So funktioniert es",
-    lead: "Sie konzentrieren sich auf Ihre Genesung. Wir kümmern uns um die Untersuchung, den Papierkram und die Versicherung.",
+    title: "Ihre Versorgung: von der Untersuchung bis zur Genesung",
+    lead: "Konzentrieren Sie sich auf Ihre Genesung. Wir koordinieren Ihre Untersuchung, die Behandlungsunterlagen und die Versicherungsabrechnung.",
     steps: [
       {
         title: "Rufen Sie uns an",
@@ -102,15 +102,15 @@ export const de: Dictionary = {
       },
       {
         title: "Gründliche Untersuchung und Dokumentation",
-        text: "Eine vollständige Wirbelsäulen- und orthopädische Untersuchung findet verborgene Verletzungen, und jeder Befund wird für Ihren Schadensanspruch dokumentiert.",
+        text: "Eine gründliche Untersuchung der Wirbelsäule und des Bewegungsapparats hilft, Verletzungen zu erkennen. Wir dokumentieren die Befunde für Ihre Versorgung und Ihren Anspruch.",
       },
       {
         title: "Ihr Behandlungsplan",
-        text: "Chiropraktische Behandlung und Schmerztherapie, mit Überweisungen zum MRT und zum Orthopäden, wenn Sie sie brauchen.",
+        text: "Ihr Plan kann Chiropraktik und Schmerztherapie umfassen, bei Bedarf mit Überweisungen zur MRT-Untersuchung oder zur Orthopädie.",
       },
       {
         title: "Wir übernehmen die Abrechnung",
-        text: "Wir rechnen mit der Versicherung des Unfallverursachers ab und arbeiten mit Ihrem Anwalt zusammen, sodass Sie nichts aus eigener Tasche zahlen.",
+        text: "Hat ein anderer Fahrer den Unfall verursacht, rechnen wir mit dessen Versicherung ab und arbeiten mit Ihrem Anwalt zusammen, sofern Sie einen haben. Rufen Sie uns an, um die Abrechnung zu besprechen.",
       },
     ],
   },
@@ -119,8 +119,8 @@ export const de: Dictionary = {
     { title: "Termine am selben Tag", text: "Rufen Sie heute an, und ein Arzt untersucht Sie heute oder morgen." },
     { title: "Keine Kosten für Sie", text: "Wenn ein anderer Fahrer Ihren Unfall verursacht hat, rechnen wir mit dessen Versicherung ab und warten auf die Zahlung." },
     { title: "Keine Krankenversicherung nötig", text: "Sie können auch ohne Krankenversicherung behandelt werden." },
-    { title: "Wir arbeiten mit Ihrem Anwalt zusammen", text: "Wir akzeptieren ein Pfandrecht (Lien) und senden Ihre Unterlagen und Berichte an Ihren Anwalt." },
-    { title: "Chiropraktiker und Ärzte", text: "Chiropraktik, Schmerztherapie und orthopädische Überweisungen an einem Ort." },
+    { title: "Wir arbeiten mit Ihrem Anwalt zusammen", text: "Wir können die Zahlung über einen Lien aufschieben und Behandlungsunterlagen an Ihren Anwalt weitergeben." },
+    { title: "Chiropraktiker und Ärzte", text: "Abgestimmte Chiropraktik und Schmerztherapie, bei Bedarf mit Überweisung zur Orthopädie." },
     {
       title: "Englisch und Spanisch",
       text: "Unsere Ärzte und Mitarbeiter sprechen Englisch und Spanisch. Sie können gern jemanden mitbringen, der für Sie dolmetscht.",
@@ -129,7 +129,7 @@ export const de: Dictionary = {
 
   team: {
     sampleTag: "Beispielprofil",
-    sampleBio: "Beispiel-Biografie.",
+    sampleBio: "Beispielbiografie.",
     roles: {
       "Chiropractic Physician": "Chiropraktiker",
       "Pain Management Physician": "Arzt für Schmerztherapie",
@@ -142,7 +142,7 @@ export const de: Dictionary = {
 
   form: {
     title: "Rückruf anfordern",
-    intro: "Dauert weniger als eine Minute. Felder ohne „optional“ sind Pflichtfelder.",
+    intro: "Das Ausfüllen dauert weniger als eine Minute. Alle Felder sind Pflichtfelder, sofern sie nicht als optional markiert sind.",
     name: "Vollständiger Name",
     phone: "Telefon",
     email: "E-Mail",
@@ -154,7 +154,7 @@ export const de: Dictionary = {
     submit: "Rückruf anfordern",
     sending: "Wird gesendet…",
     note: "Bitte geben Sie keine medizinischen Details an. Wir rufen Sie während der Öffnungszeiten auf Englisch oder Spanisch zurück.",
-    sentTitle: "Vielen Dank, wir rufen Sie in Kürze an.",
+    sentTitle: "Vielen Dank. Wir rufen Sie während unserer Öffnungszeiten zurück.",
     sentBefore: "Brauchen Sie sofort Hilfe? Rufen Sie ",
     sentAfter: " an.",
     errors: {
@@ -175,31 +175,31 @@ export const de: Dictionary = {
   home: {
     h1: "Chiropraktiker in Glendale, Arizona, für Verletzungen nach Autounfällen",
     intro:
-      "Wenn Sie oder ein Angehöriger einen Autounfall hatten, sollten Sie sich gründlich chiropraktisch untersuchen lassen, um verborgene Verletzungen zu finden, die Sie noch Jahre später beeinträchtigen könnten. Das Schlimmste, was Sie tun können, ist abzuwarten, ob der Schmerz von selbst vergeht. Rufen Sie heute an für einen Termin am selben oder am nächsten Tag.",
+      "Wenn Sie oder ein Angehöriger einen Autounfall hatten, kann eine gründliche Untersuchung helfen, Verletzungen zu erkennen und die Versorgung zu planen. Beschwerden treten nicht immer sofort auf. Rufen Sie heute an, um einen Termin am selben oder nächsten Tag zu vereinbaren.",
     heroPoints: ["Termine am selben Tag", "Keine Kosten für Sie, wenn ein anderer Fahrer schuld ist", "Keine Krankenversicherung nötig"],
     injuriesTitle: "Unfallverletzungen, die wir behandeln",
     injuriesLead:
-      "Unsere Chiropraktiker und Ärzte behandeln ausschließlich Verletzungen durch Auto- und Arbeitsunfälle. Wählen Sie Ihr Symptom, um mehr zu erfahren.",
+      "Unsere Chiropraktiker und Ärzte konzentrieren sich auf Verletzungen durch Auto- und Arbeitsunfälle. Wählen Sie eine Beschwerde oder Verletzung, um mehr zu erfahren.",
     costTitle: "Keine Kosten für Sie, wenn Sie nicht schuld sind",
     costText:
       "Wenn eine andere Person Ihren Unfall verursacht hat, rechnet unsere Praxis mit deren Versicherung ab und wartet auf die Zahlung. Unsere Praxis betreut Unfallopfer seit über 10 Jahren, ohne dass sie etwas aus eigener Tasche zahlen.",
-    costLink: "So zahlen Sie nichts",
+    costLink: "So funktioniert die Behandlung ohne eigene Kosten",
     billingPoints: [
       "Wir rechnen mit der Versicherung des Unfallverursachers ab und warten auf die Zahlung.",
       "Eine Krankenversicherung ist nicht nötig.",
-      "Wenn Sie einen Anwalt haben, arbeiten wir mit einem Pfandrecht (Lien) und warten auf die Zahlung.",
+      "Wenn Sie einen Anwalt haben, können wir die Zahlung über einen Lien bis zum Abschluss Ihres Falls aufschieben.",
       "Wir erledigen den gesamten Papierkram für Sie.",
     ],
     careLabel: "Schmerztherapie und Sprachen",
     painTitle: "Schmerztherapie in derselben Praxis",
     painText:
-      "Wir bieten Schmerztherapie für Ihre Verletzungen durch Allgemeinmediziner, Orthopäden und Schmerztherapeuten an, ohne Kosten für Sie, wenn ein anderer Fahrer schuld ist. Notfalltermine sind möglich: Rufen Sie heute an und kommen Sie noch heute zum Arzt.",
+      "Wir stimmen Chiropraktik und medizinische Schmerztherapie aufeinander ab und überweisen bei Bedarf zur Orthopädie. Hat ein anderer Fahrer den Unfall verursacht, ist die Behandlung ohne eigene Kosten möglich. Rufen Sie uns für einen Termin am selben Tag an und besprechen Sie Ihre Situation mit uns.",
     painLink: "Mehr zur Schmerztherapie",
     teamTitle: "Chiropraktiker und ein Arzt unter einem Dach",
     teamLead: "Vier Chiropraktiker und ein Arzt für Schmerztherapie, die jeden Tag Verletzungen durch Autounfälle behandeln.",
     teamLink: "Mehr über unsere Praxis",
     faqTitle: "Fragen nach einem Autounfall",
-    faqLead: "Klare Antworten zu Notaufnahme, kleinen Schäden und der Frage, wer zahlt.",
+    faqLead: "Klare Antworten zu Besuchen in der Notaufnahme, geringen Fahrzeugschäden und Behandlungskosten.",
     faqLink: "Alle {count} Fragen lesen",
     areasTitle: "Unser Einzugsgebiet",
     areasLead: "Unfallpatienten kommen aus Glendale, Arrowhead Ranch und diesen Nachbarvierteln zu uns.",
@@ -225,13 +225,13 @@ export const de: Dictionary = {
   },
 
   contact: {
-    title: "Kontakt | Unfall-Chiropraktiker in Glendale",
+    title: "Kontakt | Chiropraktik nach Autounfällen in Glendale",
     description:
       "Rufen Sie {phone} an oder fordern Sie einen Rückruf an. Termine am selben Tag bei Unfallverletzungen in Glendale, AZ. Wir sprechen Englisch und Spanisch.",
     h1: "Kontakt",
-    lead: "Rufen Sie für einen Termin am selben Tag an, oder senden Sie das Formular, und wir rufen Sie zurück.",
+    lead: "Rufen Sie für einen Termin am selben Tag an oder senden Sie das Formular. Wir rufen Sie während unserer Öffnungszeiten zurück.",
     formTitle: "Rückruf anfordern",
-    required: "Felder ohne „optional“ sind Pflichtfelder.",
+    required: "Alle Felder sind Pflichtfelder, sofern sie nicht als optional markiert sind.",
     visit: "So finden Sie uns",
     mapTitle: "Karte: {name}",
     mapPlaceholder: "Die Karte erscheint, sobald die Adresse bestätigt ist",
