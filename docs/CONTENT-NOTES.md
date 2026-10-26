@@ -55,7 +55,7 @@ pain management on site.
 - `/neck-pain-whiplash/` merged into `/whiplash-injury/` (texts were ~98% identical;
   the merged page keeps the brand-free wording from `/neck-pain-whiplash/`).
 - About: the first-visit checklist and service areas became their own sections; the
-  benefits list renders from `valueProps` in `business.ts`.
+  benefits list renders from `valueProps` in the dictionaries (`src/i18n/dictionaries/`).
 - FAQ: the 8 Q&As moved to frontmatter (`faqs`), which feeds both the accordion and
   the `FAQPage` JSON-LD. Q8 was rephrased as a question.
 - No Out-of-Pocket Cost: the home page's billing paragraph was added as a list.
@@ -84,6 +84,44 @@ From `docs/SEO-AUDIT.md`, action-plan step 3.
   Headaches "a proper examination" → "a prompt examination"; About "other back injuries" → "low back injuries";
   the insurance myths post adds "If you have one, we can work on a lien and wait for payment until your case
   settles."
+
+## Translations: Spanish, German, Simplified Chinese, Vietnamese (2026-10-26)
+
+Added after the brief, which said English only. Decisions made on 2026-10-26:
+
+- **Everything but the legal pages is translated:** home, contact, about, the service pages, the six
+  conditions, the FAQ and both blog posts. Terms of Use, Privacy Policy and Disclosure Policy stay in English
+  (legal text should go to a professional translator); every language links to the English versions, marked
+  "(in English)" in that language.
+- **The staff speak English and Spanish only.** Spanish pages keep "Hablamos español". German, Chinese and
+  Vietnamese pages say "We speak English and Spanish" instead, the form says the call back will be in
+  English or Spanish, and the contact page and home page add "You are welcome to bring someone who can
+  interpret." **Please confirm that sentence.**
+- **The translations are machine-assisted** (written by Claude, not by a native speaker). Have each
+  language reviewed by a native speaker before launch, ideally someone who knows US insurance terms.
+  The site stays `noindex` until then anyway.
+
+Terminology to check in the review:
+
+| | Spanish | German | Chinese | Vietnamese |
+|---|---|---|---|---|
+| chiropractor | quiropráctico | Chiropraktiker | 整脊医生 | bác sĩ nắn chỉnh cột sống |
+| whiplash | latigazo cervical | Schleudertrauma | 挥鞭伤 | chấn thương giật cổ (whiplash) |
+| no out-of-pocket cost | sin costo de su bolsillo | keine Kosten für Sie | 无需自付费用 | không tốn tiền túi |
+| lien | gravamen (lien) | Pfandrecht (Lien) | 留置权（lien） | quyền lưu giữ (lien) |
+| at-fault driver | conductor culpable | Unfallverursacher | 肇事司机 / 过错方 | tài xế có lỗi |
+| medical doctor (MD) | médico | Arzt | 西医医生 | bác sĩ y khoa |
+
+Changes made while translating:
+
+- German adds km/h after mph figures ("5 mph (rund 8 km/h)") and explains that "Schleudertrauma" is the
+  everyday word (doctors say HWS-Distorsion), since the English point "whiplash is not a medical term" does
+  not carry over literally.
+- Quotes from the Goertz study are our own translations; each study post says so. Citations stay in English.
+- The share image (`/og.png`) has English text in every language; only its alt text is translated.
+- The team cards show translated placeholder bios. Real bios will need translations too.
+- The "Hablamos Español" value proposition moved from `business.ts` to the dictionaries
+  (`src/i18n/dictionaries/`), where each language says what is true for it.
 
 ## Needs legal review (§15.4)
 

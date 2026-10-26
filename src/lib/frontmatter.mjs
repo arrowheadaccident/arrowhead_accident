@@ -28,24 +28,38 @@ const isoDate = z.preprocess(
   z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Use YYYY-MM-DD"),
 );
 
+const faqList = z.array(z.object({ q: z.string().min(5), a: z.string().min(10) }));
+
+/** The fields a translation replaces. */
+const textFields = {
+  title: z.string().min(10).max(TITLE_MAX),
+  description: z.string().min(20).max(DESCRIPTION_MAX), // legal pages use short descriptions (§9.2)
+  h1: z.string().min(3).max(90),
+  excerpt: z.string().min(20).max(EXCERPT_MAX),
+  navLabel: z.string().max(40).optional(),
+};
+
 export const frontmatterSchema = z
   .object({
-    title: z.string().min(10).max(TITLE_MAX),
-    description: z.string().min(20).max(DESCRIPTION_MAX), // legal pages use short descriptions (§9.2)
-    h1: z.string().min(3).max(90),
-    excerpt: z.string().min(20).max(EXCERPT_MAX),
-    navLabel: z.string().max(40).optional(),
+    ...textFields,
+    faqs: faqList.default([]),
     navGroup: z.enum(["treatments"]).optional(),
     order: z.number().int().default(100),
     published: isoDate,
     updated: isoDate,
     related: z.array(z.string()).default([]),
-    faqs: z.array(z.object({ q: z.string().min(5), a: z.string().min(10) })).default([]),
     icon: z.enum(ICON_NAMES).optional(),
     template: z.enum(["service", "condition", "about", "faq", "legal", "post"]).optional(),
     showTeam: z.boolean().default(false),
   })
   .strict();
+
+/**
+ * A translation in content/<locale>/<collection>/<slug>.mdx has the same slug as the English file and only
+ * the text fields; order, icon, related, dates and the rest come from the English file. `updated` is the
+ * translation's own date when it differs.
+ */
+export const translationSchema = z.object({ ...textFields, faqs: faqList.optional(), updated: isoDate.optional() }).strict();
 
 /** Collection folders under content/ and the URL each one is served at. */
 export const COLLECTIONS = {

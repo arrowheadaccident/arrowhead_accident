@@ -1,0 +1,39 @@
+import type { ReactNode } from "react";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { CallTracker } from "@/components/CallTracker";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { MobileCallBar } from "@/components/MobileCallBar";
+import { TopBar } from "@/components/TopBar";
+import { fontClassName, fontStyle } from "@/app/fonts";
+import { LOCALE_INFO, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n";
+import "@/app/globals.css";
+
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
+/** <html> and the chrome around every page. Used by the root layout and by app/global-not-found.tsx. */
+export function SiteShell({ locale, children }: { locale: Locale; children: ReactNode }) {
+  const t = getDictionary(locale);
+  return (
+    <html lang={LOCALE_INFO[locale].htmlLang} className={fontClassName} style={fontStyle(locale)}>
+      <body className="flex min-h-dvh flex-col pb-[calc(4.5rem+env(safe-area-inset-bottom))] md:pb-0">
+        <a
+          href="#main"
+          className="sr-only z-[100] rounded-full bg-navy-900 px-5 py-3 font-semibold text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+        >
+          {t.common.skipLink}
+        </a>
+        <TopBar />
+        <Header />
+        <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">
+          {children}
+        </main>
+        <Footer />
+        <MobileCallBar />
+        <CallTracker />
+      </body>
+      {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
+    </html>
+  );
+}

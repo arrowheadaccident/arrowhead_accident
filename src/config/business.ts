@@ -57,16 +57,6 @@ export const serviceAreas = [
   "Yorkshire Estates",
 ];
 
-// Value propositions taken from the old site's own claims (confirm before launch, §15).
-export const valueProps = [
-  { title: "Same-day appointments", text: "Call today and see a doctor today or the next day." },
-  { title: "No out-of-pocket cost", text: "If another driver caused your accident, we bill their insurance and wait for payment." },
-  { title: "No health insurance needed", text: "You can be treated even if you don't have health insurance." },
-  { title: "We work with your attorney", text: "We accept liens and send your records and reports to your attorney." },
-  { title: "Chiropractors and medical doctors", text: "Chiropractic care, pain management and orthopedic referrals in one place." },
-  { title: "Hablamos Español", text: "Nuestros médicos y asistentes hablan español." },
-];
-
 export const telHref = `tel:${business.phone.e164}`;
 
 export const fullAddress = `${business.address.street}, ${business.address.city}, ${business.address.region} ${business.address.postalCode}`;

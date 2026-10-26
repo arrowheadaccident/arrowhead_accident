@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { getI18n } from "@/i18n/server";
 
 export type Crumb = { name: string; path: string };
 
 /** Visible trail. The matching BreadcrumbList is part of the page's JSON-LD graph (lib/schema.ts). */
-export function Breadcrumbs({ crumbs }: { crumbs: Crumb[] }) {
+export async function Breadcrumbs({ crumbs }: { crumbs: Crumb[] }) {
+  const { t } = await getI18n();
   return (
-    <nav aria-label="Breadcrumb" className="text-sm text-muted">
+    <nav aria-label={t.common.breadcrumb} className="text-sm text-muted">
       <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
         {crumbs.map((crumb, i) => {
           const last = i === crumbs.length - 1;

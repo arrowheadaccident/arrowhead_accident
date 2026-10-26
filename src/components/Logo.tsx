@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { localePath } from "@/i18n/config";
+import { getLocale } from "@/i18n/server";
 
 /** Road-sign arrowhead over a lane dash. Also used for the favicon (src/app/icon.svg). */
 export function LogoMark({ className = "size-9", onDark = false }: { className?: string; onDark?: boolean }) {
@@ -18,9 +20,11 @@ export function LogoMark({ className = "size-9", onDark = false }: { className?:
   );
 }
 
-export function Logo({ onDark = false }: { onDark?: boolean }) {
+/** The brand name stays in English in every language. */
+export async function Logo({ onDark = false }: { onDark?: boolean }) {
+  const locale = await getLocale();
   return (
-    <Link href="/" className="group inline-flex min-h-11 items-center gap-2.5 rounded-md">
+    <Link href={localePath(locale, "/")} className="group inline-flex min-h-11 items-center gap-2.5 rounded-md">
       <LogoMark onDark={onDark} />
       <span className="flex flex-col whitespace-nowrap">
         <span

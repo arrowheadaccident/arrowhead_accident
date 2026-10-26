@@ -3,10 +3,14 @@
 //   BASE_URL=http://localhost:3000 npm run check:html
 // For every URL in /sitemap.xml: one <h1>, a trailing-slash canonical, one valid JSON-LD script,
 // noindex while SITE_IS_PLACEHOLDER, only tel:+16234006362, alt on images, title on iframes,
-// unique titles, og/twitter/icon URLs that answer 200 without a redirect, and first-load JS (gzipped). The JS budget is reported as a warning: on Next 16.4 + React 19 the
+// unique titles, <html lang> of the URL's language, hreflang links that point both ways,
+// og/twitter/icon URLs that answer 200 without a redirect, and first-load JS (gzipped). The JS budget is reported as a warning: on Next 16.4 + React 19 the
 // framework runtime alone is ~136 KB gzipped, above the brief's 120 KB target (see README).
 import { gzipSync } from "node:zlib";
 import * as cheerio from "cheerio";
+import { loadTs } from "./load-ts.mjs";
+
+const { LOCALE_INFO, splitLocale } = await loadTs("src/i18n/config.ts");
 
 const BASE = (process.env.BASE_URL ?? "http://localhost:3000").replace(/\/$/, "");
 const TEL = "tel:+16234006362";
@@ -31,6 +35,7 @@ const warnings = [];
 const rows = [];
 const titles = new Map();
 const assets = new Map(); // asset path -> first page that references it
+const hreflangs = new Map(); // page path -> { hreflang: path }
 
 // Share previews and icons must not redirect: `trailingSlash` 308s extensionless routes (docs/SEO-AUDIT.md H3).
 const ASSET_SELECTORS = [
@@ -48,7 +53,8 @@ for (const path of paths) {
   const is404 = path === "/this-page-does-not-exist/";
 
   if (is404 ? res.status !== 404 : res.status !== 200) fail(`HTTP ${res.status}`);
-  if ($("html").attr("lang") !== "en-US") fail(`<html lang="${$("html").attr("lang")}">`);
+  const expectedLang = is404 ? "en-US" : LOCALE_INFO[splitLocale(path).locale].htmlLang;
+  if ($("html").attr("lang") !== expectedLang) fail(`<html lang="${$("html").attr("lang")}"> (expected ${expectedLang})`);
 
   const title = $("title").text();
   if (!title) fail("no <title>");
@@ -86,6 +92,15 @@ for (const path of paths) {
         fail(`JSON-LD does not parse: ${e.message}`);
       }
     }
+    const alternates = {};
+    $('link[rel="alternate"][hreflang]').each((_, el) => {
+      alternates[$(el).attr("hreflang")] = new URL($(el).attr("href")).pathname;
+    });
+    if (Object.keys(alternates).length) {
+      if (!Object.values(alternates).includes(path)) fail("hreflang links leave out the page itself");
+      if (!alternates["x-default"]) fail("hreflang links have no x-default");
+      hreflangs.set(path, alternates);
+    }
     if (!$('meta[name="description"]').attr("content")) fail("no meta description");
     if (!$('meta[property="og:image"]').attr("content")) fail("no og:image");
   }
@@ -109,6 +124,17 @@ for (const path of paths) {
   rows.push({ path, status: res.status, h1: h1s.length, "js (KB gz)": kb, tel: $('a[href^="tel:"]').length });
 }
 
+// Every language version must list the same set of alternates (hreflang has to point both ways).
+for (const [page, alternates] of hreflangs) {
+  const expected = JSON.stringify(Object.entries(alternates).sort());
+  for (const target of new Set(Object.values(alternates))) {
+    if (!hreflangs.has(target)) failures.push(`${page}: hreflang target ${target} is not in the sitemap or has no hreflang links`);
+    else if (JSON.stringify(Object.entries(hreflangs.get(target)).sort()) !== expected) {
+      failures.push(`${page}: hreflang links differ from those on ${target}`);
+    }
+  }
+}
+
 for (const [asset, page] of assets) {
   const res = await fetch(BASE + asset, { redirect: "manual" });
   if (res.status !== 200) failures.push(`${page}: ${asset} answers HTTP ${res.status}${res.headers.get("location") ? ` → ${res.headers.get("location")}` : ""}`);
@@ -125,4 +151,4 @@ if (failures.length) {
   for (const f of failures) console.error(`  ✗ ${f}`);
   process.exit(1);
 }
-console.log(`check:html passed: ${paths.length} pages, ${assets.size} preview/icon URLs.`);
+console.log(`check:html passed: ${paths.length} pages, ${hreflangs.size} with hreflang links, ${assets.size} preview/icon URLs.`);

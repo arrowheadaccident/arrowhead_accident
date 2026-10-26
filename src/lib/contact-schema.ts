@@ -1,6 +1,7 @@
 // Shared by ContactForm (browser) and POST /api/contact (server), SITE-BRIEF §8.
 // zod/mini keeps the client bundle small.
 import * as z from "zod/mini";
+import { LOCALES } from "@/i18n/config";
 
 /** Digits only; a leading US country code "1" is dropped. Returns null unless exactly 10 digits remain. */
 export function normalizeUsPhone(value: string): string | null {
@@ -16,25 +17,19 @@ function isPastOrToday(value: string): boolean {
   return !Number.isNaN(time) && time <= Date.now() + 24 * 60 * 60 * 1000;
 }
 
+export const NAME_MAX = 80;
 export const MESSAGE_MAX = 1000;
 
+// Messages are codes; the form shows them in the page's language (form.errors in src/i18n/dictionaries).
 export const contactSchema = z.object({
-  name: z
-    .string()
-    .check(
-      z.trim(),
-      z.minLength(2, "Enter your full name."),
-      z.maxLength(80, "Use 80 characters or fewer."),
-    ),
-  phone: z
-    .string()
-    .check(z.refine((v) => normalizeUsPhone(v) !== null, "Enter a 10-digit US phone number, like (623) 555-0123.")),
-  email: z.optional(z.union([z.literal(""), z.email("Enter an email address like name@example.com, or leave it empty.")])),
-  accidentDate: z.optional(
-    z.string().check(z.refine((v) => v === "" || isPastOrToday(v), "The accident date can't be in the future.")),
-  ),
-  message: z.optional(z.string().check(z.maxLength(MESSAGE_MAX, `Use ${MESSAGE_MAX} characters or fewer.`))),
-  consent: z.literal(true, "Check this box so we can contact you."),
+  name: z.string().check(z.trim(), z.minLength(2, "name_short"), z.maxLength(NAME_MAX, "name_long")),
+  phone: z.string().check(z.refine((v) => normalizeUsPhone(v) !== null, "phone")),
+  email: z.optional(z.union([z.literal(""), z.email("email")])),
+  accidentDate: z.optional(z.string().check(z.refine((v) => v === "" || isPastOrToday(v), "accident_date"))),
+  message: z.optional(z.string().check(z.maxLength(MESSAGE_MAX, "message_long"))),
+  consent: z.literal(true, "consent"),
+  /** The language of the page the form was sent from, so the clinic knows who is calling. */
+  locale: z.optional(z.enum(LOCALES)),
   /** Honeypot: hidden from people, must stay empty. */
   website: z.optional(z.string()),
 });
@@ -44,7 +39,7 @@ export type ContactData = z.output<typeof contactSchema>;
 export type ContactField = keyof ContactInput;
 export type FieldErrors = Partial<Record<ContactField, string>>;
 
-/** First message per field, ready to show next to the input. */
+/** First error code per field. */
 export function fieldErrors(error: { issues: { path: PropertyKey[]; message: string }[] }): FieldErrors {
   const out: FieldErrors = {};
   for (const issue of error.issues) {

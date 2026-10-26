@@ -37,6 +37,9 @@ Body ink `#1a2433`, muted `#5b6675`, lines `#e3e8ef`, success `#1e7f4f`.
 - Overpass 700–800 for H1–H3, tight tracking, short measure.
 - Inter (variable) for everything else: 16px mobile, 18px from `md`, line-height 1.6, prose ≤ 70ch.
 - No all-caps eyebrows, no arrow glyphs appended to links.
+- Other languages (`src/app/fonts.ts`, `globals.css`): Vietnamese adds the fonts' Vietnamese subset, loaded
+  only when the page uses it. Simplified Chinese uses the system CJK face (PingFang SC, Microsoft YaHei,
+  Noto Sans SC) after Inter, with no negative heading tracking. German headings hyphenate long compounds.
 
 ## Layout
 

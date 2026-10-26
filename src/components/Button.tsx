@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { Phone } from "lucide-react";
 import { business, telHref } from "@/config/business";
+import { localePath } from "@/i18n/config";
+import { fill } from "@/i18n/fill";
+import { getI18n } from "@/i18n/server";
 import type { CtaLocation } from "@/lib/track";
 
 const base =
@@ -25,11 +28,12 @@ type CallButtonProps = {
   size?: keyof typeof sizes;
   /** Layout only (margins, width). */
   className?: string;
-  /** Visible text; the number is always part of it so people can dial by hand. */
+  /** Visible text; the number is always part of it so people can dial by hand. Default: "Call (623) 400-6362". */
   label?: string;
 };
 
-export function CallButton({ location, size = "md", className = "", label = `Call ${business.phone.display}` }: CallButtonProps) {
+export async function CallButton({ location, size = "md", className = "", label }: CallButtonProps) {
+  const { t } = await getI18n();
   return (
     <a
       href={telHref}
@@ -37,17 +41,18 @@ export function CallButton({ location, size = "md", className = "", label = `Cal
       className={`${base} ${sizes[size]} bg-cta-600 text-white hover:bg-cta-700 active:bg-cta-700 ${className}`}
     >
       <Phone aria-hidden="true" className="size-5 shrink-0" strokeWidth={2.25} />
-      <span>{label}</span>
+      <span>{label ?? fill(t.common.call, { phone: business.phone.display })}</span>
     </a>
   );
 }
 
 type CallbackLinkProps = { onDark?: boolean; className?: string };
 
-export function CallbackLink({ onDark = false, className = "" }: CallbackLinkProps) {
+export async function CallbackLink({ onDark = false, className = "" }: CallbackLinkProps) {
+  const { locale, t } = await getI18n();
   return (
-    <Link href="/contact/#form" className={`${onDark ? buttonStyles.secondaryOnDark : buttonStyles.secondary} ${className}`}>
-      Request a call back
+    <Link href={localePath(locale, "/contact/#form")} className={`${onDark ? buttonStyles.secondaryOnDark : buttonStyles.secondary} ${className}`}>
+      {t.common.requestCallback}
     </Link>
   );
 }

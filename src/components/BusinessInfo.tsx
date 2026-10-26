@@ -3,6 +3,8 @@ import { Phone as PhoneIcon } from "lucide-react";
 import { business, serviceAreas, telHref } from "@/config/business";
 import { CallButton } from "@/components/Button";
 import Link from "next/link";
+import { localePath } from "@/i18n/config";
+import { getI18n } from "@/i18n/server";
 import { weeklyHours } from "@/lib/hours";
 import type { CtaLocation } from "@/lib/track";
 
@@ -25,12 +27,13 @@ export function Address({ className = "" }: { className?: string }) {
   );
 }
 
-export function Hours({ className = "" }: { className?: string }) {
+export async function Hours({ className = "" }: { className?: string }) {
+  const { locale, t } = await getI18n();
   return (
     <table className={`w-full max-w-sm text-left ${className}`}>
-      <caption className="sr-only">Office hours</caption>
+      <caption className="sr-only">{t.common.officeHours}</caption>
       <tbody>
-        {weeklyHours.map((row) => (
+        {weeklyHours(locale, t.hours.closed).map((row) => (
           <tr key={row.day} className="border-b border-current/15 last:border-0">
             <th scope="row" className="py-2 pr-4 font-semibold">
               {row.day}
@@ -56,10 +59,11 @@ export function ServiceAreas({ className = "" }: { className?: string }) {
 }
 
 /** In-content call prompt; replaces the old "Call Now 1(623) 400-6362" headings. */
-export function CallCta() {
+export async function CallCta() {
+  const { locale, t } = await getI18n();
   return (
     <aside
-      aria-label="Book a same-day exam"
+      aria-label={t.callCta.label}
       className="not-prose my-10 flex flex-col gap-4 rounded-card border border-sky-100 bg-sky-100/70 p-5 sm:flex-row sm:items-center sm:justify-between md:p-6"
     >
       <div className="flex items-start gap-3">
@@ -67,12 +71,12 @@ export function CallCta() {
           <PhoneIcon aria-hidden="true" className="size-5" />
         </span>
         <p className="text-base leading-snug text-navy-900">
-          <strong className="block font-display text-lg">Same-day exams for car accident injuries.</strong>
-          Call now, or{" "}
-          <Link href="/contact/#form" className="font-semibold text-navy-500 underline underline-offset-4">
-            request a call back
+          <strong className="block font-display text-lg">{t.callCta.title}</strong>
+          {t.callCta.before}
+          <Link href={localePath(locale, "/contact/#form")} className="font-semibold text-navy-500 underline underline-offset-4">
+            {t.callCta.link}
           </Link>
-          .
+          {t.callCta.after}
         </p>
       </div>
       <CallButton location="content" className="shrink-0" />

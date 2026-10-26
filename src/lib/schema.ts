@@ -1,6 +1,7 @@
 // One JSON-LD @graph per page (SITE-BRIEF §9.3). All values come from business.ts and frontmatter.
 import { SITE_IS_PLACEHOLDER, business, team } from "@/config/business";
 import type { Crumb } from "@/components/Breadcrumbs";
+import { LOCALES, LOCALE_INFO, type Locale } from "@/i18n/config";
 import { absoluteUrl } from "@/lib/seo";
 
 const ids = {
@@ -14,7 +15,7 @@ function websiteNode() {
     "@id": ids.website,
     url: absoluteUrl("/"),
     name: business.name,
-    inLanguage: "en-US",
+    inLanguage: LOCALES.map((locale) => LOCALE_INFO[locale].htmlLang),
     publisher: { "@id": ids.clinic },
   };
 }
@@ -86,6 +87,7 @@ function physicianNodes() {
 }
 
 type GraphInput = {
+  locale: Locale;
   path: string;
   title: string;
   description: string;
@@ -98,8 +100,9 @@ type GraphInput = {
   withTeam?: boolean;
 };
 
-export function buildGraph({ path, title, description, crumbs, kind = "page", faqs = [], published, updated, withTeam }: GraphInput) {
+export function buildGraph({ locale, path, title, description, crumbs, kind = "page", faqs = [], published, updated, withTeam }: GraphInput) {
   const pageUrl = absoluteUrl(path);
+  const inLanguage = LOCALE_INFO[locale].htmlLang;
   const pageType = kind === "condition" ? "MedicalWebPage" : kind === "faq" ? "FAQPage" : "WebPage";
 
   const page: Record<string, unknown> = {
@@ -108,7 +111,7 @@ export function buildGraph({ path, title, description, crumbs, kind = "page", fa
     url: pageUrl,
     name: title,
     description,
-    inLanguage: "en-US",
+    inLanguage,
     isPartOf: { "@id": ids.website },
     about: { "@id": ids.clinic },
     ...(crumbs.length > 1 ? { breadcrumb: { "@id": `${pageUrl}#breadcrumb` } } : {}),
@@ -135,7 +138,7 @@ export function buildGraph({ path, title, description, crumbs, kind = "page", fa
       description,
       datePublished: published,
       dateModified: updated,
-      inLanguage: "en-US",
+      inLanguage,
       mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
       // The clinic is the author until real, consenting doctors are listed (§9.3).
       author: { "@id": ids.clinic },

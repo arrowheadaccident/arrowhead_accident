@@ -159,6 +159,24 @@
   }
 }
 
+/* Simplified Chinese: Inter and Overpass have no CJK glyphs. Name the Simplified Chinese system fonts so each
+   OS picks a matching face (no web font download), and drop the negative heading tracking that crowds CJK. */
+html:lang(zh) {
+  --cjk: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", "Source Han Sans SC";
+  --font-sans: var(--font-inter), var(--cjk), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-overpass), var(--font-inter), var(--cjk), ui-sans-serif, system-ui, sans-serif;
+}
+
+html:lang(zh) :is(h1, h2, h3, .font-display) {
+  letter-spacing: 0;
+}
+
+/* German compounds ("Bänderverletzungen") can be wider than a phone screen at heading sizes. */
+html:lang(de) :is(h1, h2, h3) {
+  hyphens: auto;
+  overflow-wrap: anywhere;
+}
+
 /* The "How it works" lane line draws in as it scrolls into view. */
 @keyframes lane-draw-x {
   from {

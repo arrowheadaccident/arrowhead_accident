@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { ContentIcon } from "@/components/icons";
+import { LOCALE_INFO, type Locale } from "@/i18n/config";
+import { getI18n } from "@/i18n/server";
 import type { Entry } from "@/lib/content";
 
 /** Condition / treatment card: icon, title, excerpt, whole card is the link. */
@@ -54,15 +56,19 @@ export function ConditionGrid({ entries, className = "" }: { entries: Entry[]; c
   );
 }
 
-const dateFormat = new Intl.DateTimeFormat("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
-export const formatDate = (iso: string) => dateFormat.format(new Date(`${iso}T00:00:00Z`));
+export function formatDate(iso: string, locale: Locale): string {
+  return new Intl.DateTimeFormat(LOCALE_INFO[locale].intl, { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }).format(
+    new Date(`${iso}T00:00:00Z`),
+  );
+}
 
-export function PostCard({ entry, headingLevel = "h3" }: { entry: Entry; headingLevel?: "h2" | "h3" }) {
+export async function PostCard({ entry, headingLevel = "h3" }: { entry: Entry; headingLevel?: "h2" | "h3" }) {
+  const { t } = await getI18n();
   const Heading = headingLevel;
   return (
     <article className="group relative flex h-full flex-col rounded-card border border-line bg-white p-6 transition-colors duration-150 hover:border-navy-500">
       <p className="text-sm text-muted">
-        <time dateTime={entry.frontmatter.published}>{formatDate(entry.frontmatter.published)}</time>
+        <time dateTime={entry.frontmatter.published}>{formatDate(entry.frontmatter.published, entry.locale)}</time>
       </p>
       <Heading className="mt-2 font-display text-xl font-bold leading-snug text-navy-900">
         <Link href={entry.url} className="underline-offset-4 after:absolute after:inset-0 group-hover:underline">
@@ -71,7 +77,7 @@ export function PostCard({ entry, headingLevel = "h3" }: { entry: Entry; heading
       </Heading>
       <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">{entry.frontmatter.excerpt}</p>
       <p aria-hidden="true" className="mt-auto pt-5 text-[0.9375rem] font-semibold text-navy-500">
-        Read the article
+        {t.cards.readArticle}
       </p>
     </article>
   );

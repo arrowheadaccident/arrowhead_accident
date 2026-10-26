@@ -3,7 +3,8 @@ import { Languages, MapPin, Phone } from "lucide-react";
 import { business, telHref } from "@/config/business";
 import { Logo } from "@/components/Logo";
 import { Address } from "@/components/BusinessInfo";
-import { getMainNav, getTreatmentLinks, legalLinks, type NavLink } from "@/lib/nav";
+import { getI18n } from "@/i18n/server";
+import { getLanguageOptions, getLegalLinks, getMainNav, getTreatmentLinks, type NavLink } from "@/lib/nav";
 import { hoursSummary } from "@/lib/hours";
 
 function LinkList({ title, links }: { title: string; links: NavLink[] }) {
@@ -23,8 +24,9 @@ function LinkList({ title, links }: { title: string; links: NavLink[] }) {
   );
 }
 
-export function Footer() {
-  const clinicLinks = getMainNav().filter((item): item is NavLink => "href" in item);
+export async function Footer() {
+  const { locale, t } = await getI18n();
+  const clinicLinks = getMainNav(locale, t).filter((item): item is NavLink => "href" in item);
   // Build-time year: the site is rebuilt on every deploy.
   const year = new Date().getFullYear();
 
@@ -45,16 +47,16 @@ export function Footer() {
             <Phone aria-hidden="true" className="size-4 shrink-0 text-lane" />
             {business.phone.display}
           </a>
-          <p className="flex items-center gap-3" lang="es">
+          <p className="flex items-center gap-3" lang={t.spoken.lang}>
             <Languages aria-hidden="true" className="size-4 shrink-0 text-lane" />
-            Hablamos Español
+            {t.spoken.badge}
           </p>
         </div>
 
         <div>
-          <h2 className="text-base font-bold text-white">Office hours</h2>
+          <h2 className="text-base font-bold text-white">{t.common.officeHours}</h2>
           <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2">
-            {hoursSummary.map((row) => (
+            {hoursSummary(locale, t.hours.closed).map((row) => (
               <div key={row.days} className="contents">
                 <dt className="font-semibold text-white">{row.days}</dt>
                 <dd className="tabular-nums">{row.label}</dd>
@@ -63,25 +65,44 @@ export function Footer() {
           </dl>
         </div>
 
-        <LinkList title="Accident treatments" links={getTreatmentLinks()} />
-        <LinkList title="Our clinic" links={clinicLinks} />
+        <LinkList title={t.footer.treatments} links={getTreatmentLinks(locale)} />
+        <LinkList title={t.footer.clinic} links={clinicLinks} />
       </div>
 
       <div className="border-t border-white/10">
         <div className="wrap grid gap-4 py-8 text-sm leading-relaxed">
-          <p>
-            The information on this website is general information, not medical or legal advice, and does not create a
-            doctor–patient relationship. If you have a medical emergency, call 911.
-          </p>
-          <p>This website is not associated in any way with Dr. Vaughn Movses or Arrowhead Accident Group.</p>
+          {/* Every language's home page, for visitors and crawlers; the top bar and mobile menu link to the same page. */}
+          <nav aria-label={t.footer.languages}>
+            <ul className="flex flex-wrap gap-x-5 gap-y-1">
+              {getLanguageOptions().map((language) => (
+                <li key={language.locale}>
+                  <a
+                    href={language.home}
+                    hrefLang={language.hrefLang}
+                    lang={language.lang}
+                    aria-current={language.locale === locale ? "true" : undefined}
+                    className="inline-flex min-h-10 items-center font-semibold underline-offset-4 hover:text-white hover:underline aria-[current=true]:text-white"
+                  >
+                    {language.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <p>{t.footer.disclaimer}</p>
+          <p>{t.footer.notAssociated}</p>
           <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between">
             <p>
               © {year} {business.name}
             </p>
             <ul className="flex flex-wrap gap-x-5 gap-y-1">
-              {legalLinks.map((link) => (
+              {getLegalLinks(t).map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="inline-flex min-h-10 items-center underline-offset-4 hover:text-white hover:underline">
+                  <Link
+                    href={link.href}
+                    hrefLang={locale === "en" ? undefined : "en"}
+                    className="inline-flex min-h-10 items-center underline-offset-4 hover:text-white hover:underline"
+                  >
                     {link.label}
                   </Link>
                 </li>

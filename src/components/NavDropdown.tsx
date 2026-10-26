@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useId, useRef, useState, type ReactNode } from "react";
+import { useId, useRef, useState, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
+import { publicPath } from "@/i18n/config";
+import { useDismiss } from "@/components/useDismiss";
 import type { NavItem, NavLink } from "@/lib/nav";
 
 const linkBase =
@@ -11,10 +13,12 @@ const linkBase =
 
 /** Desktop nav (xl+). "Accident Treatments" opens on click and keyboard, never on hover alone. */
 /** `icons` are rendered on the server (keyed by href) so lucide icons stay out of the client bundle. */
-export function DesktopNav({ items, icons }: { items: NavItem[]; icons: Record<string, ReactNode> }) {
-  const pathname = usePathname();
+/** `label` names the nav landmark ("Main"). */
+export function DesktopNav({ items, icons, label }: { items: NavItem[]; icons: Record<string, ReactNode>; label: string }) {
+  // English pages prerender as /en/…; compare the URL visitors see so server and browser agree.
+  const pathname = publicPath(usePathname());
   return (
-    <nav aria-label="Main" className="hidden xl:block">
+    <nav aria-label={label} className="hidden xl:block">
       <ul className="flex items-center gap-0.5">
         {items.map((item) =>
           "children" in item ? (
@@ -54,25 +58,7 @@ function NavDropdown({
   const buttonRef = useRef<HTMLButtonElement>(null);
   const panelId = useId();
   const isActive = links.some((l) => l.href === pathname);
-
-  useEffect(() => {
-    if (!open) return;
-    const onPointerDown = (event: PointerEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
-    };
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpen(false);
-        buttonRef.current?.focus();
-      }
-    };
-    document.addEventListener("pointerdown", onPointerDown);
-    document.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.removeEventListener("pointerdown", onPointerDown);
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, [open]);
+  useDismiss(open, setOpen, rootRef, buttonRef);
 
   return (
     <div

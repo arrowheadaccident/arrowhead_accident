@@ -1,16 +1,16 @@
 import { CalendarCheck, HandHeart, Languages, Scale, ShieldCheck, Stethoscope, type LucideIcon } from "lucide-react";
-import { valueProps } from "@/config/business";
+import { getI18n } from "@/i18n/server";
 
 const ICONS: LucideIcon[] = [CalendarCheck, ShieldCheck, HandHeart, Scale, Stethoscope, Languages];
 
-export function ValueProps({ className = "" }: { className?: string }) {
+export async function ValueProps({ className = "" }: { className?: string }) {
+  const { t } = await getI18n();
   return (
     <ul className={`not-prose grid gap-x-8 gap-y-6 sm:grid-cols-2 ${className}`}>
-      {valueProps.map((prop, i) => {
+      {t.valueProps.map((prop, i) => {
         const Icon = ICONS[i] ?? ShieldCheck;
-        const spanish = prop.title === "Hablamos Español";
         return (
-          <li key={prop.title} className="flex gap-4" lang={spanish ? "es" : undefined}>
+          <li key={prop.title} className="flex gap-4" lang={prop.lang}>
             <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-sky-100 text-navy-500">
               <Icon aria-hidden="true" className="size-5" strokeWidth={2} />
             </span>

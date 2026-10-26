@@ -13,7 +13,10 @@ import {
 } from "react";
 import { CircleAlert, CircleCheck, LoaderCircle } from "lucide-react";
 import { business, telHref } from "@/config/business";
-import { MESSAGE_MAX, contactSchema, fieldErrors, type ContactField, type FieldErrors } from "@/lib/contact-schema";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries/en";
+import { fill } from "@/i18n/fill";
+import { MESSAGE_MAX, NAME_MAX, contactSchema, fieldErrors, type ContactField, type FieldErrors } from "@/lib/contact-schema";
 import { track, type FormLocation } from "@/lib/track";
 
 type Variant = "card" | "inline" | "compact";
@@ -22,7 +25,10 @@ type Props = {
   /** card: home hero (name, phone, accident date) · inline: contact page (all fields) · compact: sidebar (name, phone). */
   variant: Variant;
   location: FormLocation;
-  /** Visible heading inside the form; pass null when the page already provides one. */
+  locale: Locale;
+  /** The page language's form copy (Dictionary["form"]). */
+  labels: Dictionary["form"];
+  /** Visible heading inside the form (default: labels.title); pass null when the page already provides one. */
   title?: string | null;
   headingLevel?: "h2" | "h3";
   id?: string;
@@ -33,7 +39,7 @@ const FIELD_ORDER: ContactField[] = ["name", "phone", "email", "accidentDate", "
 const inputBase =
   "block w-full rounded-lg border border-field bg-white px-3.5 text-base text-ink transition-colors duration-150 placeholder:text-muted/80 hover:border-navy-700 focus:border-navy-500 aria-[invalid=true]:border-error";
 
-function readForm(form: HTMLFormElement) {
+function readForm(form: HTMLFormElement, locale: Locale) {
   const data = new FormData(form);
   const text = (key: string) => String(data.get(key) ?? "");
   return {
@@ -43,12 +49,14 @@ function readForm(form: HTMLFormElement) {
     accidentDate: text("accidentDate"),
     message: text("message"),
     consent: data.get("consent") === "on",
+    locale,
     website: text("website"),
   };
 }
 
 function validate(form: HTMLFormElement): FieldErrors {
-  const result = contactSchema.safeParse(readForm(form));
+  // The language does not change validation.
+  const result = contactSchema.safeParse(readForm(form, "en"));
   return result.success ? {} : fieldErrors(result.error);
 }
 
@@ -64,8 +72,14 @@ const todayIso = () => {
   return new Date(now.getTime() - now.getTimezoneOffset() * 60_000).toISOString().slice(0, 10);
 };
 
-export function ContactForm({ variant, location, title = "Request a call back", headingLevel = "h2", id }: Props) {
+export function ContactForm({ variant, location, locale, labels, title = labels.title, headingLevel = "h2", id }: Props) {
   const uid = useId();
+  /** Error code from contact-schema or the API -> sentence in the page's language. */
+  const message = (code: string) =>
+    fill(labels.errors[code] ?? code, {
+      phone: business.phone.display,
+      max: code === "name_long" ? NAME_MAX : MESSAGE_MAX,
+    });
   const [errors, setErrors] = useState<FieldErrors>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
@@ -135,7 +149,7 @@ export function ContactForm({ variant, location, title = "Request a call back", 
       const res = await fetch("/api/contact/", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(readForm(form)),
+        body: JSON.stringify(readForm(form, locale)),
       });
       const body = (await res.json().catch(() => null)) as { ok?: boolean; errors?: FieldErrors & { form?: string } } | null;
       if (res.ok && body?.ok) {
@@ -143,17 +157,12 @@ export function ContactForm({ variant, location, title = "Request a call back", 
         track("generate_lead", { form_location: location });
         return;
       }
-      const { form: message, ...serverErrors } = body?.errors ?? {};
+      const { form: formCode, ...serverErrors } = body?.errors ?? {};
       setErrors(serverErrors);
-      setFormError(
-        message ??
-          (Object.keys(serverErrors).length
-            ? null
-            : `We couldn't send your request. Please try again or call us at ${business.phone.display}.`),
-      );
+      setFormError(formCode ? message(formCode) : Object.keys(serverErrors).length ? null : message("bad_request"));
       focusFirstInvalid(form, serverErrors);
     } catch {
-      setFormError(`We couldn't reach our server. Check your connection and try again, or call us at ${business.phone.display}.`);
+      setFormError(message("network"));
     }
     setStatus("idle");
   }
@@ -176,12 +185,12 @@ export function ContactForm({ variant, location, title = "Request a call back", 
         >
           <CircleCheck aria-hidden="true" className="mt-0.5 size-6 shrink-0 text-success" />
           <p className="text-base">
-            <strong className="block font-display text-lg text-navy-900">Thank you, we&apos;ll call you shortly.</strong>
-            Need help now? Call{" "}
+            <strong className="block font-display text-lg text-navy-900">{labels.sentTitle}</strong>
+            {labels.sentBefore}
             <a href={telHref} data-cta-location={location === "sidebar" ? "sidebar" : "content"} className="font-semibold text-navy-500 underline underline-offset-4">
               {business.phone.display}
             </a>
-            .
+            {labels.sentAfter}
           </p>
         </div>
       </div>
@@ -206,7 +215,7 @@ export function ContactForm({ variant, location, title = "Request a call back", 
           <Heading id={`${uid}-title`} className="font-display text-xl font-extrabold text-navy-900 md:text-2xl">
             {title}
           </Heading>
-          {!compact ? <p className="mt-1 text-[0.9375rem] text-muted">It takes less than a minute. Fields without “optional” are required.</p> : null}
+          {!compact ? <p className="mt-1 text-[0.9375rem] text-muted">{labels.intro}</p> : null}
         </div>
       ) : null}
 
@@ -218,7 +227,7 @@ export function ContactForm({ variant, location, title = "Request a call back", 
       ) : null}
 
       <div className={`grid gap-4 ${full ? "md:grid-cols-2" : ""}`}>
-        <Field id={fieldId("name")} label="Full name" error={errors.name}>
+        <Field id={fieldId("name")} label={labels.name} error={errors.name && message(errors.name)}>
           {(describedBy) => (
             <input
               id={fieldId("name")}
@@ -226,7 +235,7 @@ export function ContactForm({ variant, location, title = "Request a call back", 
               type="text"
               autoComplete="name"
               required
-              maxLength={80}
+              maxLength={NAME_MAX}
               aria-invalid={errors.name ? true : undefined}
               aria-describedby={describedBy}
               className={`${inputBase} h-12`}
@@ -234,7 +243,7 @@ export function ContactForm({ variant, location, title = "Request a call back", 
           )}
         </Field>
 
-        <Field id={fieldId("phone")} label="Phone" error={errors.phone}>
+        <Field id={fieldId("phone")} label={labels.phone} error={errors.phone && message(errors.phone)}>
           {(describedBy) => (
             <input
               id={fieldId("phone")}
@@ -252,7 +261,7 @@ export function ContactForm({ variant, location, title = "Request a call back", 
         </Field>
 
         {full ? (
-          <Field id={fieldId("email")} label="Email" optional error={errors.email}>
+          <Field id={fieldId("email")} label={labels.email} optional={labels.optional} error={errors.email && message(errors.email)}>
             {(describedBy) => (
               <input
                 id={fieldId("email")}
@@ -269,7 +278,12 @@ export function ContactForm({ variant, location, title = "Request a call back", 
         ) : null}
 
         {!compact ? (
-          <Field id={fieldId("accidentDate")} label="Date of accident" optional error={errors.accidentDate}>
+          <Field
+            id={fieldId("accidentDate")}
+            label={labels.accidentDate}
+            optional={labels.optional}
+            error={errors.accidentDate && message(errors.accidentDate)}
+          >
             {(describedBy) => (
               <input
                 id={fieldId("accidentDate")}
@@ -285,7 +299,13 @@ export function ContactForm({ variant, location, title = "Request a call back", 
         ) : null}
 
         {full ? (
-          <Field id={fieldId("message")} label="How can we help?" optional error={errors.message} className="md:col-span-2">
+          <Field
+            id={fieldId("message")}
+            label={labels.message}
+            optional={labels.optional}
+            error={errors.message && message(errors.message)}
+            className="md:col-span-2"
+          >
             {(describedBy) => (
               <textarea
                 id={fieldId("message")}
@@ -303,7 +323,7 @@ export function ContactForm({ variant, location, title = "Request a call back", 
 
       {/* Honeypot: hidden from people and assistive tech; bots tend to fill it. */}
       <div aria-hidden="true" className="absolute -left-[10000px] h-px w-px overflow-hidden">
-        <label htmlFor={fieldId("website")}>Leave this field empty</label>
+        <label htmlFor={fieldId("website")}>{labels.honeypot}</label>
         <input id={fieldId("website")} name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
@@ -319,10 +339,10 @@ export function ContactForm({ variant, location, title = "Request a call back", 
             className="mt-0.5 size-6 shrink-0 cursor-pointer rounded accent-navy-900"
           />
           <label htmlFor={fieldId("consent")} className="cursor-pointer text-[0.9375rem] leading-snug text-ink">
-            I agree to be contacted by phone, text or email about my request.
+            {labels.consent}
           </label>
         </div>
-        {errors.consent ? <FieldError id={`${fieldId("consent")}-error`}>{errors.consent}</FieldError> : null}
+        {errors.consent ? <FieldError id={`${fieldId("consent")}-error`}>{message(errors.consent)}</FieldError> : null}
       </div>
 
       <button
@@ -333,13 +353,13 @@ export function ContactForm({ variant, location, title = "Request a call back", 
         {status === "sending" ? (
           <>
             <LoaderCircle aria-hidden="true" className="size-5 animate-spin" />
-            Sending…
+            {labels.sending}
           </>
         ) : (
-          "Request a call back"
+          labels.submit
         )}
       </button>
-      <p className="mt-3 text-sm text-muted">Please don&apos;t include medical details. We&apos;ll call you back during business hours.</p>
+      <p className="mt-3 text-sm text-muted">{labels.note}</p>
     </form>
   );
 }
@@ -347,14 +367,15 @@ export function ContactForm({ variant, location, title = "Request a call back", 
 function Field({
   id,
   label,
-  optional = false,
+  optional,
   error,
   className = "",
   children,
 }: {
   id: string;
   label: string;
-  optional?: boolean;
+  /** "(optional)" in the page's language; leave out for required fields. */
+  optional?: string;
   error?: string;
   className?: string;
   children: (describedBy: string | undefined) => ReactNode;
@@ -364,7 +385,7 @@ function Field({
     <div className={className}>
       <label htmlFor={id} className="mb-1.5 block text-[0.9375rem] font-semibold text-navy-900">
         {label}
-        {optional ? <span className="font-normal text-muted"> (optional)</span> : null}
+        {optional ? <span className="font-normal text-muted"> {optional}</span> : null}
       </label>
       {children(error ? errorId : undefined)}
       {error ? <FieldError id={errorId}>{error}</FieldError> : null}

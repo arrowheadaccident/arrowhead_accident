@@ -1,4 +1,6 @@
 import { team, type TeamMember } from "@/config/business";
+import type { Dictionary } from "@/i18n";
+import { getI18n } from "@/i18n/server";
 
 function initials(name: string) {
   return name
@@ -10,7 +12,9 @@ function initials(name: string) {
     .toUpperCase();
 }
 
-export function DoctorCard({ member }: { member: TeamMember }) {
+export function DoctorCard({ member, t, translated }: { member: TeamMember; t: Dictionary; translated: boolean }) {
+  // Real bios are English until the clinic sends translations; placeholder bios get a translated stand-in.
+  const bio = translated && member.isPlaceholder ? t.team.sampleBio : member.bio;
   return (
     <article id={member.slug} className="flex h-full flex-col rounded-card border border-line bg-white p-5">
       <div className="flex items-center gap-4">
@@ -25,14 +29,14 @@ export function DoctorCard({ member }: { member: TeamMember }) {
           <h3 className="font-display text-lg font-bold leading-snug text-navy-900">
             {member.name}, {member.credential}
           </h3>
-          <p className="text-[0.9375rem] text-muted">{member.role}</p>
+          <p className="text-[0.9375rem] text-muted">{t.team.roles[member.role] ?? member.role}</p>
         </div>
       </div>
-      <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink">{member.bio}</p>
+      <p className="mt-4 text-[0.9375rem] leading-relaxed text-ink">{bio}</p>
       {member.isPlaceholder ? (
         <p className="mt-auto pt-4">
           <span className="inline-flex items-center rounded-md border border-dashed border-field px-2 py-0.5 text-[0.8125rem] font-semibold text-muted">
-            Sample profile
+            {t.team.sampleTag}
           </span>
         </p>
       ) : null}
@@ -40,12 +44,13 @@ export function DoctorCard({ member }: { member: TeamMember }) {
   );
 }
 
-export function TeamGrid({ className = "" }: { className?: string }) {
+export async function TeamGrid({ className = "" }: { className?: string }) {
+  const { locale, t } = await getI18n();
   return (
     <ul className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-3 ${className}`}>
       {team.map((member) => (
         <li key={member.slug}>
-          <DoctorCard member={member} />
+          <DoctorCard member={member} t={t} translated={locale !== "en"} />
         </li>
       ))}
     </ul>

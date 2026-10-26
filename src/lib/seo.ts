@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { SITE_IS_PLACEHOLDER, business, team } from "@/config/business";
+import { DEFAULT_LOCALE, LOCALES, LOCALE_INFO, type Locale } from "@/i18n/config";
+import { fill } from "@/i18n/fill";
+import { getDictionary } from "@/i18n";
 import { placeholderProblems } from "@/lib/launch-check.mjs";
 
 // Going live with sample data would get a fake NAP indexed, so the build stops instead (docs/SEO-AUDIT.md C1).
@@ -11,21 +14,19 @@ if (!SITE_IS_PLACEHOLDER) {
   }
 }
 
-export const HOME_TITLE = "Car Accident Chiropractor in Glendale, AZ | Same-Day Care";
-export const HOME_DESCRIPTION =
-  "Hurt in a car accident in Glendale or Arrowhead Ranch? Same-day chiropractic exams and no out-of-pocket cost when another driver is at fault.";
-
 /**
  * Page-level openGraph replaces the root one, so every page sets the image explicitly. It is a route
  * with a file extension (src/app/og.png/route.tsx) because `trailingSlash: true` 308-redirects
- * extensionless metadata routes such as /opengraph-image (docs/SEO-AUDIT.md H3).
+ * extensionless metadata routes such as /opengraph-image (docs/SEO-AUDIT.md H3). The image text is English.
  */
-export const ogImage = {
-  url: "/og.png",
-  width: 1200,
-  height: 630,
-  alt: `${business.name}, Glendale, AZ. Call ${business.phone.display}`,
-};
+export function ogImage(locale: Locale) {
+  return {
+    url: "/og.png",
+    width: 1200,
+    height: 630,
+    alt: fill(getDictionary(locale).meta.ogImageAlt, { name: business.name, phone: business.phone.display }),
+  };
+}
 
 export const robots: Metadata["robots"] = SITE_IS_PLACEHOLDER
   ? { index: false, follow: false }
@@ -36,31 +37,54 @@ export function absoluteUrl(pathname: string): string {
   return new URL(pathname, business.url).toString();
 }
 
+/** The same page in each language it exists in, keyed by locale. */
+export type Alternates = Partial<Record<Locale, string>>;
+
+/** hreflang map for <link rel="alternate">: { en: "/x/", es: "/es/x/", …, "x-default": "/x/" }; empty for a one-language page. */
+export function hreflangLinks(alternates: Alternates): Record<string, string> {
+  const links: Record<string, string> = {};
+  for (const locale of LOCALES) {
+    const path = alternates[locale];
+    if (path) links[LOCALE_INFO[locale].hreflang] = path;
+  }
+  if (Object.keys(links).length < 2) return {};
+  const fallback = alternates[DEFAULT_LOCALE];
+  if (fallback) links["x-default"] = fallback;
+  return links;
+}
+
 type PageMeta = {
+  locale: Locale;
   title: string;
   description: string;
   path: string;
+  /** Other languages of this page. Leave out for a page that exists in one language only. */
+  alternates?: Alternates;
   type?: "website" | "article";
   publishedTime?: string;
   modifiedTime?: string;
 };
 
-export function pageMetadata({ title, description, path, type = "website", publishedTime, modifiedTime }: PageMeta): Metadata {
+export function pageMetadata({ locale, title, description, path, alternates, type = "website", publishedTime, modifiedTime }: PageMeta): Metadata {
+  const image = ogImage(locale);
+  const languages = alternates ? hreflangLinks(alternates) : {};
+  const otherLocales = LOCALES.filter((l) => l !== locale && alternates?.[l]).map((l) => LOCALE_INFO[l].ogLocale);
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: path, ...(Object.keys(languages).length ? { languages } : {}) },
     openGraph: {
       title,
       description,
       url: path,
       type,
       siteName: business.name,
-      locale: "en_US",
-      images: [ogImage],
+      locale: LOCALE_INFO[locale].ogLocale,
+      ...(otherLocales.length ? { alternateLocale: otherLocales } : {}),
+      images: [image],
       ...(type === "article" ? { publishedTime, modifiedTime } : {}),
     },
-    twitter: { card: "summary_large_image", title, description, images: [ogImage.url] },
+    twitter: { card: "summary_large_image", title, description, images: [image.url] },
     robots,
   };
 }

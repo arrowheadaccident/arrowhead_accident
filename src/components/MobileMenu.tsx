@@ -2,38 +2,34 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useRef, useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
+import { publicPath, type Locale } from "@/i18n/config";
+import { useLanguageLinks, type LanguageOption, type SitePages } from "@/components/LanguageMenu";
+import { useDismiss } from "@/components/useDismiss";
 import type { NavItem } from "@/lib/nav";
 
 const rowLink =
   "flex min-h-12 items-center rounded-md px-3 text-base font-semibold text-navy-900 hover:bg-sky-100 aria-[current=page]:bg-sky-100 aria-[current=page]:text-navy-500";
 
-/** Disclosure menu below xl. Treatments are listed inline (no second dropdown on touch screens). */
-export function MobileMenu({ items, icons }: { items: NavItem[]; icons: Record<string, ReactNode> }) {
+type Props = {
+  items: NavItem[];
+  icons: Record<string, ReactNode>;
+  locale: Locale;
+  languages: LanguageOption[];
+  pages: SitePages;
+  labels: { open: string; close: string; nav: string; language: string };
+};
+
+/** Disclosure menu below xl. Treatments are listed inline (no second dropdown on touch screens), languages last. */
+export function MobileMenu({ items, icons, locale, languages, pages, labels }: Props) {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
+  // English pages prerender as /en/…; compare the URL visitors see so server and browser agree.
+  const pathname = publicPath(usePathname());
   const rootRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpen(false);
-        buttonRef.current?.focus();
-      }
-    };
-    const onPointerDown = (event: PointerEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
-    };
-    document.addEventListener("keydown", onKeyDown);
-    document.addEventListener("pointerdown", onPointerDown);
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.removeEventListener("pointerdown", onPointerDown);
-    };
-  }, [open]);
+  const languageLinks = useLanguageLinks(languages, pages);
+  useDismiss(open, setOpen, rootRef, buttonRef);
 
   return (
     <div ref={rootRef} className="xl:hidden">
@@ -42,7 +38,7 @@ export function MobileMenu({ items, icons }: { items: NavItem[]; icons: Record<s
         type="button"
         aria-expanded={open}
         aria-controls="mobile-nav"
-        aria-label={open ? "Close menu" : "Open menu"}
+        aria-label={open ? labels.close : labels.open}
         onClick={() => setOpen((v) => !v)}
         className="inline-flex size-12 items-center justify-center rounded-full border border-line text-navy-900 transition-colors duration-150 hover:bg-sky-100"
       >
@@ -51,7 +47,7 @@ export function MobileMenu({ items, icons }: { items: NavItem[]; icons: Record<s
 
       <nav
         id="mobile-nav"
-        aria-label="Main"
+        aria-label={labels.nav}
         hidden={!open}
         className="absolute inset-x-0 top-full max-h-[calc(100dvh-8.5rem-env(safe-area-inset-bottom))] overflow-y-auto overscroll-contain md:max-h-[calc(100dvh-4.5rem)] border-b border-line bg-white shadow-[0_24px_40px_-24px_rgb(7_26_51/0.35)]"
       >
@@ -87,6 +83,24 @@ export function MobileMenu({ items, icons }: { items: NavItem[]; icons: Record<s
             ),
           )}
         </ul>
+        <div className="wrap border-t border-line py-4">
+          <p className="px-3 pb-2 text-sm font-semibold text-muted">{labels.language}</p>
+          <ul className="flex flex-wrap gap-2 px-3">
+            {languageLinks.map((link) => (
+              <li key={link.locale}>
+                <a
+                  href={link.href}
+                  hrefLang={link.hrefLang}
+                  lang={link.lang}
+                  aria-current={link.locale === locale ? "true" : undefined}
+                  className="inline-flex min-h-11 items-center rounded-full border border-line px-4 text-[0.9375rem] font-semibold text-navy-900 hover:bg-sky-100 aria-[current=true]:border-navy-900 aria-[current=true]:bg-navy-900 aria-[current=true]:text-white"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
     </div>
   );

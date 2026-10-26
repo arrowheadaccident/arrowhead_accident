@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { business } from "@/config/business";
+import { LOCALE_INFO } from "@/i18n/config";
 import { contactSchema, fieldErrors, normalizeUsPhone, type ContactData } from "@/lib/contact-schema";
 
 export const runtime = "nodejs";
@@ -35,6 +36,7 @@ function emailText(data: ContactData): string {
     `Phone: ${formatPhone(data.phone)}`,
     `Email: ${data.email || "-"}`,
     `Date of accident: ${data.accidentDate || "-"}`,
+    `Website language: ${LOCALE_INFO[data.locale ?? "en"].name}`,
     "",
     "How can we help?",
     data.message?.trim() || "-",
@@ -43,6 +45,7 @@ function emailText(data: ContactData): string {
   ].join("\n");
 }
 
+// Errors are codes (src/lib/contact-schema.ts); the form shows them in the visitor's language.
 const json = (body: unknown, status = 200) => Response.json(body, { status });
 
 export async function POST(request: Request) {
@@ -50,7 +53,7 @@ export async function POST(request: Request) {
   try {
     body = await request.json();
   } catch {
-    return json({ ok: false, errors: { form: "Send the form as JSON." } }, 400);
+    return json({ ok: false, errors: { form: "bad_request" } }, 400);
   }
 
   // Honeypot filled: pretend it worked and send nothing.
@@ -59,7 +62,7 @@ export async function POST(request: Request) {
   }
 
   if (rateLimited(clientIp(request))) {
-    return json({ ok: false, errors: { form: `Too many requests. Please call us at ${business.phone.display}.` } }, 429);
+    return json({ ok: false, errors: { form: "too_many" } }, 429);
   }
 
   const parsed = contactSchema.safeParse(body);
@@ -82,10 +85,7 @@ export async function POST(request: Request) {
     });
     if (error) {
       console.error("Contact email failed:", error.name);
-      return json(
-        { ok: false, errors: { form: `We couldn't send your request. Please call us at ${business.phone.display}.` } },
-        502,
-      );
+      return json({ ok: false, errors: { form: "send_failed" } }, 502);
     }
   } else if (process.env.NODE_ENV !== "production") {
     console.info("[dev] call-back request (Resend not configured):\n" + emailText(data));
