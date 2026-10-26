@@ -8,7 +8,7 @@ import { ContentIcon } from "@/components/icons";
 import type { NavItem, NavLink } from "@/lib/nav";
 
 const linkBase =
-  "inline-flex min-h-11 items-center rounded-md px-2.5 text-[0.9375rem] font-semibold text-navy-900 transition-colors duration-150 hover:bg-sky-100";
+  "inline-flex min-h-11 items-center whitespace-nowrap rounded-md px-2.5 text-[0.9375rem] font-semibold text-navy-900 transition-colors duration-150 hover:bg-sky-100";
 
 /** Desktop nav (xl+). "Accident Treatments" opens on click and keyboard, never on hover alone. */
 export function DesktopNav({ items }: { items: NavItem[] }) {

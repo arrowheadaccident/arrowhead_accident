@@ -15,7 +15,9 @@ export function Header() {
         <Logo />
         <DesktopNav items={items} />
         <div className="flex items-center gap-2">
-          <CallButton location="header" className="hidden min-h-11 px-5 text-[0.9375rem] md:inline-flex" />
+          <span className="hidden md:block">
+            <CallButton location="header" size="sm" />
+          </span>
           <a
             href={telHref}
             data-cta-location="header"

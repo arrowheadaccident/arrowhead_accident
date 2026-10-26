@@ -22,7 +22,7 @@ export function Logo({ onDark = false }: { onDark?: boolean }) {
   return (
     <Link href="/" className="group inline-flex min-h-11 items-center gap-2.5 rounded-md">
       <LogoMark onDark={onDark} />
-      <span className="flex flex-col">
+      <span className="flex flex-col whitespace-nowrap">
         <span
           className={`font-display text-[1.375rem] font-extrabold leading-none tracking-[-0.01em] ${onDark ? "text-white" : "text-navy-900"}`}
         >
