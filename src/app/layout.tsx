@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MobileCallBar } from "@/components/MobileCallBar";
 import { TopBar } from "@/components/TopBar";
-import { HOME_DESCRIPTION, HOME_TITLE, robots } from "@/lib/seo";
+import { HOME_DESCRIPTION, HOME_TITLE, ogImage, robots } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
@@ -21,6 +21,15 @@ export const metadata: Metadata = {
   description: HOME_DESCRIPTION,
   applicationName: business.name,
   robots,
+  // Defaults for pages without pageMetadata (the 404).
+  openGraph: { siteName: business.name, locale: "en_US", type: "website", images: [ogImage] },
+  twitter: { card: "summary_large_image", images: [ogImage.url] },
+  // Setting `icons` here makes Next skip the file-based icon.svg link, so it is listed too.
+  // favicon.ico is still linked automatically.
+  icons: {
+    icon: { url: "/icon.svg", type: "image/svg+xml", sizes: "any" },
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+  },
   formatDetection: { telephone: false, address: false, email: false },
 };
 

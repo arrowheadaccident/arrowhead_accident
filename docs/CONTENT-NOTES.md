@@ -60,6 +60,31 @@ pain management on site.
   the `FAQPage` JSON-LD. Q8 was rephrased as a question.
 - No Out-of-Pocket Cost: the home page's billing paragraph was added as a list.
 
+## SEO audit changes (2026-10-26, please confirm)
+
+From `docs/SEO-AUDIT.md`, action-plan step 3.
+
+- **H1s made specific:** Whiplash → "Whiplash Treatment After a Car Accident"; Pain Management →
+  "Pain Management After a Car Accident"; Spinal ligament → "Spinal Ligament Injury Treatment After a Car Crash";
+  study post → "What a 2013 Military Study Found About Chiropractic Care for Low Back Pain" (the old H1 said the
+  study was about car accident injuries; it was about acute low back pain in active-duty military personnel).
+- **Claims reworded as the clinic's experience:** Whiplash "the top three auto accident injuries in Glendale" →
+  "three of the injuries we see most often"; "the fourth or fifth day… is classically the worst" (Whiplash, Neck,
+  study post) → "in our experience… often the fourth or fifth day".
+- **Study post:** "The chiropractic profession has said this for over 100 years" removed; the description of
+  standard care now matches the study (medication, physical therapy, self-care advice) and says the study was not
+  about car accidents.
+- **Insurance myths post:** the Watkinson figures now match the paper (35 patients with soft tissue neck injuries;
+  symptoms in 86% after 10.8 years; neck degenerative changes in 68%).
+- **Sources:** PubMed links added to all four citations; the Headaches page's Wikipedia quote replaced with
+  the CDC's description of TBI and a link to it.
+- **Internal links:** every page except legal and FAQ now links to at least 2 other pages from its text
+  (`check:content` enforces it). Small wording changes made for this: Emergency lists neck pain, headaches and
+  low back pain; Low Back adds "such as a spinal ligament sprain"; Whiplash adds "(see spinal ligament injuries)";
+  Headaches "a proper examination" → "a prompt examination"; About "other back injuries" → "low back injuries";
+  the insurance myths post adds "If you have one, we can work on a lien and wait for payment until your case
+  settles."
+
 ## Needs legal review (§15.4)
 
 - **Privacy Policy still says "We may share or sell information with third parties

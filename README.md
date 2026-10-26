@@ -12,9 +12,10 @@ for the clinic are in [`docs/CONTENT-NOTES.md`](docs/CONTENT-NOTES.md).
 | `npm run dev` | Dev server on http://localhost:3000 |
 | `npm run build` / `npm start` | Production build / serve it |
 | `npm run lint` · `npm run typecheck` | ESLint · route types + `tsc --noEmit` |
-| `npm run check:content` | Cyrillic, banned strings, phone numbers, H1s, `<CallCta />`, frontmatter limits in `content/` |
+| `npm run check:content` | Cyrillic, banned strings, phone numbers, H1s, `<CallCta />`, frontmatter limits, at least 2 in-body links to other pages, in `content/` |
 | `npm run check:redirects` | Old URLs against a running server (`BASE_URL`, default `http://localhost:3000`) |
-| `npm run check:html` | One H1, canonical, JSON-LD, robots, `og:image` and `tel:` links on every page in the sitemap |
+| `npm run check:html` | One H1, unique title, canonical, JSON-LD, robots, `og:image` and `tel:` links on every page in the sitemap; share-image and icon URLs answer 200 with no redirect |
+| `npm run check:launch` | Fails while `SITE_IS_PLACEHOLDER` is on or `business.ts` still has sample data. Must pass before the DNS cutover |
 | `npm run extract` | One-time import of the old WordPress pages into `content/_raw/` (git-ignored) |
 
 `check:redirects` and `check:html` need a production server: `npm run build && npm start`.
@@ -24,6 +25,11 @@ for the clinic are in [`docs/CONTENT-NOTES.md`](docs/CONTENT-NOTES.md).
 - All business data (NAP, hours, team, service areas) lives in `src/config/business.ts`.
   While `SITE_IS_PLACEHOLDER` is `true`, every page is `noindex, nofollow` and the team
   shows "Sample profile" tags. See §15 of the brief for the launch checklist.
+- Setting `SITE_IS_PLACEHOLDER = false` while `business.ts` still has sample data stops the build.
+  The opposite mistake (going live while still a placeholder) is what `npm run check:launch` catches:
+  use `npm run check:launch && npm run build` as the production build command.
+- The share image is `/og.png` and the iOS icon `/apple-touch-icon.png` (route handlers in `src/app/`),
+  not the `opengraph-image` / `apple-icon` conventions: with `trailingSlash: true` those URLs 308-redirect.
 - Pages are MDX in `content/`. MDX can use `<Phone />`, `<Address />`, `<Hours />`,
   `<ServiceAreas />`, `<CallCta />`, `<ValueProps />` and `<BusinessName />`.
 - Copy `.env.example` to `.env.local` to set the site URL, GA4 ID and Resend keys.

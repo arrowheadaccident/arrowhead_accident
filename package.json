@@ -12,6 +12,7 @@
     "check:content": "node scripts/check-content.mjs",
     "check:redirects": "node scripts/check-redirects.mjs",
     "check:html": "node scripts/check-html.mjs",
+    "check:launch": "node scripts/check-launch.mjs",
     "check": "npm run lint && npm run typecheck && npm run check:content"
   },
   "dependencies": {

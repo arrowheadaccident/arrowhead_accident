@@ -1,11 +1,13 @@
 import { ImageResponse } from "next/og";
 import { business } from "@/config/business";
 
-export const alt = `${business.name}, Glendale, AZ. Call ${business.phone.display}`;
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+// Served at /og.png and referenced by ogImage in src/lib/seo.ts (alt text lives there). A route with a
+// file extension isn't touched by `trailingSlash`, unlike the opengraph-image convention (docs/SEO-AUDIT.md H3).
+export const dynamic = "force-static";
 
-export default function OpengraphImage() {
+const size = { width: 1200, height: 630 };
+
+export function GET() {
   return new ImageResponse(
     (
       <div

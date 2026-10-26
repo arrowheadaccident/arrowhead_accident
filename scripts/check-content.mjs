@@ -59,7 +59,7 @@ for (const [collection] of Object.entries(COLLECTIONS)) {
 
     const slug = path.basename(file, ".mdx");
     const template = fm.template ?? COLLECTIONS[collection].template;
-    entries.push({ file, slug, fm, template });
+    entries.push({ file, slug, fm, template, content });
 
     const text = raw.replace(/\[[^\]]*\]\([^)]*\)/g, "");
     if (PHONE.test(text)) report(file, `phone number in text (use <Phone />): "${text.match(PHONE)[0]}"`);
@@ -86,6 +86,19 @@ for (const entry of entries) {
 const urls = entries.map((e) => COLLECTIONS[Object.keys(COLLECTIONS).find((c) => e.file.includes(path.sep + c + path.sep))].url(e.slug));
 const dupes = urls.filter((u, i) => urls.indexOf(u) !== i);
 for (const dupe of dupes) problems.push(`duplicate URL ${dupe}`);
+
+// Internal links in the body must resolve, and every page except legal and FAQ links to at least
+// MIN_BODY_LINKS other content pages from its text (docs/SEO-AUDIT.md M1).
+const MIN_BODY_LINKS = 2;
+const knownUrls = new Set([...urls, "/", "/contact/", "/blog/"]);
+entries.forEach((entry, i) => {
+  const targets = [...entry.content.matchAll(/\]\((\/[^)#\s]*)(?:#[^)]*)?\)/g)].map((m) => m[1]);
+  for (const target of targets) if (!knownUrls.has(target)) report(entry.file, `link to unknown page ${target}`);
+  const others = new Set(targets.filter((t) => urls.includes(t) && t !== urls[i]));
+  if (!["legal", "faq"].includes(entry.template) && others.size < MIN_BODY_LINKS) {
+    report(entry.file, `body links to ${others.size} other content page(s) (min ${MIN_BODY_LINKS})`);
+  }
+});
 
 // 3. Source code shown to visitors must be clean too (home page copy lives in src/).
 for (const file of walk(path.join(ROOT, "src"), [".ts", ".tsx", ".mjs", ".css"])) {

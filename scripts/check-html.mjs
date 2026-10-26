@@ -3,7 +3,7 @@
 //   BASE_URL=http://localhost:3000 npm run check:html
 // For every URL in /sitemap.xml: one <h1>, a trailing-slash canonical, one valid JSON-LD script,
 // noindex while SITE_IS_PLACEHOLDER, only tel:+16234006362, alt on images, title on iframes,
-// and first-load JS (gzipped). The JS budget is reported as a warning: on Next 16.4 + React 19 the
+// unique titles, og/twitter/icon URLs that answer 200 without a redirect, and first-load JS (gzipped). The JS budget is reported as a warning: on Next 16.4 + React 19 the
 // framework runtime alone is ~136 KB gzipped, above the brief's 120 KB target (see README).
 import { gzipSync } from "node:zlib";
 import * as cheerio from "cheerio";
@@ -29,6 +29,16 @@ async function gzippedSize(src) {
 const failures = [];
 const warnings = [];
 const rows = [];
+const titles = new Map();
+const assets = new Map(); // asset path -> first page that references it
+
+// Share previews and icons must not redirect: `trailingSlash` 308s extensionless routes (docs/SEO-AUDIT.md H3).
+const ASSET_SELECTORS = [
+  ['meta[property="og:image"]', "content"],
+  ['meta[name="twitter:image"]', "content"],
+  ['link[rel="icon"]', "href"],
+  ['link[rel="apple-touch-icon"]', "href"],
+];
 
 for (const path of paths) {
   const res = await fetch(BASE + path);
@@ -39,6 +49,19 @@ for (const path of paths) {
 
   if (is404 ? res.status !== 404 : res.status !== 200) fail(`HTTP ${res.status}`);
   if ($("html").attr("lang") !== "en-US") fail(`<html lang="${$("html").attr("lang")}">`);
+
+  const title = $("title").text();
+  if (!title) fail("no <title>");
+  else if (titles.has(title)) fail(`same <title> as ${titles.get(title)}`);
+  else titles.set(title, path);
+
+  for (const [selector, attr] of ASSET_SELECTORS) {
+    $(selector).each((_, el) => {
+      const url = new URL($(el).attr(attr), BASE);
+      const key = url.pathname + url.search;
+      if (!assets.has(key)) assets.set(key, path);
+    });
+  }
 
   const h1s = $("h1");
   if (h1s.length !== 1) fail(`${h1s.length} <h1> elements`);
@@ -86,6 +109,11 @@ for (const path of paths) {
   rows.push({ path, status: res.status, h1: h1s.length, "js (KB gz)": kb, tel: $('a[href^="tel:"]').length });
 }
 
+for (const [asset, page] of assets) {
+  const res = await fetch(BASE + asset, { redirect: "manual" });
+  if (res.status !== 200) failures.push(`${page}: ${asset} answers HTTP ${res.status}${res.headers.get("location") ? ` → ${res.headers.get("location")}` : ""}`);
+}
+
 console.table(rows);
 if (warnings.length) {
   console.warn(`
@@ -97,4 +125,4 @@ if (failures.length) {
   for (const f of failures) console.error(`  ✗ ${f}`);
   process.exit(1);
 }
-console.log(`check:html passed: ${paths.length} pages.`);
+console.log(`check:html passed: ${paths.length} pages, ${assets.size} preview/icon URLs.`);

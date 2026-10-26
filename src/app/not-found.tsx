@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { CallButton, buttonStyles } from "@/components/Button";
+import { business } from "@/config/business";
+
+// Without this the 404 inherits the home page title and description. Next adds noindex on 404s.
+export const metadata: Metadata = {
+  title: `Page Not Found | ${business.name}`,
+  description: "The page you're looking for doesn't exist or has moved.",
+};
 
 export default function NotFound() {
   return (
