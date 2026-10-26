@@ -20,6 +20,19 @@ for the clinic are in [`docs/CONTENT-NOTES.md`](docs/CONTENT-NOTES.md).
 
 `check:redirects` and `check:html` need a production server: `npm run build && npm start`.
 
+## Vercel deployment
+
+Import the repository with the Root Directory set to the repository root (where
+`package.json` lives). `vercel.json` sets the Next.js framework preset and `.next`
+output directory, overriding those dashboard settings. `public/` contains static
+assets; it is not the build output.
+
+Use the default `npm run build` build command for preview deployments. For the
+production launch, use `npm run check:launch && npm run build` as described below.
+Add the values from `.env.example` in Vercel's Environment Variables settings.
+After changing deployment settings or pushing this configuration, deploy the latest
+commit so Vercel picks up the changes.
+
 ## Data and content
 
 - All business data (NAP, hours, team, service areas) lives in `src/config/business.ts`.
