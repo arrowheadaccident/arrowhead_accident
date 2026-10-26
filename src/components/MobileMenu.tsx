@@ -2,16 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
-import { ContentIcon } from "@/components/icons";
 import type { NavItem } from "@/lib/nav";
 
 const rowLink =
   "flex min-h-12 items-center rounded-md px-3 text-base font-semibold text-navy-900 hover:bg-sky-100 aria-[current=page]:bg-sky-100 aria-[current=page]:text-navy-500";
 
 /** Disclosure menu below xl. Treatments are listed inline (no second dropdown on touch screens). */
-export function MobileMenu({ items }: { items: NavItem[] }) {
+export function MobileMenu({ items, icons }: { items: NavItem[]; icons: Record<string, ReactNode> }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const rootRef = useRef<HTMLDivElement>(null);
@@ -54,7 +53,7 @@ export function MobileMenu({ items }: { items: NavItem[] }) {
         id="mobile-nav"
         aria-label="Main"
         hidden={!open}
-        className="absolute inset-x-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-line bg-white shadow-[0_24px_40px_-24px_rgb(7_26_51/0.35)]"
+        className="absolute inset-x-0 top-full max-h-[calc(100dvh-8.5rem-env(safe-area-inset-bottom))] overflow-y-auto overscroll-contain md:max-h-[calc(100dvh-4.5rem)] border-b border-line bg-white shadow-[0_24px_40px_-24px_rgb(7_26_51/0.35)]"
       >
         <ul
           className="wrap grid gap-0.5 py-3"
@@ -72,7 +71,7 @@ export function MobileMenu({ items }: { items: NavItem[] }) {
                         aria-current={pathname === child.href ? "page" : undefined}
                         className={`${rowLink} gap-3`}
                       >
-                        <ContentIcon name={child.icon} className="size-5 shrink-0 text-navy-500" />
+                        {icons[child.href]}
                         {child.label}
                       </Link>
                     </li>

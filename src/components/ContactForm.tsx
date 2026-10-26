@@ -1,6 +1,16 @@
 "use client";
 
-import { useId, useState, useSyncExternalStore, type ChangeEvent, type FocusEvent, type FormEvent, type ReactNode } from "react";
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type ChangeEvent,
+  type FocusEvent,
+  type FormEvent,
+  type ReactNode,
+} from "react";
 import { CircleAlert, CircleCheck, LoaderCircle } from "lucide-react";
 import { business, telHref } from "@/config/business";
 import { MESSAGE_MAX, contactSchema, fieldErrors, type ContactField, type FieldErrors } from "@/lib/contact-schema";
@@ -66,14 +76,40 @@ export function ContactForm({ variant, location, title = "Request a call back", 
   const fieldId = (name: string) => `${uid}-${name}`;
   const Heading = headingLevel;
 
+  // A blur caused by pressing inside the form (e.g. tapping the consent box right after typing an
+  // email) must not show an error mid-click: the new message would shift the target before
+  // pointerup and the click would be lost. Such blur checks wait until the click has landed.
+  const pointerDown = useRef(false);
+  const pendingBlur = useRef<(() => void) | null>(null);
+  useEffect(() => {
+    const onPointerUp = () => {
+      pointerDown.current = false;
+      const run = pendingBlur.current;
+      pendingBlur.current = null;
+      if (run) window.setTimeout(run, 0);
+    };
+    document.addEventListener("pointerup", onPointerUp);
+    document.addEventListener("pointercancel", onPointerUp);
+    return () => {
+      document.removeEventListener("pointerup", onPointerUp);
+      document.removeEventListener("pointercancel", onPointerUp);
+    };
+  }, []);
+
   function onBlur(event: FocusEvent<HTMLFormElement>) {
-    const field = (event.target as unknown as HTMLInputElement).name as ContactField | "";
-    if (!field || field === "website" || !event.currentTarget.contains(event.target)) return;
+    const form = event.currentTarget;
+    const input = event.target as unknown as HTMLInputElement;
+    const field = input.name as ContactField | "";
+    if (!field || field === "website" || !form.contains(input)) return;
     // Validate on blur, but don't scold an empty field the person only tabbed through.
-    const value = (event.target as unknown as HTMLInputElement).value;
-    if (field !== "consent" && value === "" && !errors[field]) return;
-    const next = validate(event.currentTarget);
-    setErrors((prev) => ({ ...prev, [field]: next[field] }));
+    const empty = field === "consent" ? !input.checked : input.value === "";
+    if (empty && !errors[field]) return;
+    const run = () => {
+      const next = validate(form);
+      setErrors((prev) => ({ ...prev, [field]: next[field] }));
+    };
+    if (pointerDown.current) pendingBlur.current = run;
+    else run();
   }
 
   function onChange(event: ChangeEvent<HTMLFormElement>) {
@@ -159,6 +195,9 @@ export function ContactForm({ variant, location, title = "Request a call back", 
       onSubmit={onSubmit}
       onBlur={onBlur}
       onChange={onChange}
+      onPointerDownCapture={() => {
+        pointerDown.current = true;
+      }}
       aria-labelledby={title ? `${uid}-title` : undefined}
       className={shell}
     >

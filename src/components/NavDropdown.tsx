@@ -2,16 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
-import { ContentIcon } from "@/components/icons";
 import type { NavItem, NavLink } from "@/lib/nav";
 
 const linkBase =
   "inline-flex min-h-11 items-center whitespace-nowrap rounded-md px-2.5 text-[0.9375rem] font-semibold text-navy-900 transition-colors duration-150 hover:bg-sky-100";
 
 /** Desktop nav (xl+). "Accident Treatments" opens on click and keyboard, never on hover alone. */
-export function DesktopNav({ items }: { items: NavItem[] }) {
+/** `icons` are rendered on the server (keyed by href) so lucide icons stay out of the client bundle. */
+export function DesktopNav({ items, icons }: { items: NavItem[]; icons: Record<string, ReactNode> }) {
   const pathname = usePathname();
   return (
     <nav aria-label="Main" className="hidden xl:block">
@@ -19,7 +19,7 @@ export function DesktopNav({ items }: { items: NavItem[] }) {
         {items.map((item) =>
           "children" in item ? (
             <li key={item.label}>
-              <NavDropdown label={item.label} links={item.children} pathname={pathname} />
+              <NavDropdown label={item.label} links={item.children} icons={icons} pathname={pathname} />
             </li>
           ) : (
             <li key={item.href}>
@@ -38,7 +38,17 @@ export function DesktopNav({ items }: { items: NavItem[] }) {
   );
 }
 
-function NavDropdown({ label, links, pathname }: { label: string; links: NavLink[]; pathname: string }) {
+function NavDropdown({
+  label,
+  links,
+  icons,
+  pathname,
+}: {
+  label: string;
+  links: NavLink[];
+  icons: Record<string, ReactNode>;
+  pathname: string;
+}) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -101,7 +111,7 @@ function NavDropdown({ label, links, pathname }: { label: string; links: NavLink
                 aria-current={pathname === link.href ? "page" : undefined}
                 className="flex min-h-11 items-center gap-3 rounded-md px-3 py-2 text-[0.9375rem] font-semibold text-navy-900 transition-colors duration-150 hover:bg-sky-100 aria-[current=page]:bg-sky-100"
               >
-                <ContentIcon name={link.icon} className="size-5 shrink-0 text-navy-500" />
+                {icons[link.href]}
                 {link.label}
               </Link>
             </li>
