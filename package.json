@@ -6,7 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "extract": "node scripts/extract-old-content.mjs",
+    "check:content": "node scripts/check-content.mjs",
+    "check:redirects": "node scripts/check-redirects.mjs",
+    "check:html": "node scripts/check-html.mjs",
+    "check": "npm run lint && npm run typecheck && npm run check:content"
   },
   "dependencies": {
     "@next/third-parties": "^16.4.3",
