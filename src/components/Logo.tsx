@@ -33,7 +33,7 @@ export async function Logo({ onDark = false }: { onDark?: boolean }) {
           Arrowhead
         </span>
         <span className={`mt-1 text-[0.75rem] font-semibold leading-none ${onDark ? "text-navy-200" : "text-muted"}`}>
-          Car Accident Chiropractor
+          Injury Care
         </span>
       </span>
     </Link>

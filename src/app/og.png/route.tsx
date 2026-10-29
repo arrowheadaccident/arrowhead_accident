@@ -31,7 +31,7 @@ export function GET() {
           </svg>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ fontSize: 76, fontWeight: 800, letterSpacing: -1.5, lineHeight: 1 }}>Arrowhead</div>
-            <div style={{ fontSize: 34, color: "#b9c6d8", marginTop: 10 }}>Car Accident Chiropractor</div>
+            <div style={{ fontSize: 34, color: "#b9c6d8", marginTop: 10 }}>Injury Care</div>
           </div>
         </div>
 
@@ -44,7 +44,7 @@ export function GET() {
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
           <div style={{ display: "flex", flexDirection: "column", fontSize: 36, color: "#b9c6d8" }}>
-            <div>Same-day car accident care</div>
+            <div>Car accident chiropractic</div>
             <div>Glendale, Arizona</div>
           </div>
           <div

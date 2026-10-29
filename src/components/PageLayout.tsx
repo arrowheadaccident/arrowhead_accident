@@ -36,7 +36,13 @@ export async function ContentSidebar() {
               {hoursSummary(locale, t.hours.closed).map((row) => (
                 <div key={row.days} className="contents">
                   <dt className="font-semibold text-white">{row.days}</dt>
-                  <dd className="tabular-nums">{row.label}</dd>
+                  <dd className="tabular-nums">
+                    {row.lines.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
+                  </dd>
                 </div>
               ))}
             </dl>

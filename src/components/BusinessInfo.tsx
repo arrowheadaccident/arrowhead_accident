@@ -35,10 +35,16 @@ export async function Hours({ className = "" }: { className?: string }) {
       <tbody>
         {weeklyHours(locale, t.hours.closed).map((row) => (
           <tr key={row.day} className="border-b border-current/15 last:border-0">
-            <th scope="row" className="py-2 pr-4 font-semibold">
+            <th scope="row" className="py-2 pr-4 align-top font-semibold">
               {row.day}
             </th>
-            <td className="py-2 tabular-nums">{row.label}</td>
+            <td className="py-2 tabular-nums">
+              {row.lines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </td>
           </tr>
         ))}
       </tbody>

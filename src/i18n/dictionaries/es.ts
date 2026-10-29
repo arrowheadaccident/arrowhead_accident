@@ -5,7 +5,7 @@ export const es: Dictionary = {
   meta: {
     homeTitle: "Quiropráctico de accidentes de auto en Glendale, AZ",
     homeDescription:
-      "¿Se lesionó en un accidente de auto en Glendale o Arrowhead Ranch? Examen quiropráctico el mismo día y sin costo de su bolsillo si otro conductor tuvo la culpa.",
+      "¿Se lesionó en un accidente de auto en Glendale o Arrowhead Ranch? Examen quiropráctico sin demora y sin costo de su bolsillo si otro conductor tuvo la culpa.",
     ogImageAlt: "{name}, Glendale, AZ. Llame al {phone}",
   },
 
@@ -28,7 +28,7 @@ export const es: Dictionary = {
     title: "Hablamos español",
     text: "Nuestros médicos y asistentes hablan español.",
     interpreter: "",
-    callToday: "Llámenos hoy para una cita el mismo día.",
+    callToday: "Llámenos para una cita el mismo día o el siguiente día de consulta.",
     cta: "Llame al {phone}",
   },
 
@@ -55,17 +55,16 @@ export const es: Dictionary = {
     languages: "Idiomas",
     disclaimer:
       "Este sitio web proporciona información general. No ofrece asesoría médica ni legal ni establece una relación médico-paciente. Si tiene una emergencia médica, llame al 911.",
-    notAssociated: "Este sitio web no tiene ninguna relación con el Dr. Vaughn Movses ni con Arrowhead Accident Group.",
   },
 
   ctaBand: {
-    title: "¿Se lesionó en un accidente de auto? Hágase revisar hoy.",
-    text: "Citas el mismo día y sin costo de su bolsillo cuando otro conductor tiene la culpa.",
+    title: "¿Se lesionó en un accidente de auto? No espere para hacerse revisar.",
+    text: "Citas el mismo día en días de consulta y sin costo de su bolsillo cuando otro conductor tiene la culpa.",
   },
 
   callCta: {
-    label: "Reserve un examen el mismo día",
-    title: "Exámenes el mismo día para lesiones por accidente de auto.",
+    label: "Reserve un examen",
+    title: "Exámenes sin demora para lesiones por accidente de auto.",
     before: "Llame ahora o ",
     link: "solicite que le llamemos",
     after: ".",
@@ -73,7 +72,7 @@ export const es: Dictionary = {
 
   sidebar: {
     label: "Contacte a la clínica",
-    title: "¿Se lesionó en un choque? Examen el mismo día.",
+    title: "¿Se lesionó en un choque? Examen sin demora.",
   },
 
   costAndQuestions: {
@@ -85,6 +84,7 @@ export const es: Dictionary = {
   hours: {
     closed: "Cerrado",
     openUntil: "Abierto hoy hasta las {time}",
+    openUntilReopens: "Abierto hasta las {time}, reabre a las {reopen}",
     opensToday: "Abre hoy a las {time}",
     opensTomorrow: "Cerrado ahora. Abre mañana a las {time}",
     opensOn: "Cerrado ahora. Abre el {day} a las {time}",
@@ -97,7 +97,7 @@ export const es: Dictionary = {
     steps: [
       {
         title: "Llámenos",
-        text: "Llame o solicite que le llamemos. Hay citas el mismo día y al día siguiente, incluso si ya fue a la sala de emergencias.",
+        text: "Llame o solicite que le llamemos. Hay citas el mismo día o el siguiente día de consulta, incluso si ya fue a la sala de emergencias.",
       },
       {
         title: "Examen completo y documentación",
@@ -115,7 +115,7 @@ export const es: Dictionary = {
   },
 
   valueProps: [
-    { title: "Citas el mismo día", text: "Llame hoy y vea a un médico hoy o al día siguiente." },
+    { title: "Citas sin demora", text: "Llámenos y vea a un médico el mismo día o el siguiente día de consulta." },
     { title: "Sin costo de su bolsillo", text: "Si otro conductor causó su accidente, facturamos a su seguro y esperamos el pago." },
     { title: "No necesita seguro médico", text: "Puede recibir tratamiento aunque no tenga seguro médico." },
     { title: "Trabajamos con su abogado", text: "Podemos aplazar el pago mediante un gravamen (lien) y compartir los expedientes de tratamiento con su abogado." },
@@ -171,8 +171,8 @@ export const es: Dictionary = {
   home: {
     h1: "Quiropráctico para lesiones por accidentes de auto en Glendale, Arizona",
     intro:
-      "Si usted o un ser querido ha tenido un accidente de auto, un examen completo puede ayudar a identificar lesiones y orientar su atención. Los síntomas no siempre aparecen de inmediato. Llame hoy para una cita el mismo día o al día siguiente.",
-    heroPoints: ["Citas el mismo día", "Sin costo de su bolsillo cuando otro conductor tiene la culpa", "No necesita seguro médico"],
+      "Si usted o un ser querido ha tenido un accidente de auto, un examen completo puede ayudar a identificar lesiones y orientar su atención. Los síntomas no siempre aparecen de inmediato. Llame para una cita el mismo día o el siguiente día de consulta.",
+    heroPoints: ["Citas el mismo día en días de consulta", "Sin costo de su bolsillo cuando otro conductor tiene la culpa", "No necesita seguro médico"],
     injuriesTitle: "Lesiones por accidente de auto que tratamos",
     injuriesLead:
       "Nuestros quiroprácticos y médicos se centran en lesiones por accidentes de auto y laborales. Elija un síntoma o una lesión para obtener más información.",
@@ -189,7 +189,7 @@ export const es: Dictionary = {
     careLabel: "Manejo del dolor y atención en español",
     painTitle: "Manejo del dolor en la misma clínica",
     painText:
-      "Coordinamos la atención quiropráctica y el manejo médico del dolor, con derivaciones a ortopedia cuando sea necesario. Ofrecemos tratamiento sin costo de su bolsillo cuando otro conductor tiene la culpa. Llámenos para programar una cita el mismo día y hablar sobre su situación.",
+      "Coordinamos la atención quiropráctica y el manejo médico del dolor, con derivaciones a ortopedia cuando sea necesario. Ofrecemos tratamiento sin costo de su bolsillo cuando otro conductor tiene la culpa. Llámenos para programar una cita y hablar sobre su situación.",
     painLink: "Sobre el manejo del dolor",
     teamTitle: "Quiroprácticos y un médico bajo un mismo techo",
     teamLead: "Cuatro médicos quiroprácticos y un médico especialista en manejo del dolor que tratan lesiones por accidentes de auto todos los días.",
@@ -223,9 +223,9 @@ export const es: Dictionary = {
   contact: {
     title: "Contáctenos | Quiropráctico de accidentes en Glendale",
     description:
-      "Llame al {phone} o solicite una llamada. Citas el mismo día para lesiones por accidentes de auto en Glendale, AZ. Hablamos español.",
+      "Llame al {phone} o solicite una llamada. Citas sin demora para lesiones por accidentes de auto en Glendale, AZ. Hablamos español.",
     h1: "Contáctenos",
-    lead: "Llame para una cita el mismo día o envíe el formulario y le llamaremos durante el horario de atención.",
+    lead: "Llame para una cita o envíe el formulario y le llamaremos durante el horario de atención.",
     formTitle: "Solicite que le llamemos",
     required: "Todos los campos son obligatorios salvo los marcados como opcionales.",
     visit: "Visítenos",

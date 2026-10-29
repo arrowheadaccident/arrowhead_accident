@@ -9,6 +9,7 @@ export type Day = (typeof DAYS)[number];
 export type HoursLabels = {
   closed: string;
   openUntil: string;
+  openUntilReopens: string;
   opensToday: string;
   opensTomorrow: string;
   opensOn: string;
@@ -44,37 +45,52 @@ export function hoursFor(day: Day) {
 
 const range = (opens: string, closes: string, locale: Locale) => `${formatTime(opens, locale)} – ${formatTime(closes, locale)}`;
 
+/** "9:00 AM – 12:00 PM", "2:00 PM – 6:30 PM": one entry per interval, or [closed]. */
+function intervalLabels(row: ReturnType<typeof hoursFor>, locale: Locale, closed: string): string[] {
+  return row ? row.intervals.map((interval) => range(interval.opens, interval.closes, locale)) : [closed];
+}
+
+/** ["Monday", "Tuesday", "Thursday"] -> "Mon, Tue, Thu"; ["Friday", "Saturday", "Sunday"] -> "Fri – Sun". */
+function dayList(days: readonly Day[], locale: Locale): string {
+  const short = (day: Day) => capitalized(dayName(day, locale, "short"));
+  const runs: Day[][] = [];
+  for (const day of [...days].sort((a, b) => DAYS.indexOf(a) - DAYS.indexOf(b))) {
+    const run = runs.at(-1);
+    if (run && DAYS.indexOf(day) === DAYS.indexOf(run[run.length - 1]) + 1) run.push(day);
+    else runs.push([day]);
+  }
+  return runs
+    .flatMap((run) => (run.length > 2 ? [`${short(run[0])} – ${short(run[run.length - 1])}`] : run.map(short)))
+    .join(locale === "zh" ? "、" : ", ");
+}
+
 /** One row per day, Monday first. */
 export function weeklyHours(locale: Locale, closed: string) {
-  return DAYS.map((day) => {
-    const row = hoursFor(day);
-    return { day: capitalized(dayName(day, locale)), label: row ? range(row.opens, row.closes, locale) : closed };
-  });
+  return DAYS.map((day) => ({ day: capitalized(dayName(day, locale)), lines: intervalLabels(hoursFor(day), locale, closed) }));
 }
 
-/** Grouped rows: "Mon – Fri", "Sat", "Sun". */
+/** Grouped rows: "Mon, Tue, Thu" with their intervals, then the closed days in one row. */
 export function hoursSummary(locale: Locale, closed: string) {
-  const short = (day: Day) => capitalized(dayName(day, locale, "short"));
   const open = business.hours.map((row) => ({
-    days: row.days.length > 1 ? `${short(row.days[0])} – ${short(row.days[row.days.length - 1])}` : short(row.days[0]),
-    label: range(row.opens, row.closes, locale),
+    days: dayList(row.days, locale),
+    lines: intervalLabels(row, locale, closed),
     closed: false,
   }));
-  const closedDays = DAYS.filter((day) => !hoursFor(day)).map((day) => ({ days: short(day), label: closed, closed: true }));
-  return [...open, ...closedDays];
+  const closedDays = DAYS.filter((day) => !hoursFor(day));
+  return closedDays.length ? [...open, { days: dayList(closedDays, locale), lines: [closed], closed: true }] : open;
 }
 
-/** "Mon – Fri 7:00 AM – 7:00 PM, Sat 8:00 AM – 1:00 PM": what OpenStatus shows before it knows today's date. */
+/** "Mon, Tue, Thu 9:00 AM – 12:00 PM, 2:00 PM – 6:30 PM": what OpenStatus shows before it knows today's date. */
 export function openHoursText(locale: Locale, closed: string): string {
   return hoursSummary(locale, closed)
     .filter((row) => !row.closed)
-    .map((row) => `${row.days} ${row.label}`)
-    .join(", ");
+    .map((row) => `${row.days} ${row.lines.join(", ")}`)
+    .join("; ");
 }
 
 export type ClinicStatus = { open: boolean; text: string };
 
-/** Open/closed status in the clinic's time zone. Call only in the browser. */
+/** Open/closed status in the clinic's time zone, lunch break included. Call only in the browser. */
 export function clinicStatus(now: Date, locale: Locale, labels: HoursLabels): ClinicStatus {
   const parts = new Intl.DateTimeFormat("en-US", {
     timeZone: business.timeZone,
@@ -87,19 +103,29 @@ export function clinicStatus(now: Date, locale: Locale, labels: HoursLabels): Cl
   const weekday = get("weekday") as Day;
   const minutes = Number(get("hour")) * 60 + Number(get("minute"));
 
-  const today = hoursFor(weekday);
-  if (today && minutes < toMinutes(today.closes)) {
-    return minutes < toMinutes(today.opens)
-      ? { open: false, text: fill(labels.opensToday, { time: formatTime(today.opens, locale) }) }
-      : { open: true, text: fill(labels.openUntil, { time: formatTime(today.closes, locale) }) };
+  const intervals = hoursFor(weekday)?.intervals ?? [];
+  const index = intervals.findIndex((interval) => minutes < toMinutes(interval.closes));
+  if (index !== -1) {
+    const current = intervals[index];
+    if (minutes < toMinutes(current.opens)) {
+      return { open: false, text: fill(labels.opensToday, { time: formatTime(current.opens, locale) }) };
+    }
+    const time = formatTime(current.closes, locale);
+    const reopens = intervals[index + 1];
+    return {
+      open: true,
+      text: reopens
+        ? fill(labels.openUntilReopens, { time, reopen: formatTime(reopens.opens, locale) })
+        : fill(labels.openUntil, { time }),
+    };
   }
 
-  const index = DAYS.indexOf(weekday);
+  const dayIndex = DAYS.indexOf(weekday);
   for (let offset = 1; offset <= 7; offset++) {
-    const day = DAYS[(index + offset) % 7];
+    const day = DAYS[(dayIndex + offset) % 7];
     const row = hoursFor(day);
     if (row) {
-      const time = formatTime(row.opens, locale);
+      const time = formatTime(row.intervals[0].opens, locale);
       return offset === 1
         ? { open: false, text: fill(labels.opensTomorrow, { time }) }
         : { open: false, text: fill(labels.opensOn, { day: dayName(day, locale), time }) };

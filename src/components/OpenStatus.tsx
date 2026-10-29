@@ -21,7 +21,7 @@ type Props = {
   onDark?: boolean;
 };
 
-/** "Open today until 7:00 PM" in the clinic's time zone. */
+/** "Open today until 6:30 PM" in the clinic's time zone. */
 export function OpenStatus({ fallback, locale, labels, className = "", onDark = false }: Props) {
   const minute = useSyncExternalStore(subscribe, currentMinute, serverMinute);
   if (minute === null) return <span className={className}>{fallback}</span>;

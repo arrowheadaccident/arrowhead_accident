@@ -6,7 +6,7 @@ export const de: Dictionary = {
   meta: {
     homeTitle: "Chiropraktik nach Autounfällen in Glendale, AZ",
     homeDescription:
-      "Nach einem Autounfall in Glendale oder Arrowhead Ranch verletzt? Untersuchung am selben Tag, ohne eigene Kosten bei Fremdverschulden.",
+      "Nach einem Autounfall in Glendale oder Arrowhead Ranch verletzt? Zeitnahe Untersuchung, ohne eigene Kosten bei Fremdverschulden.",
     ogImageAlt: "{name}, Glendale, AZ. Anrufen: {phone}",
   },
 
@@ -56,17 +56,16 @@ export const de: Dictionary = {
     languages: "Sprachen",
     disclaimer:
       "Diese Website bietet allgemeine Informationen. Sie ersetzt keine medizinische oder rechtliche Beratung und begründet kein Arzt-Patienten-Verhältnis. Rufen Sie bei einem medizinischen Notfall 911 an.",
-    notAssociated: "Diese Website steht in keinerlei Verbindung mit Dr. Vaughn Movses oder der Arrowhead Accident Group.",
   },
 
   ctaBand: {
-    title: "Bei einem Autounfall verletzt? Lassen Sie sich heute untersuchen.",
-    text: "Termine am selben Tag und keine Kosten für Sie, wenn ein anderer Fahrer den Unfall verursacht hat.",
+    title: "Bei einem Autounfall verletzt? Warten Sie nicht mit der Untersuchung.",
+    text: "Termine am selben Tag an Praxistagen und keine Kosten für Sie, wenn ein anderer Fahrer den Unfall verursacht hat.",
   },
 
   callCta: {
-    label: "Untersuchung am selben Tag vereinbaren",
-    title: "Untersuchung am selben Tag bei Verletzungen durch einen Autounfall.",
+    label: "Untersuchung vereinbaren",
+    title: "Zeitnahe Untersuchung bei Verletzungen durch einen Autounfall.",
     before: "Rufen Sie jetzt an oder ",
     link: "fordern Sie einen Rückruf an",
     after: ".",
@@ -74,7 +73,7 @@ export const de: Dictionary = {
 
   sidebar: {
     label: "Praxis kontaktieren",
-    title: "Bei einem Unfall verletzt? Untersuchung noch heute.",
+    title: "Bei einem Unfall verletzt? Zeitnahe Untersuchung.",
   },
 
   costAndQuestions: {
@@ -86,6 +85,7 @@ export const de: Dictionary = {
   hours: {
     closed: "Geschlossen",
     openUntil: "Heute geöffnet bis {time} Uhr",
+    openUntilReopens: "Geöffnet bis {time} Uhr, wieder ab {reopen} Uhr",
     opensToday: "Öffnet heute um {time} Uhr",
     opensTomorrow: "Jetzt geschlossen. Öffnet morgen um {time} Uhr",
     opensOn: "Jetzt geschlossen. Öffnet am {day} um {time} Uhr",
@@ -98,7 +98,7 @@ export const de: Dictionary = {
     steps: [
       {
         title: "Rufen Sie uns an",
-        text: "Rufen Sie an oder fordern Sie einen Rückruf an. Termine am selben oder nächsten Tag sind möglich, auch wenn Sie schon in der Notaufnahme waren.",
+        text: "Rufen Sie an oder fordern Sie einen Rückruf an. Termine am selben oder nächsten Praxistag sind möglich, auch wenn Sie schon in der Notaufnahme waren.",
       },
       {
         title: "Gründliche Untersuchung und Dokumentation",
@@ -116,7 +116,7 @@ export const de: Dictionary = {
   },
 
   valueProps: [
-    { title: "Termine am selben Tag", text: "Rufen Sie heute an, und ein Arzt untersucht Sie heute oder morgen." },
+    { title: "Zeitnahe Termine", text: "Rufen Sie an, und ein Arzt untersucht Sie am selben oder nächsten Praxistag." },
     { title: "Keine Kosten für Sie", text: "Wenn ein anderer Fahrer Ihren Unfall verursacht hat, rechnen wir mit dessen Versicherung ab und warten auf die Zahlung." },
     { title: "Keine Krankenversicherung nötig", text: "Sie können auch ohne Krankenversicherung behandelt werden." },
     { title: "Wir arbeiten mit Ihrem Anwalt zusammen", text: "Wir können die Zahlung über einen Lien aufschieben und Behandlungsunterlagen an Ihren Anwalt weitergeben." },
@@ -175,8 +175,8 @@ export const de: Dictionary = {
   home: {
     h1: "Chiropraktiker in Glendale, Arizona, für Verletzungen nach Autounfällen",
     intro:
-      "Wenn Sie oder ein Angehöriger einen Autounfall hatten, kann eine gründliche Untersuchung helfen, Verletzungen zu erkennen und die Versorgung zu planen. Beschwerden treten nicht immer sofort auf. Rufen Sie heute an, um einen Termin am selben oder nächsten Tag zu vereinbaren.",
-    heroPoints: ["Termine am selben Tag", "Keine Kosten für Sie, wenn ein anderer Fahrer schuld ist", "Keine Krankenversicherung nötig"],
+      "Wenn Sie oder ein Angehöriger einen Autounfall hatten, kann eine gründliche Untersuchung helfen, Verletzungen zu erkennen und die Versorgung zu planen. Beschwerden treten nicht immer sofort auf. Rufen Sie an, um einen Termin am selben oder nächsten Praxistag zu vereinbaren.",
+    heroPoints: ["Termine am selben Tag an Praxistagen", "Keine Kosten für Sie, wenn ein anderer Fahrer schuld ist", "Keine Krankenversicherung nötig"],
     injuriesTitle: "Unfallverletzungen, die wir behandeln",
     injuriesLead:
       "Unsere Chiropraktiker und Ärzte konzentrieren sich auf Verletzungen durch Auto- und Arbeitsunfälle. Wählen Sie eine Beschwerde oder Verletzung, um mehr zu erfahren.",
@@ -193,7 +193,7 @@ export const de: Dictionary = {
     careLabel: "Schmerztherapie und Sprachen",
     painTitle: "Schmerztherapie in derselben Praxis",
     painText:
-      "Wir stimmen Chiropraktik und medizinische Schmerztherapie aufeinander ab und überweisen bei Bedarf zur Orthopädie. Hat ein anderer Fahrer den Unfall verursacht, ist die Behandlung ohne eigene Kosten möglich. Rufen Sie uns für einen Termin am selben Tag an und besprechen Sie Ihre Situation mit uns.",
+      "Wir stimmen Chiropraktik und medizinische Schmerztherapie aufeinander ab und überweisen bei Bedarf zur Orthopädie. Hat ein anderer Fahrer den Unfall verursacht, ist die Behandlung ohne eigene Kosten möglich. Rufen Sie uns für einen Termin an und besprechen Sie Ihre Situation mit uns.",
     painLink: "Mehr zur Schmerztherapie",
     teamTitle: "Chiropraktiker und ein Arzt unter einem Dach",
     teamLead: "Vier Chiropraktiker und ein Arzt für Schmerztherapie, die jeden Tag Verletzungen durch Autounfälle behandeln.",
@@ -227,9 +227,9 @@ export const de: Dictionary = {
   contact: {
     title: "Kontakt | Chiropraktik nach Autounfällen in Glendale",
     description:
-      "Rufen Sie {phone} an oder fordern Sie einen Rückruf an. Termine am selben Tag bei Unfallverletzungen in Glendale, AZ. Wir sprechen Englisch und Spanisch.",
+      "Rufen Sie {phone} an oder fordern Sie einen Rückruf an. Zeitnahe Termine bei Unfallverletzungen in Glendale, AZ. Wir sprechen Englisch und Spanisch.",
     h1: "Kontakt",
-    lead: "Rufen Sie für einen Termin am selben Tag an oder senden Sie das Formular. Wir rufen Sie während unserer Öffnungszeiten zurück.",
+    lead: "Rufen Sie für einen Termin an oder senden Sie das Formular. Wir rufen Sie während unserer Öffnungszeiten zurück.",
     formTitle: "Rückruf anfordern",
     required: "Alle Felder sind Pflichtfelder, sofern sie nicht als optional markiert sind.",
     visit: "So finden Sie uns",

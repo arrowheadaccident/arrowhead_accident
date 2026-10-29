@@ -5,9 +5,9 @@ type ValueProp = { title: string; text: string; /** set when the item is in anot
 
 export const en = {
   meta: {
-    homeTitle: "Car Accident Chiropractor in Glendale, AZ | Same-Day Care",
+    homeTitle: "Car Accident Chiropractor in Glendale, AZ | Prompt Care",
     homeDescription:
-      "Hurt in a car accident in Glendale or Arrowhead Ranch? Same-day chiropractic exams and no out-of-pocket cost when another driver is at fault.",
+      "Hurt in a car accident in Glendale or Arrowhead Ranch? Prompt chiropractic exams and no out-of-pocket cost when another driver is at fault.",
     ogImageAlt: "{name}, Glendale, AZ. Call {phone}",
   },
 
@@ -34,7 +34,7 @@ export const en = {
     /** Only for languages the staff don't speak. */
     interpreter: "",
     /** Home page card, after `text`. */
-    callToday: "Llámenos hoy para una cita el mismo día.",
+    callToday: "Llámenos para una cita el mismo día o el siguiente día de consulta.",
     cta: "Llame al {phone}",
   },
 
@@ -62,17 +62,16 @@ export const en = {
     languages: "Languages",
     disclaimer:
       "This website provides general information. It does not offer medical or legal advice or establish a doctor–patient relationship. For a medical emergency, call 911.",
-    notAssociated: "This website is not associated in any way with Dr. Vaughn Movses or Arrowhead Accident Group.",
   },
 
   ctaBand: {
-    title: "Hurt in a car accident? Get checked today.",
-    text: "Same-day appointments and no out-of-pocket cost when another driver is at fault.",
+    title: "Hurt in a car accident? Don't wait to get checked.",
+    text: "Same-day appointments on clinic days and no out-of-pocket cost when another driver is at fault.",
   },
 
   callCta: {
-    label: "Book a same-day exam",
-    title: "Same-day exams for car accident injuries.",
+    label: "Book an exam",
+    title: "Prompt exams for car accident injuries.",
     before: "Call now, or ",
     link: "request a callback",
     after: ".",
@@ -80,7 +79,7 @@ export const en = {
 
   sidebar: {
     label: "Contact the clinic",
-    title: "Hurt in a crash? Get a same-day exam.",
+    title: "Hurt in a crash? Get a prompt exam.",
   },
 
   costAndQuestions: {
@@ -92,6 +91,7 @@ export const en = {
   hours: {
     closed: "Closed",
     openUntil: "Open today until {time}",
+    openUntilReopens: "Open until {time}, reopens at {reopen}",
     opensToday: "Opens today at {time}",
     opensTomorrow: "Closed now. Opens tomorrow at {time}",
     opensOn: "Closed now. Opens {day} at {time}",
@@ -104,7 +104,7 @@ export const en = {
     steps: [
       {
         title: "Call us",
-        text: "Call or request a callback. Same-day and next-day appointments are available, even if you've already been to the ER.",
+        text: "Call or request a callback. Appointments are available the same or next clinic day, even if you've already been to the ER.",
       },
       {
         title: "Thorough exam and documentation",
@@ -123,7 +123,7 @@ export const en = {
 
   // The old site's own claims (confirm before launch, SITE-BRIEF §15).
   valueProps: [
-    { title: "Same-day appointments", text: "Call today and see a doctor today or the next day." },
+    { title: "Prompt appointments", text: "Call us and see a doctor the same day or on the next clinic day." },
     { title: "No out-of-pocket cost", text: "If another driver caused your accident, we bill their insurance and wait for payment." },
     { title: "No health insurance needed", text: "You can be treated even if you don't have health insurance." },
     { title: "We work with your attorney", text: "We can defer payment under a lien and share treatment records with your attorney." },
@@ -181,8 +181,8 @@ export const en = {
   home: {
     h1: "Car Accident Injury Chiropractor in Glendale, Arizona",
     intro:
-      "If you or a loved one has been in a car accident, a thorough examination can help identify injuries and guide your care. Symptoms may not appear right away. Call today for a same-day or next-day appointment.",
-    heroPoints: ["Same-day appointments", "No out-of-pocket cost when another driver is at fault", "No health insurance needed"],
+      "If you or a loved one has been in a car accident, a thorough examination can help identify injuries and guide your care. Symptoms may not appear right away. Call for an appointment on the same or next clinic day.",
+    heroPoints: ["Same-day appointments on clinic days", "No out-of-pocket cost when another driver is at fault", "No health insurance needed"],
     injuriesTitle: "Car accident injuries we treat",
     injuriesLead:
       "Our chiropractors and medical doctors focus on car accident and work-related injuries. Choose a symptom or injury to learn more.",
@@ -199,7 +199,7 @@ export const en = {
     careLabel: "Pain management and Spanish-speaking care",
     painTitle: "Pain management in the same clinic",
     painText:
-      "We coordinate chiropractic care and medical pain management, with orthopedic referrals when needed. Treatment is available with no out-of-pocket cost when another driver is at fault. Call us to arrange a same-day appointment and discuss your situation.",
+      "We coordinate chiropractic care and medical pain management, with orthopedic referrals when needed. Treatment is available with no out-of-pocket cost when another driver is at fault. Call us to arrange an appointment and discuss your situation.",
     painLink: "About pain management",
     teamTitle: "Chiropractors and a medical doctor under one roof",
     teamLead: "Four chiropractic physicians and a pain management physician who treat car accident injuries every day.",
@@ -233,9 +233,9 @@ export const en = {
   contact: {
     title: "Contact Us | Glendale Car Accident Chiropractor",
     description:
-      "Call {phone} or request a callback. Same-day appointments for car accident injuries in Glendale, AZ. Hablamos español.",
+      "Call {phone} or request a callback. Prompt appointments for car accident injuries in Glendale, AZ. Hablamos español.",
     h1: "Contact Us",
-    lead: "Call for a same-day appointment, or submit the form and we'll call you back during business hours.",
+    lead: "Call for an appointment, or submit the form and we'll call you back during business hours.",
     formTitle: "Request a callback",
     required: "All fields are required unless marked optional.",
     visit: "Visit us",

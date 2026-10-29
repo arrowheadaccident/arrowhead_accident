@@ -1,4 +1,4 @@
-# Arrowhead Car Accident Chiropractor
+# Arrowhead Injury Care
 
 Next.js 16 rebuild of arrowheadcaraccidentchiropractor.com. The build spec is
 [`docs/SITE-BRIEF.md`](docs/SITE-BRIEF.md); design decisions are in

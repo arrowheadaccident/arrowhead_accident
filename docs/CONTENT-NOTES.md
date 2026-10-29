@@ -50,7 +50,7 @@ on 2026-10-26 (19 pages, 0 look-alike characters left after normalizing).
   Added: "This article is general information, not legal advice."
 - About page: "Law center for car accident injuries" benefit removed.
 
-Still on the site and listed in §15 for confirmation: "over 10 years", same-day
+Still on the site and listed in §15 for confirmation: "over 10 years", same-day (on clinic days)
 appointments, Spanish-speaking staff, MRI/orthopedic referrals on a lien, medical
 pain management on site.
 
@@ -126,6 +126,33 @@ Changes made while translating:
 - The team cards show translated placeholder bios. Real bios will need translations too.
 - The "Hablamos Español" value proposition moved from `business.ts` to the dictionaries
   (`src/i18n/dictionaries/`), where each language says what is true for it.
+
+## Clinic details update (2026-10-29)
+
+The site belongs to Dr. Vaughn Movses. Changes in `src/config/business.ts` and the copy:
+
+- Footer sentence "This website is not associated in any way with Dr. Vaughn Movses or
+  Arrowhead Accident Group." removed in all languages. No other non-affiliation claims existed.
+- Phone: (602) 313-1925 (`tel:+16023131925`). It replaces (623) 444-1111, which is now on the
+  banned list; the old e164 value (`+16234001111`) didn't even match the displayed number.
+- Address: 6320 W Union Hills Dr Ste 1400-B, Glendale, AZ 85308. Geo coordinates are the
+  OpenStreetMap footprint of "Building B" at 6320 W Union Hills Dr; the Contact page map is a
+  Google Maps embed of the address (no API key). Check the pin against the Google Business Profile.
+- Hours: Mon, Tue, Thu 9:00 AM–12:00 PM and 2:00–6:30 PM; Wed, Fri, Sat, Sun closed. The data
+  model now has intervals per day, the open/closed status knows the lunch break ("Open until
+  12:00 PM, reopens at 2:00 PM"), and JSON-LD has one `OpeningHoursSpecification` per interval.
+- "Same-day" claims softened because the clinic is open three days a week: short labels say
+  "prompt" ("Prompt Care", "Prompt appointments"); sentences say "the same or next clinic day"
+  or "same-day appointments on clinic days". Changed in the dictionaries, the OG image text and
+  About, Car accident FAQ, Emergency care, Headaches and Low back pain, in all five languages.
+  **The new Spanish, German, Chinese and Vietnamese sentences need the same native review as
+  the rest of the translations.**
+- Name: "Arrowhead Car Accident Chiropractor" → **"Arrowhead Injury Care"** (`business.name`: JSON-LD,
+  site name, footer ©, `<BusinessName />`), plus the logo's second line, the OG image, the About H1
+  in all languages and the legal page titles. Unchanged on purpose: the domain
+  (`arrowheadcaraccidentchiropractor.com`), descriptive "car accident chiropractor" wording in titles
+  and H1s (search terms, not the name), and `legalName` ("Arrowhead Glendale Arizona Collision Injury
+  Chiropractic", still to confirm), which Terms of Use names as the site owner.
 
 ## Needs legal review (§15.4)
 

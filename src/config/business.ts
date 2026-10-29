@@ -4,25 +4,30 @@
 export const SITE_IS_PLACEHOLDER = true;
 
 export const business = {
-  name: "Arrowhead Car Accident Chiropractor",
+  name: "Arrowhead Injury Care",
   legalName: "Arrowhead Glendale Arizona Collision Injury Chiropractic", // confirm
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://arrowheadcaraccidentchiropractor.com",
-  phone: { display: "(623) 444-1111", e164: "+16234001111" }, // main number on the old site, confirm
+  phone: { display: "(602) 313-1925", e164: "+16023131925" },
   email: "info@example.com", // PLACEHOLDER
   address: {
-    // PLACEHOLDER
-    street: "1234 W Example Rd, Suite 100",
+    street: "6320 W Union Hills Dr Ste 1400-B",
     city: "Glendale",
     region: "AZ",
     postalCode: "85308",
     country: "US",
   },
-  geo: null as null | { lat: number; lng: number }, // set with the real address
-  mapEmbedUrl: null as null | string, // set with the real address
+  geo: { lat: 33.654705, lng: -112.198566 } as null | { lat: number; lng: number }, // Building B, OpenStreetMap
+  mapEmbedUrl: "https://maps.google.com/maps?q=6320+W+Union+Hills+Dr+Ste+1400-B,+Glendale,+AZ+85308&z=16&output=embed" as null | string,
+  // Days not listed are closed. Each day's intervals in order; the gap between them is the lunch break.
   hours: [
-    { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "07:00", closes: "19:00" },
-    { days: ["Saturday"], opens: "08:00", closes: "13:00" },
-  ], // Sunday: closed (from the old Contact page)
+    {
+      days: ["Monday", "Tuesday", "Thursday"],
+      intervals: [
+        { opens: "09:00", closes: "12:00" },
+        { opens: "14:00", closes: "18:30" },
+      ],
+    },
+  ],
   timeZone: "America/Phoenix",
   languages: ["en", "es"],
   sameAs: [] as string[], // real Google Business Profile / Facebook / YouTube URLs only

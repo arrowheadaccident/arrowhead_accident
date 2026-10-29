@@ -55,11 +55,18 @@ export async function Footer() {
 
         <div>
           <h2 className="text-base font-bold text-white">{t.common.officeHours}</h2>
-          <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2">
+          {/* Days above their hours: two intervals a day don't fit beside the days in the lg column. */}
+          <dl className="mt-3 grid gap-3">
             {hoursSummary(locale, t.hours.closed).map((row) => (
-              <div key={row.days} className="contents">
+              <div key={row.days}>
                 <dt className="font-semibold text-white">{row.days}</dt>
-                <dd className="tabular-nums">{row.label}</dd>
+                <dd className="tabular-nums">
+                  {row.lines.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </dd>
               </div>
             ))}
           </dl>
@@ -90,7 +97,6 @@ export async function Footer() {
             </ul>
           </nav>
           <p>{t.footer.disclaimer}</p>
-          <p>{t.footer.notAssociated}</p>
           <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-between">
             <p>
               © {year} {business.name}

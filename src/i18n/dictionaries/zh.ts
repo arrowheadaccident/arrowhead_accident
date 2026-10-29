@@ -4,9 +4,9 @@ import type { Dictionary } from "./en";
 // Machine-assisted translation: have a native speaker review it before launch (docs/CONTENT-NOTES.md).
 export const zh: Dictionary = {
   meta: {
-    homeTitle: "格伦代尔车祸整脊医生 | 亚利桑那州 | 当天就诊",
+    homeTitle: "格伦代尔车祸整脊医生 | 亚利桑那州 | 尽快就诊",
     homeDescription:
-      "在格伦代尔或 Arrowhead Ranch 遭遇车祸受伤？当天即可进行整脊检查；如果其他司机有过错，您无需自付任何费用。",
+      "在格伦代尔或 Arrowhead Ranch 遭遇车祸受伤？可尽快进行整脊检查；如果其他司机有过错，您无需自付任何费用。",
     ogImageAlt: "{name}，亚利桑那州格伦代尔。致电 {phone}",
   },
 
@@ -56,17 +56,16 @@ export const zh: Dictionary = {
     languages: "语言",
     disclaimer:
       "本网站上的信息为一般性信息，不构成医疗或法律建议，也不建立医患关系。如遇医疗紧急情况，请拨打 911。",
-    notAssociated: "本网站与 Dr. Vaughn Movses 或 Arrowhead Accident Group 无任何关联。",
   },
 
   ctaBand: {
-    title: "车祸受伤了？今天就来检查。",
-    text: "可当天预约；如果事故由其他司机造成，您无需自付任何费用。",
+    title: "车祸受伤了？别拖延，尽快检查。",
+    text: "门诊日可当天预约；如果事故由其他司机造成，您无需自付任何费用。",
   },
 
   callCta: {
-    label: "预约当天检查",
-    title: "车祸受伤，当天即可检查。",
+    label: "预约检查",
+    title: "车祸受伤，可尽快检查。",
     before: "请立即致电，或",
     link: "预约回电",
     after: "。",
@@ -74,7 +73,7 @@ export const zh: Dictionary = {
 
   sidebar: {
     label: "联系诊所",
-    title: "车祸受伤？当天即可检查。",
+    title: "车祸受伤？尽快检查。",
   },
 
   costAndQuestions: {
@@ -86,6 +85,7 @@ export const zh: Dictionary = {
   hours: {
     closed: "休诊",
     openUntil: "今天接诊至{time}",
+    openUntilReopens: "接诊至{time}，{reopen}恢复接诊",
     opensToday: "今天{time}开始接诊",
     opensTomorrow: "目前休诊，明天{time}开始接诊",
     opensOn: "目前休诊，{day}{time}开始接诊",
@@ -98,7 +98,7 @@ export const zh: Dictionary = {
     steps: [
       {
         title: "致电我们",
-        text: "致电或预约回电。可安排当天或次日就诊，即使您已经去过急诊室。",
+        text: "致电或预约回电。可安排当天或下一个门诊日就诊，即使您已经去过急诊室。",
       },
       {
         title: "全面检查与记录",
@@ -116,7 +116,7 @@ export const zh: Dictionary = {
   },
 
   valueProps: [
-    { title: "当天预约", text: "今天致电，今天或明天即可看医生。" },
+    { title: "尽快预约", text: "致电后，当天或下一个门诊日即可看医生。" },
     { title: "无需自付费用", text: "如果事故由其他司机造成，我们向对方的保险公司收费并等待付款。" },
     { title: "无需医疗保险", text: "即使没有医疗保险，您也可以接受治疗。" },
     { title: "与您的律师合作", text: "我们可通过医疗费用偿付安排（lien）延后收款，并向您的律师提供诊疗记录。" },
@@ -172,8 +172,8 @@ export const zh: Dictionary = {
   home: {
     h1: "亚利桑那州格伦代尔车祸伤整脊医生",
     intro:
-      "如果您或亲人遭遇车祸，全面检查有助于发现损伤并确定诊疗方案。症状不一定立即出现。请今天致电，预约当天或次日就诊。",
-    heroPoints: ["当天预约", "如果其他司机有过错，您无需自付费用", "无需医疗保险"],
+      "如果您或亲人遭遇车祸，全面检查有助于发现损伤并确定诊疗方案。症状不一定立即出现。请致电预约当天或下一个门诊日就诊。",
+    heroPoints: ["门诊日可当天预约", "如果其他司机有过错，您无需自付费用", "无需医疗保险"],
     injuriesTitle: "我们治疗的车祸伤",
     injuriesLead: "我们的整脊医生和临床医生专注于车祸伤和工伤。选择症状或损伤类型，了解更多。",
     costTitle: "不是您的过错，就无需自付费用",
@@ -189,7 +189,7 @@ export const zh: Dictionary = {
     careLabel: "疼痛管理和语言服务",
     painTitle: "同一诊所提供疼痛管理",
     painText:
-      "我们协调安排整脊治疗和医学疼痛管理，并在必要时转诊至骨科。如果事故责任在其他司机，治疗可无需您自付费用。请致电预约当天就诊，并说明您的情况。",
+      "我们协调安排整脊治疗和医学疼痛管理，并在必要时转诊至骨科。如果事故责任在其他司机，治疗可无需您自付费用。请致电预约就诊，并说明您的情况。",
     painLink: "了解疼痛管理",
     teamTitle: "整脊医生与临床医生协同诊疗",
     teamLead: "四位整脊医生和一位疼痛管理医生，每天都在治疗车祸伤。",
@@ -221,9 +221,9 @@ export const zh: Dictionary = {
 
   contact: {
     title: "联系我们 | 格伦代尔车祸整脊医生",
-    description: "致电 {phone} 或预约回电。亚利桑那州格伦代尔车祸伤可当天就诊。我们提供英语和西班牙语服务。",
+    description: "致电 {phone} 或预约回电。亚利桑那州格伦代尔车祸伤可尽快就诊。我们提供英语和西班牙语服务。",
     h1: "联系我们",
-    lead: "请致电预约当天就诊，或提交表格，我们会在门诊时间内给您回电。",
+    lead: "请致电预约就诊，或提交表格，我们会在门诊时间内给您回电。",
     formTitle: "预约回电",
     required: "未标注“选填”的项目均为必填。",
     visit: "诊所地址",

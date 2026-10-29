@@ -37,12 +37,15 @@ function clinicNode() {
       postalCode: address.postalCode,
       addressCountry: address.country,
     },
-    openingHoursSpecification: business.hours.map((row) => ({
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: row.days.length === 1 ? row.days[0] : row.days,
-      opens: row.opens,
-      closes: row.closes,
-    })),
+    // One specification per interval, so the lunch break shows as closed.
+    openingHoursSpecification: business.hours.flatMap((row) =>
+      row.intervals.map((interval) => ({
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: (row.days as readonly string[]).length === 1 ? row.days[0] : row.days,
+        opens: interval.opens,
+        closes: interval.closes,
+      })),
+    ),
     areaServed: [
       { "@type": "City", name: `${address.city}, ${address.region}` },
       { "@type": "Place", name: "Arrowhead Ranch" },
