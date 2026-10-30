@@ -39,8 +39,9 @@ on 2026-10-26 (19 pages, 0 look-alike characters left after normalizing).
   short, verified description and it can go back.**
 - Spinal ligament page: "Number 1 cause of neck pain and disability" headline and
   "considered permanent" softened to "can be permanent".
-- Headaches page: "the most common example of TBI is whiplash" corrected; "TBIs do
-  not show up on MRI or CT" softened to "often do not show up on standard MRI or CT".
+- ~~Headaches page: "the most common example of TBI is whiplash" corrected; "TBIs do
+  not show up on MRI or CT" softened to "often do not show up on standard MRI or CT".~~ Undone on
+  2026-10-30: the old text is back word for word (see "Headaches: old text restored").
 - Multiple injuries: "disrupt normal nerve and blood supply" softened.
 - Study post: first-person "34 years" / "30 plus years" claims and the unverified
   "85,402 patients" figure removed. Citations verified: Goertz et al., *Spine*
@@ -81,12 +82,13 @@ From `docs/SEO-AUDIT.md`, action-plan step 3.
   about car accidents.
 - **Insurance myths post:** the Watkinson figures now match the paper (35 patients with soft tissue neck injuries;
   symptoms in 86% after 10.8 years; neck degenerative changes in 68%).
-- **Sources:** PubMed links added to all four citations; the Headaches page's Wikipedia quote replaced with
-  the CDC's description of TBI and a link to it.
+- **Sources:** PubMed links added to all four citations; ~~the Headaches page's Wikipedia quote replaced with
+  the CDC's description of TBI and a link to it~~ (the Wikipedia quote is back since 2026-10-30, and the CDC
+  link is gone).
 - **Internal links:** every page except legal and FAQ now links to at least 2 other pages from its text
   (`check:content` enforces it). Small wording changes made for this: Emergency lists neck pain, headaches and
   low back pain; Low Back adds "such as a spinal ligament sprain"; Whiplash adds "(see spinal ligament injuries)";
-  Headaches "a proper examination" → "a prompt examination"; About "other back injuries" → "low back injuries";
+  ~~Headaches "a proper examination" → "a prompt examination"~~ (old text back on 2026-10-30); About "other back injuries" → "low back injuries";
   the insurance myths post adds "If you have one, we can work on a lien and wait for payment until your case
   settles."
 
@@ -283,6 +285,52 @@ there, followed by "Our doctors".
   still reads "Contact us today at 1 (623) 600-4878 …"; check:content doesn't allow numbers typed into content.
 - "Hablamos Español" stays in Spanish on every page, marked `lang="es"`. Translations follow the same text;
   neighborhood names stay in English.
+
+## Headaches: old text restored (2026-10-30)
+
+At the user's request, the whole body of `/headaches-closed-head-injury/` ("Headaches after a car accident",
+"Why prompt assessment matters", "Head injuries can occur without a direct blow", "Symptoms and diagnosis",
+"Follow-up care after a collision") was replaced by the old site's text, word for word from three photos of the
+old page (`custommer photos/custommer photos/headaches/1–3 processed-….jpeg`). The photos start mid-sentence
+("…the chances that doctors will find…") and stop at "…it is", so the user chose to take the beginning (the
+heading, three paragraphs and "Prompt medical/chiropractic treatment… First, it increases") and the end of the
+last sentence from the live old page, read on 2026-10-30 (look-alike Cyrillic letters replaced).
+
+- **Structure:** the old page's centered bold lines are H2s ("Headaches are a very common symptom after a car
+  accident-", "Headaches after a Car Accident and head pain…", "Car accident headache symptoms may come about…",
+  "What Exactly is a Traumatic Brain Injury (TBI)?", "Common Symptoms of a Traumatic Brain Injury (TBI)?"), the
+  three symptom list titles are H3s, the Wikipedia definition is a blockquote, and "Traumatic Brain Injuries
+  (TBI) are a leading basis…" and the closing "If you or a loved one…" paragraph are bold. The closing text was
+  an H2 on the old site; it is a paragraph here because it holds the phone number. `<CallCta />` sits after
+  "Second, it helps protect your legal rights…". H1, title, meta description and excerpt are unchanged (the
+  description still mentions follow-up care, which the page no longer has a section on).
+- **Kept as in the original:** "accident-" (hyphen at the end of the first heading), "the a lot of symptoms",
+  "your worse day", the comma splice "as quickly as possible, it is important", "whether you experiencing",
+  "are the danger is that Closed Head injuries usually not initially diagnosed", "Closed head injuries
+  indicates", "the most common example of traumatic brain injury are whiplash", "are very abstract do not even
+  show up", "to work in correctly", "Common Symptoms of a Traumatic Brain Injury (TBI)?" (question mark), the
+  capitals in "Car Accident", "Traumatic brain injury" and "Closed Head injuries", the "!", "&" and curly quotes.
+- **Changed:** the old phone 1(623) 400-6362 is the `<Phone />` component (current number), so the sentence reads
+  "Call the Arrowhead Car Accident Chiropractic team now 1 (623) 600-4878." The old team name stays. Links were
+  added on words of the text: "whiplash injuries" → `/whiplash-injury/`, "Prompt medical/chiropractic
+  treatment" → `/emergency-car-collision-treatment/`; "Wikipedia" links to the English article on traumatic
+  brain injury.
+- **Removed, user's choice:** the 911 paragraph with the CDC's warning signs (worsening headache, repeated
+  vomiting, seizures, weakness, slurred speech, trouble staying awake). The page no longer tells readers when to
+  go to an emergency department.
+- **This brings back medical claims the cleanup had corrected** (see "Claims removed or softened" and "SEO audit
+  changes" above). The clinic should confirm it stands behind them, ideally with a medical reviewer: TBIs "do not even
+  show up on MRI or CT scans"; whiplash is "the most common example of traumatic brain injury"; a closed head
+  injury "indicates that there is no fracture of the skull" (it means a nonpenetrating injury; a fracture is
+  possible); the diagnosis depends on "your car accident chiropractor who will make a clinical diagnosis" (a
+  possible brain injury needs a medical assessment); prompt treatment "reduces the risk of long-term
+  disability"; "the fourth or fifth day can be your worse day". The sentence "Chiropractic care for neck pain
+  does not replace medical assessment of a possible brain injury" is gone too.
+- **Translations follow the same text** (es, de, zh, vi), with the same headings, bold lines, links and
+  components. As on About, slips that can't be translated are not copied (the run-on sentences read normally;
+  the "closed head injury" sentence is split with a semicolon). The trailing hyphen stays ("——" in Chinese).
+  The Wikipedia link points to the English article and says "(in English)" in each language. Native review
+  needed like the rest.
 
 ## Needs legal review (§15.4)
 
