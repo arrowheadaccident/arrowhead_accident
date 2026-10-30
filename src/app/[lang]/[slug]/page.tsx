@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
+import { Check } from "lucide-react";
+import { business, founder, team } from "@/config/business";
 import { CtaBand } from "@/components/CtaBand";
 import { ConditionGrid } from "@/components/Cards";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { JsonLd } from "@/components/JsonLd";
 import { MdxContent } from "@/components/Mdx";
 import { ContentSidebar, CostAndQuestions, PageHeader } from "@/components/PageLayout";
-import { TeamGrid } from "@/components/Team";
+import { TeamGrid, initials } from "@/components/Team";
 import { isLocale, localePath } from "@/i18n/config";
+import { fill } from "@/i18n/fill";
 import { getDictionary, type Dictionary } from "@/i18n";
 import { FAQ_SLUG, NO_COST_SLUG, getAlternates, getRelated, getTopLevelEntries, getTopLevelEntry, type Entry } from "@/lib/content";
 import { buildGraph } from "@/lib/schema";
@@ -118,9 +122,11 @@ function ServiceTemplate({ entry, t }: { entry: Entry; t: Dictionary }) {
   );
 }
 
+/** About opens with the founder's story; the team grid below leaves the founder out. */
 function AboutTemplate({ entry, t }: { entry: Entry; t: Dictionary }) {
   return (
     <>
+      <FounderStory t={t} />
       <div className="wrap py-12 md:py-16">
         <MdxContent source={entry.body} />
       </div>
@@ -130,10 +136,71 @@ function AboutTemplate({ entry, t }: { entry: Entry; t: Dictionary }) {
             {t.page.ourDoctors}
           </h2>
           <p className="mt-3 max-w-2xl text-muted">{t.page.aboutTeamLead}</p>
-          <TeamGrid className="mt-8" />
+          <TeamGrid members={team.filter((member) => member !== founder)} className="mt-8" />
         </div>
       </section>
     </>
+  );
+}
+
+/** The home page card links here (#vaughn-movses). Phone: small portrait beside the name, then story, quote and
+    credentials. lg: portrait and credentials on the left across every row; the empty 1fr row takes up the
+    difference in height, so the right column never spreads out. */
+function FounderStory({ t }: { t: Dictionary }) {
+  return (
+    <section id={founder.slug} aria-labelledby="founder-title" className="scroll-mt-28 border-b border-line">
+      <div className="wrap grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-5 gap-y-6 py-12 md:py-16 lg:grid-cols-[17rem_minmax(0,1fr)] lg:grid-rows-[auto_auto_auto_1fr] lg:items-start lg:gap-x-14">
+        <div className="col-start-2 row-start-1 min-w-0">
+          <p className="font-display text-lg font-bold text-navy-500">{t.founder.eyebrow}</p>
+          <h2 id="founder-title" className="mt-1 text-2xl font-extrabold md:text-4xl">{founder.name}</h2>
+          <p className="mt-1 text-[0.9375rem] font-semibold text-muted">{founder.postNominals}</p>
+        </div>
+        <div className="col-span-2 grid max-w-[68ch] gap-4 text-lg leading-relaxed text-ink lg:col-span-1 lg:col-start-2">
+          {t.founder.story.map((paragraph) => (
+            <p key={paragraph}>{fill(paragraph, { street: business.address.street })}</p>
+          ))}
+        </div>
+        <figure className="col-span-2 max-w-[68ch] border-l-2 border-navy-500 pl-5 lg:col-span-1 lg:col-start-2">
+          <blockquote className="text-lg leading-relaxed font-semibold text-navy-900 md:text-xl">
+            <p>{t.founder.quote}</p>
+          </blockquote>
+          <figcaption className="mt-3 text-[0.9375rem] text-muted">{founder.name}</figcaption>
+        </figure>
+        <div className="contents lg:col-start-1 lg:row-span-4 lg:row-start-1 lg:block">
+          <div className="relative col-start-1 row-start-1 aspect-[4/5] w-24 overflow-hidden rounded-card ring-4 ring-sky-100 sm:w-36 lg:w-full">
+            {founder.photo ? (
+              <Image
+                src={founder.photo}
+                alt={founder.name}
+                fill
+                preload
+                sizes="(min-width: 1024px) 272px, (min-width: 640px) 144px, 96px"
+                className="object-cover object-top"
+              />
+            ) : (
+              // Initials until a real, consented photo exists (photo === null).
+              <span
+                aria-hidden="true"
+                className="flex size-full items-center justify-center bg-navy-900 font-display text-2xl font-extrabold text-white sm:text-4xl lg:text-6xl"
+              >
+                {initials(founder.name)}
+              </span>
+            )}
+          </div>
+          <div className="col-span-2 rounded-card border border-line bg-surface p-5 lg:mt-6">
+            <h3 className="font-display text-lg font-bold text-navy-900">{t.founder.credentialsTitle}</h3>
+            <ul className="mt-3 grid gap-2.5">
+              {t.founder.credentials.map((credential) => (
+                <li key={credential} className="flex items-start gap-2.5 text-[0.9375rem] leading-snug text-ink">
+                  <Check aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-success" strokeWidth={3} />
+                  {credential}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

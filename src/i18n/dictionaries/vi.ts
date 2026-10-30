@@ -144,6 +144,25 @@ export const vi: Dictionary = {
     },
   },
 
+  founder: {
+    eyebrow: "Gặp gỡ người sáng lập",
+    credentialsTitle: "Bằng cấp và chứng nhận",
+    credentials: [
+      "Chứng nhận của American Board of Forensic Professionals (DABFP)",
+      "Chứng nhận về chấn thương học chấn thương giật cổ (whiplash) và chấn thương não",
+      "Chứng nhận về phân tích rủi ro pháp y trong va chạm tốc độ thấp",
+      "Hội viên (Fellow) về châm cứu y khoa (FIAMA)",
+    ],
+    story: [
+      "Bác sĩ Vaughn Anthony Movses, D.C., là một bác sĩ nắn chỉnh cột sống được kính trọng, tận tâm mang đến sự chăm sóc xuất sắc cho bệnh nhân tại Glendale, AZ. Với nền tảng đào tạo y khoa sâu rộng và cách tiếp cận đầy cảm thông, Bác sĩ Movses mang đến các giải pháp chăm sóc sức khỏe cá nhân hóa, phù hợp với nhu cầu riêng của từng bệnh nhân. Sự tận tụy của ông đối với sức khỏe bệnh nhân vượt ra ngoài phạm vi y khoa truyền thống, vì ông ưu tiên xây dựng mối quan hệ tin cậy và khuyến khích giao tiếp cởi mở.",
+      "Bệnh nhân có thể mong đợi sự chăm sóc toàn diện và tận tình từ Bác sĩ Movses, người luôn tâm huyết cập nhật những tiến bộ mới nhất trong lĩnh vực. Tọa lạc thuận tiện tại {street} ở Glendale, AZ,",
+      "Bác sĩ Movses chào đón mọi người ở mọi lứa tuổi và hoàn cảnh đến với phòng khám, nơi họ nhận được sự chăm sóc y tế đạt tiêu chuẩn cao nhất trong một môi trường ấm áp và thân thiện.",
+    ],
+    quote:
+      "Một vụ tai nạn xe có thể đảo lộn cuộc sống của quý vị chỉ trong vài giây. Mục tiêu của tôi rất đơn giản: khám kỹ lưỡng, giải thích trung thực và lập kế hoạch điều trị phù hợp với chấn thương của quý vị, để quý vị hồi phục và trở lại nhịp sống thường ngày.",
+    link: "Xem hồ sơ đầy đủ",
+  },
+
   cards: {
     readArticle: "Đọc bài viết",
   },
@@ -198,16 +217,6 @@ export const vi: Dictionary = {
       "Nếu có luật sư, quý vị có thể được hoãn thanh toán theo thỏa thuận thanh toán từ khoản bồi thường (lien) đến khi hồ sơ được giải quyết.",
       "Mọi giấy tờ đều do chúng tôi lo.",
     ],
-    founderEyebrow: "Gặp gỡ người sáng lập",
-    founderCredentials: [
-      "Chứng nhận của American Board of Forensic Professionals (DABFP)",
-      "Chứng nhận về chấn thương học chấn thương giật cổ (whiplash) và chấn thương não",
-      "Chứng nhận về phân tích rủi ro pháp y trong va chạm tốc độ thấp",
-      "Hội viên (Fellow) về châm cứu y khoa (FIAMA)",
-    ],
-    founderQuote:
-      "Một vụ tai nạn xe có thể đảo lộn cuộc sống của quý vị chỉ trong vài giây. Mục tiêu của tôi rất đơn giản: khám kỹ lưỡng, giải thích trung thực và lập kế hoạch điều trị phù hợp với chấn thương của quý vị, để quý vị hồi phục và trở lại nhịp sống thường ngày.",
-    founderLink: "Xem hồ sơ đầy đủ",
     faqTitle: "Thắc mắc sau tai nạn xe hơi",
     faqLead: "Giải đáp rõ ràng về việc đi cấp cứu, xe hư hại nhẹ và chi phí điều trị.",
     faqLink: "Đọc cả {count} câu hỏi",

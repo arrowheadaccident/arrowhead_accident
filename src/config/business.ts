@@ -44,7 +44,7 @@ export type TeamMember = {
   isPlaceholder: boolean;
 };
 
-/** Owner and founder, featured on the home page. Credentials from the old site's About page: confirm them. */
+/** Owner and founder, featured on the home page and at the top of About. Credentials from the old site's About page: confirm them. */
 export const founder: TeamMember = {
   slug: "vaughn-movses",
   name: "Dr. Vaughn Movses",

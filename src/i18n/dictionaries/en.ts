@@ -148,6 +148,29 @@ export const en = {
     } as Record<string, string>,
   },
 
+  /** Dr. Movses: the home page card and the top of About. */
+  founder: {
+    eyebrow: "Meet our founder",
+    credentialsTitle: "Credentials",
+    /** From the old site's About page; the clinic should confirm them. */
+    credentials: [
+      "Certified by the American Board of Forensic Professionals (DABFP)",
+      "Certified in whiplash and brain injury traumatology",
+      "Certified in low-speed collision forensic risk analysis",
+      "Fellow in medical acupuncture (FIAMA)",
+    ],
+    /** Word for word from the old site's About page, errors included (the user's choice); only {street} is current. */
+    story: [
+      "Dr. Vaughn Anthony Movses, D.C., is a respected chiropractic physician dedicated to providing exceptional care to patients in Glendale, AZ. With his extensive medical training and compassionate approach, Dr. Movses offers personalized healthcare solutions tailored to each patient's unique needs. His commitment to patient well-being extends beyond traditional medical practice, as He prioritizes building trusting relationships and fostering open communication.",
+      "Patients can expect comprehensive and supportive care from Dr. Movses, who is deeply invested in staying abreast of the latest advancements in the field. Conveniently located at {street} in Glendale, AZ,",
+      "Dr. Movses welcomes individuals of all ages and backgrounds to her practice, where they can receive the highest standard of medical attention in a warm and welcoming environment.",
+    ],
+    /** Drafted for the clinic: Dr. Movses must approve it (docs/CONTENT-NOTES.md). */
+    quote:
+      "A car accident can turn your life upside down in seconds. My goal is simple: a careful exam, honest answers and a treatment plan built around your injuries, so you can recover and get back to your routine.",
+    link: "Read the full profile",
+  },
+
   cards: {
     readArticle: "Read the article",
   },
@@ -203,18 +226,6 @@ export const en = {
       "If you have an attorney, we can defer payment under a lien until your case settles.",
       "All paperwork is handled for you.",
     ],
-    founderEyebrow: "Meet our founder",
-    /** From the old site's About page; the clinic should confirm them. */
-    founderCredentials: [
-      "Certified by the American Board of Forensic Professionals (DABFP)",
-      "Certified in whiplash and brain injury traumatology",
-      "Certified in low-speed collision forensic risk analysis",
-      "Fellow in medical acupuncture (FIAMA)",
-    ],
-    /** Drafted for the clinic: Dr. Movses must approve it (docs/CONTENT-NOTES.md). */
-    founderQuote:
-      "A car accident can turn your life upside down in seconds. My goal is simple: a careful exam, honest answers and a treatment plan built around your injuries, so you can recover and get back to your routine.",
-    founderLink: "Read the full profile",
     faqTitle: "Questions after a car accident",
     faqLead: "Clear answers about ER visits, minor vehicle damage and treatment costs.",
     faqLink: "Read all {count} questions",

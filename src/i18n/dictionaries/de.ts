@@ -137,10 +137,29 @@ export const de: Dictionary = {
     sampleTag: "Beispielprofil",
     sampleBio: "Beispielbiografie.",
     roles: {
-      "Founder and Chiropractic Physician": "Gründung der Praxis · Chiropraktik",
+      "Founder and Chiropractic Physician": "Gründer und Chiropraktiker",
       "Chiropractic Physician": "Chiropraktiker",
       "Pain Management Physician": "Arzt für Schmerztherapie",
     },
+  },
+
+  founder: {
+    eyebrow: "Lernen Sie unseren Gründer kennen",
+    credentialsTitle: "Qualifikationen",
+    credentials: [
+      "Zertifizierung durch das American Board of Forensic Professionals (DABFP)",
+      "Zertifizierung in Schleudertrauma- und Hirnverletzungstraumatologie",
+      "Zertifizierung in forensischer Risikoanalyse bei Kollisionen mit geringer Geschwindigkeit",
+      "Fellowship in medizinischer Akupunktur (FIAMA)",
+    ],
+    story: [
+      "Dr. Vaughn Anthony Movses, D.C., ist ein angesehener Chiropraktiker, der sich einer hervorragenden Versorgung seiner Patienten in Glendale, AZ, verschrieben hat. Mit seiner umfassenden medizinischen Ausbildung und seinem einfühlsamen Ansatz bietet Dr. Movses individuelle Behandlungslösungen, die auf die besonderen Bedürfnisse jedes Patienten zugeschnitten sind. Sein Engagement für das Wohl der Patienten geht über die traditionelle medizinische Praxis hinaus, denn er legt großen Wert auf vertrauensvolle Beziehungen und offene Kommunikation.",
+      "Patienten können von Dr. Movses eine umfassende und unterstützende Betreuung erwarten; er hält sich mit großem Engagement über die neuesten Entwicklungen in seinem Fachgebiet auf dem Laufenden. Günstig gelegen an der {street} in Glendale, AZ,",
+      "Dr. Movses heißt Menschen jeden Alters und jeder Herkunft in der Praxis willkommen, wo sie in einer warmen und einladenden Atmosphäre medizinische Versorgung auf höchstem Niveau erhalten.",
+    ],
+    quote:
+      "Ein Autounfall kann Ihr Leben in Sekunden auf den Kopf stellen. Mein Ziel ist einfach: eine gründliche Untersuchung, ehrliche Antworten und ein Behandlungsplan, der auf Ihre Verletzungen zugeschnitten ist, damit Sie sich erholen und in Ihren Alltag zurückkehren können.",
+    link: "Zum vollständigen Profil",
   },
 
   cards: {
@@ -197,16 +216,6 @@ export const de: Dictionary = {
       "Wenn Sie einen Anwalt haben, können wir die Zahlung über einen Lien bis zum Abschluss Ihres Falls aufschieben.",
       "Wir erledigen den gesamten Papierkram für Sie.",
     ],
-    founderEyebrow: "Wer hinter der Praxis steht",
-    founderCredentials: [
-      "Zertifizierung durch das American Board of Forensic Professionals (DABFP)",
-      "Zertifizierung in Schleudertrauma- und Hirnverletzungstraumatologie",
-      "Zertifizierung in forensischer Risikoanalyse bei Kollisionen mit geringer Geschwindigkeit",
-      "Fellowship in medizinischer Akupunktur (FIAMA)",
-    ],
-    founderQuote:
-      "Ein Autounfall kann Ihr Leben in Sekunden auf den Kopf stellen. Mein Ziel ist einfach: eine gründliche Untersuchung, ehrliche Antworten und ein Behandlungsplan, der auf Ihre Verletzungen zugeschnitten ist, damit Sie sich erholen und in Ihren Alltag zurückkehren können.",
-    founderLink: "Zum vollständigen Profil",
     faqTitle: "Fragen nach einem Autounfall",
     faqLead: "Klare Antworten zu Besuchen in der Notaufnahme, geringen Fahrzeugschäden und Behandlungskosten.",
     faqLink: "Alle {count} Fragen lesen",

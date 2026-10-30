@@ -55,11 +55,11 @@ export function DoctorCard({ member, t, translated }: { member: TeamMember; t: D
   );
 }
 
-export async function TeamGrid({ className = "" }: { className?: string }) {
+export async function TeamGrid({ members = team, className = "" }: { members?: TeamMember[]; className?: string }) {
   const { locale, t } = await getI18n();
   return (
     <ul className={`grid gap-4 sm:grid-cols-2 lg:grid-cols-3 ${className}`}>
-      {team.map((member) => (
+      {members.map((member) => (
         <li key={member.slug}>
           <DoctorCard member={member} t={t} translated={locale !== "en"} />
         </li>

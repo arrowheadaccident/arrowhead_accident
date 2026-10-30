@@ -134,12 +134,12 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
               )}
             </div>
             <div className="min-w-0 lg:col-start-2 lg:row-start-1">
-              <p className="font-display text-lg font-bold text-navy-500">{t.home.founderEyebrow}</p>
+              <p className="font-display text-lg font-bold text-navy-500">{t.founder.eyebrow}</p>
               <h2 id="founder-title" className="mt-1 text-2xl font-extrabold md:text-3xl">{founder.name}</h2>
               <p className="mt-1 text-[0.9375rem] font-semibold text-muted">{founder.postNominals}</p>
             </div>
             <ul className="col-span-2 grid gap-2 sm:col-span-1 sm:col-start-2 lg:row-start-2">
-              {t.home.founderCredentials.map((credential) => (
+              {t.founder.credentials.map((credential) => (
                 <li key={credential} className="flex items-start gap-2.5 text-[0.9375rem] leading-snug text-ink">
                   <Check aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-success" strokeWidth={3} />
                   {credential}
@@ -149,7 +149,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
             <div className="col-span-2 flex flex-col sm:mt-4 lg:col-span-1 lg:col-start-3 lg:row-span-2 lg:row-start-1 lg:mt-0 lg:self-center">
               <figure className="border-l-2 border-navy-500 pl-5">
                 <blockquote className="text-lg leading-relaxed font-semibold text-navy-900 md:text-xl lg:text-lg">
-                  <p>{t.home.founderQuote}</p>
+                  <p>{t.founder.quote}</p>
                 </blockquote>
                 <figcaption className="mt-3 text-[0.9375rem] text-muted">{founder.name}</figcaption>
               </figure>
@@ -157,7 +157,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
                 href={href(`/about-us/#${founder.slug}`)}
                 className="mt-5 inline-flex min-h-11 items-center self-end font-semibold text-navy-500 underline underline-offset-4 hover:decoration-2"
               >
-                {t.home.founderLink}
+                {t.founder.link}
               </Link>
             </div>
           </article>

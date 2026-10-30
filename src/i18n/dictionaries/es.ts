@@ -134,10 +134,29 @@ export const es: Dictionary = {
     sampleTag: "Perfil de ejemplo",
     sampleBio: "Biografía de ejemplo.",
     roles: {
-      "Founder and Chiropractic Physician": "Fundó la clínica · Quiropráctica",
+      "Founder and Chiropractic Physician": "Fundador y médico quiropráctico",
       "Chiropractic Physician": "Médico quiropráctico",
       "Pain Management Physician": "Médico especialista en manejo del dolor",
     },
+  },
+
+  founder: {
+    eyebrow: "Conozca a nuestro fundador",
+    credentialsTitle: "Credenciales",
+    credentials: [
+      "Certificación del American Board of Forensic Professionals (DABFP)",
+      "Certificación en traumatología del latigazo cervical y de lesiones cerebrales",
+      "Certificación en análisis forense de riesgo en colisiones a baja velocidad",
+      "Fellow en acupuntura médica (FIAMA)",
+    ],
+    story: [
+      "El Dr. Vaughn Anthony Movses, D.C., es un respetado médico quiropráctico dedicado a brindar una atención excepcional a los pacientes en Glendale, AZ. Con su amplia formación médica y su enfoque compasivo, el Dr. Movses ofrece soluciones de atención médica personalizadas, adaptadas a las necesidades únicas de cada paciente. Su compromiso con el bienestar del paciente va más allá de la práctica médica tradicional, ya que prioriza construir relaciones de confianza y fomentar una comunicación abierta.",
+      "Los pacientes pueden esperar una atención integral y de apoyo por parte del Dr. Movses, quien está profundamente comprometido con mantenerse al día de los avances más recientes en el campo. Convenientemente ubicado en {street} en Glendale, AZ,",
+      "El Dr. Movses recibe a personas de todas las edades y orígenes en su consulta, donde pueden recibir el más alto nivel de atención médica en un ambiente cálido y acogedor.",
+    ],
+    quote:
+      "Un accidente de auto puede cambiarle la vida en segundos. Mi objetivo es sencillo: un examen minucioso, respuestas honestas y un plan de tratamiento pensado para sus lesiones, para que pueda recuperarse y volver a su rutina.",
+    link: "Ver el perfil completo",
   },
 
   cards: {
@@ -194,16 +213,6 @@ export const es: Dictionary = {
       "Si tiene abogado, podemos aplazar el pago mediante un gravamen (lien) hasta que su caso se resuelva.",
       "Nos encargamos de todo el papeleo.",
     ],
-    founderEyebrow: "Conozca a quien fundó la clínica",
-    founderCredentials: [
-      "Certificación del American Board of Forensic Professionals (DABFP)",
-      "Certificación en traumatología del latigazo cervical y de lesiones cerebrales",
-      "Certificación en análisis forense de riesgo en colisiones a baja velocidad",
-      "Fellow en acupuntura médica (FIAMA)",
-    ],
-    founderQuote:
-      "Un accidente de auto puede cambiarle la vida en segundos. Mi objetivo es sencillo: un examen minucioso, respuestas honestas y un plan de tratamiento pensado para sus lesiones, para que pueda recuperarse y volver a su rutina.",
-    founderLink: "Ver el perfil completo",
     faqTitle: "Preguntas después de un accidente de auto",
     faqLead: "Respuestas claras sobre las visitas a emergencias, los daños menores del vehículo y los costos del tratamiento.",
     faqLink: "Lea las {count} preguntas",

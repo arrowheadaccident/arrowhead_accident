@@ -198,11 +198,33 @@ user's request, to keep the home page light:
   the lower left. The layouts crop from the top, so the watermark is not visible anywhere on the site, but
   the file itself still contains it (and, after launch, the Physician JSON-LD links to it). Please ask the
   clinic for the original portrait, at least 800 px wide, without a watermark.
-- **Gendered wording avoided:** the old site called Dr. Movses both "his" and "her", so no translation uses a
-  pronoun or a gendered noun for Dr. Movses. Spanish and German use neutral phrasings ("Conozca a quien fundó
-  la clínica", "Wer hinter der Praxis steht", role "Fundó la clínica · Quiropráctica" / "Gründung der Praxis ·
-  Chiropraktik"). Once the clinic confirms, the native reviewer can switch to the natural gendered forms.
-- The full bio on About stays in English on translated pages, like every real bio.
+- ~~Gendered wording avoided~~ and ~~the full bio on About stays in English~~: both replaced on 2026-10-30, see
+  the next section.
+
+## About: founder story (2026-10-30)
+
+At the user's request, the About page now opens with Dr. Vaughn Movses, right under the page title: portrait,
+post-nominals, a three-paragraph story, the vision quote and a credentials card. The section has the id
+`vaughn-movses`, so the home page link "Read the full profile" lands on it. Strings moved from `home.founder*`
+to a shared `founder` group in every dictionary.
+
+- **The story is the old site's About text word for word** (photo of `/about-us/` supplied by the user,
+  `custommer photos/custommer photos/about us/processed-7B7A2775-….jpeg`). At the user's request it keeps the
+  original's errors as they are: "as He prioritizes" (capital H), "to her practice" (the rest says his), and the
+  second paragraph ending in a comma (its sentence continues in the third). The only change: the old address
+  (17100 n 67th Lane, Suite 300) is replaced by the current street from `business.ts` (`{street}` placeholder).
+- **Translations follow the same text**, including the comma at the end of the second paragraph. "Her practice"
+  is translated without a pronoun (es "su consulta", de "in der Praxis", zh "来到诊所", vi "đến với phòng
+  khám"), since the user confirmed he/his.
+- **He/his:** the user confirmed on 2026-10-30 that Dr. Movses uses he/his. Our own copy uses the natural
+  masculine forms: es "Conozca a nuestro fundador", role "Fundador y médico quiropráctico"; de "Lernen Sie
+  unseren Gründer kennen", role "Gründer und Chiropraktiker"; zh 他; vi ông.
+- **The story is translated into es, de, zh and vi** (user's decision), not left in English. Machine-assisted
+  like the rest: native review needed.
+- The "Our doctors" grid on About leaves Dr. Movses out, since he is featured at the top; other pages with the
+  team grid still show his card (with the short `bio` from `business.ts`).
+- Meta descriptions of the five About pages now name the founder ("Meet founder Dr. Vaughn Movses, DC, and our
+  Glendale team. …").
 
 ## Needs legal review (§15.4)
 
