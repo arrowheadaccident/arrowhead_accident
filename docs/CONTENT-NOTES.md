@@ -33,7 +33,8 @@ on 2026-10-26 (19 pages, 0 look-alike characters left after normalizing).
 
 ## Claims removed or softened (please confirm before launch)
 
-- Neck page: "over three million cases of neck pain… in Arizona 2013" statistic deleted.
+- ~~Neck page: "over three million cases of neck pain… in Arizona 2013" statistic deleted.~~ Undone on
+  2026-10-30: the old text is back word for word (see "Neck page: old text restored").
 - Spinal ligament page: the CRMA x-ray analysis section ("better than MRI",
   "25% whole person impairment") was removed. **If the clinic offers CRMA, send a
   short, verified description and it can go back.**
@@ -75,8 +76,8 @@ From `docs/SEO-AUDIT.md`, action-plan step 3.
   study post → "What a 2013 Military Study Found About Chiropractic Care for Low Back Pain" (the old H1 said the
   study was about car accident injuries; it was about acute low back pain in active-duty military personnel).
 - **Claims reworded as the clinic's experience:** Whiplash "the top three auto accident injuries in Glendale" →
-  "three of the injuries we see most often"; "the fourth or fifth day… is classically the worst" (Whiplash, Neck,
-  study post) → "in our experience… often the fourth or fifth day".
+  "three of the injuries we see most often"; "the fourth or fifth day… is classically the worst" (Whiplash, ~~Neck~~
+  (old text back on 2026-10-30), study post) → "in our experience… often the fourth or fifth day".
 - **Study post:** "The chiropractic profession has said this for over 100 years" removed; the description of
   standard care now matches the study (medication, physical therapy, self-care advice) and says the study was not
   about car accidents.
@@ -363,6 +364,50 @@ in chat; it matches the live old page (read on 2026-10-30) paragraph for paragra
   Headaches, slips that can't be translated are not copied (the comma splice and "protocols includes" read
   normally, and the opening sentence gets a colon or "sepa que"/"请放心" so it reads as one thought). Native
   review needed like the rest.
+
+## Neck page: old text restored (2026-10-30)
+
+At the user's request, the whole body of `/neck-chiropractor-arrowhead-az/` ("Treating neck injuries and whiplash
+from auto accidents", "Why even a low-speed collision can hurt your neck", "A team of chiropractors, medical
+doctors and pain specialists") was replaced by the old site's text, word for word, taken from the live old page
+on 2026-10-30. The old text is full of look-alike Cyrillic letters ("рrоvіdе", "ԛ"); they are replaced by Latin
+ones, so the words read the same but search engines and screen readers see real English.
+
+- **Structure:** one subheading and six paragraphs, as on the old page. The old H3 "Neck Injury Chiropractor
+  Glendale Arizona Treating Auto Accident Whiplash" is an H2 (bodies start at H2). The closing "Give Us a call
+  today… & Be Seen Today !" was an H2 on the old site; it is a bold paragraph here because it holds the phone
+  number, as on Headaches. `<CallCta />` sits after the whiplash paragraph, where it was before. H1, title,
+  meta description and excerpt are unchanged (the old H1 was "Neck Chiropractor Glendale AZ").
+- **Kept as in the original:** "Glendale Arizona" and "Arrowhead Arizona" without commas, "auto accidents neck
+  injuries", "in Arizona 2013 alone", "phoenix" in lower case, "motor vehicle accident" without an article,
+  "chiropractors medical doctors and…" without a comma, "thus having the ability", "sometime you will
+  experience", "Believe it or not Clinically the worse day…", the capitals in "Give Us a call" and "Be Seen
+  Today", the space before the last "!", the "&" and the curly apostrophe.
+- **Changed:** the old phone 1(623) 400-6362 is the `<Phone />` component, so the line reads "Give Us a call
+  today 1 (623) 600-4878 & Be Seen Today !". Links were added on words of the text, as before: "Whiplash" →
+  `/whiplash-injury/`, "ligaments" → `/spinal-ligament-injury-treatment/`.
+- **This brings back claims the cleanup had removed** (see "Claims removed or softened" and "SEO audit changes"
+  above). The clinic should confirm them before launch:
+  - "over three million cases of neck pain due to auto accidents are reported in Arizona 2013 alone, over 150 of
+    those occur in phoenix on a daily basis": no source, and three million is close to half of Arizona's
+    population; 150 a day would be about 55,000 a year, not three million. This is the statistic the cleanup
+    deleted.
+  - "Be Seen Today !": the clinic is open Mon, Tue and Thu only, so the rest of the site says "the same or next
+    clinic day" (see "Clinic details update").
+  - "Clinically the worse day following a car accident is the 4th or 5th day!": the SEO cleanup had made it "in
+    our experience… often the fourth or fifth day".
+  - "the odds are that you more than likely have suffered neck injury" after any accident, "If you are
+    experiencing pain there is obvious injury", and "hidden micro type injuries" when there is no pain: the
+    previous text said not every crash causes whiplash and that pain alone does not identify an injury.
+  - "Chiropractic care is efficient and effective at relieving injury and pain", "a complete and accurate exam
+    and diagnosis", "interventional pain management specialists" and "physiotherapy techniques designed for
+    spinal realignment": the team in `business.ts` is still a placeholder, so these depend on who works there.
+  - "Even in a collision with a speed as low as five miles per hour… violent traumatic force", "causes neck
+    vertebrae to collide": the sentence "Vehicle damage alone does not determine whether you have an injury" is
+    gone, and so is "Tell your clinician about new or worsening symptoms".
+- **Translations follow the same text** (es, de, zh, vi), with the same heading, links, bold line and components.
+  As on the other restored pages, slips that can't be translated are not copied (commas, "Phoenix" capitalized,
+  "the worst day"). Native review needed like the rest.
 
 ## Needs legal review (§15.4)
 
