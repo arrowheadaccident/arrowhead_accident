@@ -28,7 +28,7 @@ type CallButtonProps = {
   size?: keyof typeof sizes;
   /** Layout only (margins, width). */
   className?: string;
-  /** Visible text; the number is always part of it so people can dial by hand. Default: "Call (602) 313-1925". */
+  /** Visible text; the number is always part of it so people can dial by hand. Default: "Call (623) 600-4878". */
   label?: string;
 };
 

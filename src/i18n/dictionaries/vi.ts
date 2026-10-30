@@ -53,10 +53,18 @@ export const vi: Dictionary = {
 
   footer: {
     treatments: "Điều trị chấn thương do tai nạn",
-    clinic: "Phòng khám",
     languages: "Ngôn ngữ",
-    disclaimer:
-      "Thông tin trên trang web này là thông tin chung, không phải lời khuyên y tế hay pháp lý, và không tạo ra quan hệ bác sĩ – bệnh nhân. Nếu gặp trường hợp cấp cứu y tế, hãy gọi 911.",
+    aboutTitle: "Chăm sóc chấn thương do tai nạn xe hơi",
+    noCostLead: "Không phải tự chi trả.",
+    noCost:
+      "Nếu tai nạn do người khác gây ra, {name} sẽ gửi hóa đơn cho bảo hiểm của người có lỗi và chờ thanh toán. Quý vị không cần bảo hiểm sức khỏe. Nếu quý vị có luật sư, chúng tôi sẽ làm việc với luật sư theo thỏa thuận thanh toán từ khoản bồi thường (lien) và chờ thanh toán. Chúng tôi lo toàn bộ giấy tờ cho quý vị.",
+    experience: "Phòng khám có hơn 10 năm kinh nghiệm chăm sóc nạn nhân tai nạn mà quý vị không phải tự chi trả.",
+    appointments: "Có lịch hẹn sớm. Hãy gọi để đặt lịch khám trong ngày hoặc vào ngày làm việc kế tiếp của phòng khám:",
+    painManagement:
+      "Chúng tôi điều trị giảm đau cho chấn thương của quý vị với bác sĩ y khoa và bác sĩ chuyên về giảm đau, và giới thiệu khám chỉnh hình khi cần, mà quý vị không phải tự chi trả.",
+    callUs: "Hãy gọi cho chúng tôi:",
+    clinicTitle: "Nắn chỉnh cột sống sau tai nạn xe hơi tại Glendale, Arizona",
+    contactTitle: "Liên hệ",
   },
 
   ctaBand: {

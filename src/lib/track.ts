@@ -1,5 +1,5 @@
 export type CtaLocation = "header" | "hero" | "sticky_bar" | "content" | "sidebar" | "footer";
-export type FormLocation = "home_hero" | "contact" | "sidebar";
+export type FormLocation = "home_hero" | "contact" | "sidebar" | "footer";
 
 type Events = {
   click_to_call: { location: CtaLocation | "unknown" };

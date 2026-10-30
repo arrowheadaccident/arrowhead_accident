@@ -58,10 +58,19 @@ export const en = {
 
   footer: {
     treatments: "Accident treatments",
-    clinic: "Our clinic",
     languages: "Languages",
-    disclaimer:
-      "This website provides general information. It does not offer medical or legal advice or establish a doctor–patient relationship. For a medical emergency, call 911.",
+    /** The clinic's own footer text (top row), from the old site. {name} is the business name. */
+    aboutTitle: "Auto accident injury care",
+    noCostLead: "No out-of-pocket costs.",
+    noCost:
+      "If your accident was caused by another person, {name} will bill the at-fault person's insurance and wait for payment. Health insurance is not necessary. If you have an attorney, we will work on a lien with your attorney and wait for payment. All paperwork is handled for you.",
+    experience: "Our office has over 10 years of experience caring for accident victims with no out-of-pocket costs.",
+    appointments: "Prompt appointments available. Call for an appointment on the same or next clinic day:",
+    painManagement:
+      "We offer pain management of your injuries with medical and pain management physicians, and orthopedic referrals when needed, with no out-of-pocket costs.",
+    callUs: "Call us:",
+    clinicTitle: "Glendale, Arizona car accident chiropractor",
+    contactTitle: "Contact us",
   },
 
   ctaBand: {

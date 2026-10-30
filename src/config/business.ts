@@ -7,7 +7,7 @@ export const business = {
   name: "Arrowhead Injury Care",
   legalName: "Arrowhead Glendale Arizona Collision Injury Chiropractic", // confirm
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://arrowheadcaraccidentchiropractor.com",
-  phone: { display: "(602) 313-1925", e164: "+16023131925" },
+  phone: { display: "(623) 600-4878", e164: "+16236004878" },
   email: "info@example.com", // PLACEHOLDER
   address: {
     street: "6320 W Union Hills Dr Ste 1400-B",

@@ -51,10 +51,19 @@ export const es: Dictionary = {
 
   footer: {
     treatments: "Tratamientos de lesiones por accidentes",
-    clinic: "Nuestra clínica",
     languages: "Idiomas",
-    disclaimer:
-      "Este sitio web proporciona información general. No ofrece asesoría médica ni legal ni establece una relación médico-paciente. Si tiene una emergencia médica, llame al 911.",
+    aboutTitle: "Atención de lesiones por accidentes de auto",
+    noCostLead: "Sin costo de su bolsillo.",
+    noCost:
+      "Si otra persona causó su accidente, {name} le cobrará al seguro de la persona responsable y esperará el pago. No necesita seguro médico. Si tiene un abogado, trabajaremos con su abogado mediante un gravamen (lien) y esperaremos el pago. Nos encargamos de todo el papeleo.",
+    experience:
+      "Nuestra clínica tiene más de 10 años de experiencia atendiendo a víctimas de accidentes sin costo de su bolsillo.",
+    appointments: "Citas sin demora. Llame para una cita el mismo día o el siguiente día de consulta:",
+    painManagement:
+      "Ofrecemos manejo del dolor de sus lesiones con médicos y especialistas en manejo del dolor, y derivaciones a ortopedia cuando sea necesario, sin costo de su bolsillo.",
+    callUs: "Llámenos:",
+    clinicTitle: "Quiropráctico de accidentes de auto en Glendale, Arizona",
+    contactTitle: "Contáctenos",
   },
 
   ctaBand: {

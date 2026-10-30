@@ -52,10 +52,18 @@ export const de: Dictionary = {
 
   footer: {
     treatments: "Unfallbehandlungen",
-    clinic: "Unsere Praxis",
     languages: "Sprachen",
-    disclaimer:
-      "Diese Website bietet allgemeine Informationen. Sie ersetzt keine medizinische oder rechtliche Beratung und begründet kein Arzt-Patienten-Verhältnis. Rufen Sie bei einem medizinischen Notfall 911 an.",
+    aboutTitle: "Versorgung von Unfallverletzungen",
+    noCostLead: "Keine Kosten für Sie.",
+    noCost:
+      "Hat eine andere Person Ihren Unfall verursacht, rechnet {name} mit der Versicherung des Unfallverursachers ab und wartet auf die Zahlung. Eine Krankenversicherung ist nicht nötig. Haben Sie einen Anwalt, arbeiten wir über einen Lien mit Ihrem Anwalt zusammen und warten auf die Zahlung. Den gesamten Papierkram übernehmen wir.",
+    experience: "Unsere Praxis versorgt Unfallopfer seit über 10 Jahren, ohne Kosten für Sie.",
+    appointments: "Zeitnahe Termine. Rufen Sie an, um einen Termin am selben oder nächsten Praxistag zu vereinbaren:",
+    painManagement:
+      "Wir behandeln die Schmerzen Ihrer Verletzungen mit Ärzten und Schmerztherapeuten und überweisen bei Bedarf zur Orthopädie, ohne Kosten für Sie.",
+    callUs: "Rufen Sie uns an:",
+    clinicTitle: "Chiropraktik nach Autounfällen in Glendale, Arizona",
+    contactTitle: "Kontakt",
   },
 
   ctaBand: {

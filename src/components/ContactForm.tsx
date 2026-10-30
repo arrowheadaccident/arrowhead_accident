@@ -22,7 +22,7 @@ import { track, type FormLocation } from "@/lib/track";
 type Variant = "card" | "inline" | "compact";
 
 type Props = {
-  /** card: home hero (name, phone, accident date) · inline: contact page (all fields) · compact: sidebar (name, phone). */
+  /** card: home hero (name, phone, accident date) · inline: contact page (all fields) · compact: sidebar and footer (name, phone). */
   variant: Variant;
   location: FormLocation;
   locale: Locale;
@@ -32,6 +32,10 @@ type Props = {
   title?: string | null;
   headingLevel?: "h2" | "h3";
   id?: string;
+  /** compact only: also shows the optional "How can we help?" field (footer). */
+  withMessage?: boolean;
+  /** Extra classes on the outer element, e.g. h-full to match a neighboring column. */
+  className?: string;
 };
 
 const FIELD_ORDER: ContactField[] = ["name", "phone", "email", "accidentDate", "message", "consent"];
@@ -72,7 +76,17 @@ const todayIso = () => {
   return new Date(now.getTime() - now.getTimezoneOffset() * 60_000).toISOString().slice(0, 10);
 };
 
-export function ContactForm({ variant, location, locale, labels, title = labels.title, headingLevel = "h2", id }: Props) {
+export function ContactForm({
+  variant,
+  location,
+  locale,
+  labels,
+  title = labels.title,
+  headingLevel = "h2",
+  id,
+  withMessage = false,
+  className = "",
+}: Props) {
   const uid = useId();
   /** Error code from contact-schema or the API -> sentence in the page's language. */
   const message = (code: string) =>
@@ -167,12 +181,13 @@ export function ContactForm({ variant, location, locale, labels, title = labels.
     setStatus("idle");
   }
 
-  const shell =
+  const shell = `${
     variant === "card"
       ? "rounded-2xl border border-line bg-white p-5 shadow-[0_24px_48px_-24px_rgb(7_26_51/0.35)] sm:p-7"
       : variant === "compact"
         ? "rounded-card border border-line bg-white p-5"
-        : "";
+        : ""
+  } ${className}`;
 
   if (status === "sent") {
     return (
@@ -187,7 +202,7 @@ export function ContactForm({ variant, location, locale, labels, title = labels.
           <p className="text-base">
             <strong className="block font-display text-lg text-navy-900">{labels.sentTitle}</strong>
             {labels.sentBefore}
-            <a href={telHref} data-cta-location={location === "sidebar" ? "sidebar" : "content"} className="font-semibold text-navy-500 underline underline-offset-4">
+            <a href={telHref} data-cta-location={location === "sidebar" || location === "footer" ? location : "content"} className="font-semibold text-navy-500 underline underline-offset-4">
               {business.phone.display}
             </a>
             {labels.sentAfter}
@@ -298,13 +313,13 @@ export function ContactForm({ variant, location, locale, labels, title = labels.
           </Field>
         ) : null}
 
-        {full ? (
+        {full || withMessage ? (
           <Field
             id={fieldId("message")}
             label={labels.message}
             optional={labels.optional}
             error={errors.message && message(errors.message)}
-            className="md:col-span-2"
+            className={full ? "md:col-span-2" : ""}
           >
             {(describedBy) => (
               <textarea

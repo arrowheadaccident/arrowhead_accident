@@ -133,8 +133,9 @@ The site belongs to Dr. Vaughn Movses. Changes in `src/config/business.ts` and t
 
 - Footer sentence "This website is not associated in any way with Dr. Vaughn Movses or
   Arrowhead Accident Group." removed in all languages. No other non-affiliation claims existed.
-- Phone: (602) 313-1925 (`tel:+16023131925`). It replaces (623) 444-1111, which is now on the
-  banned list; the old e164 value (`+16234001111`) didn't even match the displayed number.
+- Phone: (623) 600-4878 (`tel:+16236004878`), set later the same day. It replaces (623) 444-1111
+  and then (602) 313-1925, both on the banned list; the old e164 value (`+16234001111`) didn't
+  even match the displayed number.
 - Address: 6320 W Union Hills Dr Ste 1400-B, Glendale, AZ 85308. Geo coordinates are the
   OpenStreetMap footprint of "Building B" at 6320 W Union Hills Dr; the Contact page map is a
   Google Maps embed of the address (no API key). Check the pin against the Google Business Profile.
@@ -153,6 +154,15 @@ The site belongs to Dr. Vaughn Movses. Changes in `src/config/business.ts` and t
   (`arrowheadcaraccidentchiropractor.com`), descriptive "car accident chiropractor" wording in titles
   and H1s (search terms, not the name), and `legalName` ("Arrowhead Glendale Arizona Collision Injury
   Chiropractic", still to confirm), which Terms of Use names as the site owner.
+- Footer rebuilt after the clinic's old footer: "Auto accident injury care" text; "Visit us" with
+  "Glendale, Arizona car accident chiropractor", address, phone and hours above the map; and a
+  "Contact us" call-back form (the site's compact form, not the old Name/Email/Subject/Message one). The old text was cleaned:
+  sentence case, no "!", the current name, "Prompt appointments… same or next clinic day" instead of
+  "Emergency services… see the doctor today", and "orthopedic referrals when needed" instead of
+  "orthopedic physicians". Below it, one band: logo and treatment links on the left, languages, legal
+  links and © on the right. The "Our clinic" links (same as the header) were dropped, and the general
+  disclaimer ("This website provides general information… call 911.") was removed at the owner's request.
+  Translations need native review.
 
 ## Needs legal review (§15.4)
 

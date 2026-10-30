@@ -71,7 +71,8 @@ export const COLLECTIONS = {
 
 /** Strings that must never appear in content/ (SITE-BRIEF §14). */
 export const BANNED_STRINGS = [
-  "623-444-1111", // the old site's main number; the clinic number is now (602) 313-1925
+  "623-444-1111", // old numbers; the clinic number is now (623) 600-4878
+  "602-313-1925",
   "602-449-9430",
   "16390",
   "20229",

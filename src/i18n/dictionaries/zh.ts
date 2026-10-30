@@ -52,10 +52,16 @@ export const zh: Dictionary = {
 
   footer: {
     treatments: "车祸伤治疗",
-    clinic: "我们的诊所",
     languages: "语言",
-    disclaimer:
-      "本网站上的信息为一般性信息，不构成医疗或法律建议，也不建立医患关系。如遇医疗紧急情况，请拨打 911。",
+    aboutTitle: "车祸伤诊疗",
+    noCostLead: "无需自付费用。",
+    noCost: "如果事故由他人造成，{name} 将向过错方的保险公司收费并等待付款。无需医疗保险。如果您有律师，我们将通过医疗费用偿付安排（lien）与您的律师合作并等待付款。所有文书工作都由我们处理。",
+    experience: "我们诊所拥有超过 10 年为车祸受害者提供诊疗的经验，您无需自付费用。",
+    appointments: "可尽快预约。请致电预约当天或下一个门诊日就诊：",
+    painManagement: "我们由医生和疼痛管理医生为您的损伤提供疼痛管理，并在必要时转诊至骨科，您无需自付费用。",
+    callUs: "请致电：",
+    clinicTitle: "亚利桑那州格伦代尔车祸整脊医生",
+    contactTitle: "联系我们",
   },
 
   ctaBand: {
