@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { cache } from "react";
 import type { z } from "zod";
 import { DEFAULT_LOCALE, LOCALES, localePath, type Locale } from "@/i18n/config";
 import { COLLECTIONS, frontmatterSchema, translationSchema } from "./frontmatter.mjs";
@@ -78,10 +79,7 @@ function readCollection(collection: Collection): Entry[] {
   );
 }
 
-let cache: Entry[] | null = null;
-
-function allEntries(): Entry[] {
-  if (cache) return cache;
+function loadEntries(): Entry[] {
   const entries = (Object.keys(COLLECTIONS) as Collection[]).flatMap(readCollection);
 
   const englishSlugs = new Set(entries.filter((e) => e.locale === DEFAULT_LOCALE).map((e) => e.slug));
@@ -93,9 +91,14 @@ function allEntries(): Entry[] {
     }
   }
 
-  cache = entries;
   return entries;
 }
+
+let loaded: Entry[] | null = null;
+
+/** Builds and `next start` read content/ once per process. `next dev` reads it once per request, so edits to
+    content/*.mdx show on the next refresh without restarting the server. */
+const allEntries = process.env.NODE_ENV === "production" ? () => (loaded ??= loadEntries()) : cache(loadEntries);
 
 const inLocale = (locale: Locale) => allEntries().filter((e) => e.locale === locale);
 
