@@ -87,7 +87,7 @@ From `docs/SEO-AUDIT.md`, action-plan step 3.
   link is gone).
 - **Internal links:** every page except legal and FAQ now links to at least 2 other pages from its text
   (`check:content` enforces it). Small wording changes made for this: Emergency lists neck pain, headaches and
-  low back pain; Low Back adds "such as a spinal ligament sprain"; Whiplash adds "(see spinal ligament injuries)";
+  low back pain; ~~Low Back adds "such as a spinal ligament sprain"~~ (old text back on 2026-10-30); Whiplash adds "(see spinal ligament injuries)";
   ~~Headaches "a proper examination" → "a prompt examination"~~ (old text back on 2026-10-30); About "other back injuries" → "low back injuries";
   the insurance myths post adds "If you have one, we can work on a lien and wait for payment until your case
   settles."
@@ -149,6 +149,7 @@ The site belongs to Dr. Vaughn Movses. Changes in `src/config/business.ts` and t
   "prompt" ("Prompt Care", "Prompt appointments"); sentences say "the same or next clinic day"
   or "same-day appointments on clinic days". Changed in the dictionaries, the OG image text and
   About, Car accident FAQ, Emergency care, Headaches and Low back pain, in all five languages.
+  (Low back pain says "today or the next day!" again since 2026-10-30, see "Low back pain: old text restored".)
   **The new Spanish, German, Chinese and Vietnamese sentences need the same native review as
   the rest of the translations.**
 - Name: "Arrowhead Car Accident Chiropractor" → **"Arrowhead Injury Care"** (`business.name`: JSON-LD,
@@ -331,6 +332,37 @@ last sentence from the live old page, read on 2026-10-30 (look-alike Cyrillic le
   the "closed head injury" sentence is split with a semicolon). The trailing hyphen stays ("——" in Chinese).
   The Wikipedia link points to the English article and says "(in English)" in each language. Native review
   needed like the rest.
+
+## Low back pain: old text restored (2026-10-30)
+
+At the user's request, the whole body of `/low-back-pain/` ("Experienced care for accident injuries", "How we
+examine your back after a car accident") was replaced by the old site's text, word for word. The user pasted it
+in chat; it matches the live old page (read on 2026-10-30) paragraph for paragraph, apart from the phone number.
+
+- **Structure:** five paragraphs, no subheadings, as on the old page. `<CallCta />` sits after the long third
+  paragraph ("If you are suffering from a spinal injury…"), before "If you have more questions…". H1, title, meta
+  description and excerpt are unchanged (the old H1 was "Low Back Pain resulting From A Car Crash").
+- **Kept as in the original:** "Arrowhead AZ", "Glendale Arizona" and "Arrowhead Glendale Az" without commas,
+  "dedicates its practice… only, it’s all we do" (comma splice, curly apostrophe), "protocols includes", "to
+  determine any potential spinal injury or damage has taken place", the "&" and the "!".
+- **Changed:** the old phone 1(623) 400-6362 is the `<Phone />` component, so the sentence reads "contact us
+  today at 1 (623) 600-4878." Links were added on words of the text: "spinal injury" →
+  `/spinal-ligament-injury-treatment/`, "neck pain" → `/neck-chiropractor-arrowhead-az/`.
+- **This brings back claims the cleanup had softened.** The clinic should confirm them before launch:
+  - "one of only a few… clinics that dedicates its practice to the proper care of auto accident victims only,
+    it’s all we do": the previous text said "car accident and work-related injuries", and About still says
+    "Practice limited to auto & work injuries" and "workplace injury".
+  - "we can see you today or the next day!": the clinic is open Mon, Tue and Thu only, so the rest of the site
+    says "the same or next clinic day" (see "Clinic details update").
+  - "These chiropractic & orthopedic tests will help us determine if your disc is injured and herniated":
+    physical tests can suggest a disc injury, but confirming a herniation usually needs imaging. The sentence
+    "If a disc injury or another condition is suspected, imaging or a specialist referral may be needed" is gone,
+    and so is the medical history step.
+  - "the specific car accident injury treatment you need to fully recover" reads as a promise of full recovery.
+- **Translations follow the same text** (es, de, zh, vi), with the same links and components. As on About and
+  Headaches, slips that can't be translated are not copied (the comma splice and "protocols includes" read
+  normally, and the opening sentence gets a colon or "sepa que"/"请放心" so it reads as one thought). Native
+  review needed like the rest.
 
 ## Needs legal review (§15.4)
 
