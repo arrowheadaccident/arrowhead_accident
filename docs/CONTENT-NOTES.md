@@ -22,7 +22,7 @@ on 2026-10-26 (19 pages, 0 look-alike characters left after normalizing).
 
 | Where | Old text | Now |
 |---|---|---|
-| Whiplash | "Penny Injury Chiropractic" (twice) | "our chiropractic physicians" / "our office" |
+| Whiplash | "Penny Injury Chiropractic" (twice) | ~~"our chiropractic physicians" / "our office"~~ `<BusinessName />` since 2026-10-30 (old text restored) |
 | No Out-of-Pocket Cost | "Dr. Quackenbush and his… staff" | "Our doctors and… staff" |
 | Pain Management | "Arrowhead Health Centers" | "Our pain management doctors" |
 | Insurance myths post | "Phoenix Injury Chiropractor John Quackenbush" related videos | removed |
@@ -59,7 +59,8 @@ pain management on site.
 ## Structure changes
 
 - `/neck-pain-whiplash/` merged into `/whiplash-injury/` (texts were ~98% identical;
-  the merged page keeps the brand-free wording from `/neck-pain-whiplash/`).
+  the merged page keeps the brand-free wording from `/neck-pain-whiplash/`). Since 2026-10-30 the page has the
+  live old `/whiplash-injury/` text (see "Whiplash: old text restored").
 - About: the first-visit checklist and service areas became their own sections; the
   benefits list rendered from `valueProps` in the dictionaries (`src/i18n/dictionaries/`).
   All three were replaced by the old site's text on 2026-10-30 (see the About sections below).
@@ -75,9 +76,10 @@ From `docs/SEO-AUDIT.md`, action-plan step 3.
   "Pain Management After a Car Accident"; Spinal ligament → "Spinal Ligament Injury Treatment After a Car Crash";
   study post → "What a 2013 Military Study Found About Chiropractic Care for Low Back Pain" (the old H1 said the
   study was about car accident injuries; it was about acute low back pain in active-duty military personnel).
-- **Claims reworded as the clinic's experience:** Whiplash "the top three auto accident injuries in Glendale" →
-  "three of the injuries we see most often"; "the fourth or fifth day… is classically the worst" (Whiplash, ~~Neck~~
-  (old text back on 2026-10-30), study post) → "in our experience… often the fourth or fifth day".
+- **Claims reworded as the clinic's experience:** ~~Whiplash "the top three auto accident injuries in Glendale" →
+  "three of the injuries we see most often"~~ (old text back on 2026-10-30); "the fourth or fifth day… is
+  classically the worst" (~~Whiplash~~, ~~Neck~~ (old text back on 2026-10-30), study post) → "in our experience…
+  often the fourth or fifth day".
 - **Study post:** "The chiropractic profession has said this for over 100 years" removed; the description of
   standard care now matches the study (medication, physical therapy, self-care advice) and says the study was not
   about car accidents.
@@ -88,7 +90,7 @@ From `docs/SEO-AUDIT.md`, action-plan step 3.
   link is gone).
 - **Internal links:** every page except legal and FAQ now links to at least 2 other pages from its text
   (`check:content` enforces it). Small wording changes made for this: Emergency lists neck pain, headaches and
-  low back pain; ~~Low Back adds "such as a spinal ligament sprain"~~ (old text back on 2026-10-30); Whiplash adds "(see spinal ligament injuries)";
+  low back pain; ~~Low Back adds "such as a spinal ligament sprain"~~ (old text back on 2026-10-30); ~~Whiplash adds "(see spinal ligament injuries)"~~ (old text back on 2026-10-30);
   ~~Headaches "a proper examination" → "a prompt examination"~~ (old text back on 2026-10-30); About "other back injuries" → "low back injuries";
   the insurance myths post adds "If you have one, we can work on a lien and wait for payment until your case
   settles."
@@ -408,6 +410,63 @@ ones, so the words read the same but search engines and screen readers see real 
 - **Translations follow the same text** (es, de, zh, vi), with the same heading, links, bold line and components.
   As on the other restored pages, slips that can't be translated are not copied (commas, "Phoenix" capitalized,
   "the worst day"). Native review needed like the rest.
+
+## Whiplash: old text restored (2026-10-30)
+
+At the user's request, the whole body of `/whiplash-injury/` ("What is whiplash?", "Symptoms of whiplash after a
+motor vehicle accident", "Please don't delay getting care after a car accident") was replaced by the old site's
+text, word for word, taken from the live old page on 2026-10-30. Look-alike Cyrillic letters ("Sуmрtоmѕ", "ԛ")
+are replaced by Latin ones.
+
+- **Structure:** three subheadings, two sub-subheadings, eleven paragraphs and the closing call line, as on the old page. Bodies start
+  at H2, so the old H3s "Symptoms and Treatment of whiplash related to a Glendale Arizona Car accident" and
+  "Symptoms of whiplash following a motor vehicle accident" are H2s, like the old H2 "Is Whiplash a reality or a
+  Myth?"; the old bold lines "Headache" and "Soft Tissue Injury – Sprains, Strains, Bumps and Bruises oh my!!!"
+  are H3s under the symptoms section. "Please Do Not Delay Seeking Medical Attention After a Car Accident." stays
+  at the end of the ankle paragraph, as on the old page (the cleanup had made it an H2). `<CallCta />` sits after
+  the "reality or a Myth?" section, where it was before. H1, title, meta description and excerpt are unchanged
+  (the old H1 was "Whiplash Injury").
+- **Kept as in the original:** "Glendale Arizona" without commas, the capitals in "Car accident", "Myth", "Whip",
+  "Chiropractic attention" and "Please Do Not Delay…", "an up close look", "very important and crucial",
+  "Whiplash which is caused by…" (no main verb), "extension- flexion", "Actually the definition… may include many
+  different types of injury, whiplash normally has…", "the disks"/"discs" and "the vertebra", "following an auto
+  accident injuries of whiplash remain", "This is realistic.", "from 20 to 30 or even 5 MPH to zero", "Symptoms
+  of soft tissue include", "a severely sprained an ankle", the first-person "have told me", "The most dangerous
+  words… is", "following car accident", "none of the treatment… were intended", "make an appointment to seek an
+  appointment", "Here is an definitive fact when you are involved a car accident", "always, always", the "!",
+  "&", en dash and curly quotes.
+- **Changed:** "Penny Injury Chiropractic" (twice, another clinic's name) is `<BusinessName />`, so it reads
+  "Arrowhead Injury Care" (user's choice). The old phone 1(623) 400-6362 in the closing heading is the `<Phone />`
+  component, and the heading is a bold paragraph because it holds the number, as on Neck and Headaches: "Call Now
+  1 (623) 600-4878 for an appointment today!". "oh my!!!" is "oh my!" because `check:content` rejects repeated
+  "!!" site-wide. Links were added on words of the text: "neck pain" → `/neck-chiropractor-arrowhead-az/`,
+  "closed head injury" (end of the Headache section) → `/headaches-closed-head-injury/`, "ligament" →
+  `/spinal-ligament-injury-treatment/`.
+- **Removed, user's choice:** the old page's YouTube video ("Phoenix Chiropractor | Whiplash Accident Injury",
+  from the "Phoenix Car Accident Chiropractor" channel, not the clinic's).
+- **This brings back claims the cleanup had softened** (see "Claims removed or softened" and "SEO audit changes"
+  above). The clinic should confirm them before launch, ideally with a medical reviewer:
+  - "The top three auto accident injuries in Glendale Arizona": no source; the SEO cleanup had made it "three of
+    the injuries we see most often".
+  - "the fourth or fifth day following a car accident is classically the worst", now said by "the injury
+    chiropractors at Arrowhead Injury Care": the cleanup had made it "in our experience… often".
+  - "injuries of whiplash remain and heal in a very incorrect way" even without pain, and "car accidents that
+    cause severe whiplash can absolutely cause memory problems… depression".
+  - "the ER doctor is only concerned with life threatening injuries" and "none of the treatment in an ER or 'Doc in
+    a Box clinic' were intended to help with long term treatment": dismissive of emergency and urgent care.
+  - "insurance companies will absolutely think that you weren't really injured": stated as a "definitive fact".
+  - "Most people who have a severely sprained an ankle have told me…": first person, but the page has no named
+    author.
+  - "Call Now… for an appointment today!": the clinic is open Mon, Tue and Thu only, so the rest of the site says
+    "the same or next clinic day" (see "Clinic details update").
+  - Gone with the old text: "Tell your clinician about all symptoms so that other injuries can be considered",
+    "Seek urgent care for severe or worsening symptoms", "Follow any discharge instructions you receive" and
+    "discuss your circumstances with your insurer or attorney".
+- **Translations follow the same text** (es, de, zh, vi), with the same headings, links, bold line and
+  components, `<BusinessName />` included. As on the other restored pages, slips that can't be translated are not
+  copied (the sentence without a main verb, "a severely sprained an ankle", "an definitive fact"); "oh my!" is
+  "¡ay, Dios mío!", "oje!", "天哪！" and "trời ơi!", "Doc in a Box clinic" is a walk-in clinic in each language,
+  and German adds km/h after the mph figures. Native review needed like the rest.
 
 ## Needs legal review (§15.4)
 
