@@ -3,6 +3,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { business } from "@/config/business";
 import { Address, CallCta, Hours, Phone, ServiceAreas } from "@/components/BusinessInfo";
 import { ValueProps } from "@/components/ValueProps";
+import { YouTube } from "@/components/YouTube";
 import { localePath, type Locale } from "@/i18n/config";
 import { getLocale } from "@/i18n/server";
 
@@ -10,8 +11,8 @@ function BusinessName({ legal = false }: { legal?: boolean }) {
   return <>{legal ? business.legalName : business.name}</>;
 }
 
-/** Components content authors can use in content/*.mdx. Each one reads business.ts. */
-const components = { Phone, Address, Hours, ServiceAreas, CallCta, BusinessName, ValueProps };
+/** Components content authors can use in content/*.mdx. Each one but YouTube reads business.ts. */
+const components = { Phone, Address, Hours, ServiceAreas, CallCta, BusinessName, ValueProps, YouTube };
 
 /** Translations link with English paths ("/whiplash-injury/"); this adds the page's language prefix. */
 function localizedLink(locale: Locale) {

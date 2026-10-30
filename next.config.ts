@@ -12,7 +12,11 @@ const nextConfig: NextConfig = {
   experimental: { globalNotFound: true },
   trailingSlash: true,
   poweredByHeader: false,
-  images: { formats: ["image/avif", "image/webp"] },
+  images: {
+    formats: ["image/avif", "image/webp"],
+    // Thumbnails for <YouTube /> in content.
+    remotePatterns: [{ protocol: "https", hostname: "i.ytimg.com", pathname: "/vi/**" }],
+  },
   turbopack: {
     rules: {
       "*.css": {

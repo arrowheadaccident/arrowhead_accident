@@ -76,6 +76,9 @@ export const de: Dictionary = {
     link: "fordern Sie einen Rückruf an",
     after: ".",
   },
+  video: {
+    play: "Video abspielen",
+  },
 
   sidebar: {
     label: "Praxis kontaktieren",

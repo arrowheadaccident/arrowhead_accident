@@ -80,6 +80,9 @@ export const en = {
     link: "request a callback",
     after: ".",
   },
+  video: {
+    play: "Play video",
+  },
 
   sidebar: {
     label: "Contact the clinic",

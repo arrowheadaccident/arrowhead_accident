@@ -76,6 +76,9 @@ export const es: Dictionary = {
     link: "solicite que le llamemos",
     after: ".",
   },
+  video: {
+    play: "Reproducir video",
+  },
 
   sidebar: {
     label: "Contacte a la clínica",

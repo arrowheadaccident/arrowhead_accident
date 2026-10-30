@@ -77,6 +77,9 @@ export const vi: Dictionary = {
     link: "yêu cầu chúng tôi gọi lại",
     after: ".",
   },
+  video: {
+    play: "Phát video",
+  },
 
   sidebar: {
     label: "Liên hệ phòng khám",

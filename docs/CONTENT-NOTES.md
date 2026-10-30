@@ -23,7 +23,7 @@ on 2026-10-26 (19 pages, 0 look-alike characters left after normalizing).
 | Where | Old text | Now |
 |---|---|---|
 | Whiplash | "Penny Injury Chiropractic" (twice) | ~~"our chiropractic physicians" / "our office"~~ `<BusinessName />` since 2026-10-30 (old text restored) |
-| No Out-of-Pocket Cost | "Dr. Quackenbush and his… staff" | "Our doctors and… staff" |
+| No Out-of-Pocket Cost | "Dr. Quackenbush and his… staff" | ~~"Our doctors and… staff"~~ "Dr. Vaughn Movses and his… staff" since 2026-10-30 (old text restored) |
 | Pain Management | "Arrowhead Health Centers" | "Our pain management doctors" |
 | Insurance myths post | "Phoenix Injury Chiropractor John Quackenbush" related videos | removed |
 | Study post | "US Chiropractic Directory" heading, links and "Related articles" | removed; proper citations added |
@@ -66,7 +66,8 @@ pain management on site.
   All three were replaced by the old site's text on 2026-10-30 (see the About sections below).
 - FAQ: the 8 Q&As moved to frontmatter (`faqs`), which feeds both the accordion and
   the `FAQPage` JSON-LD. Q8 was rephrased as a question.
-- No Out-of-Pocket Cost: the home page's billing paragraph was added as a list.
+- No Out-of-Pocket Cost: the home page's billing paragraph was added as a list. Replaced by the old site's text on
+  2026-10-30 (see "No Out-of-Pocket Cost: old text restored").
 
 ## SEO audit changes (2026-10-26, please confirm)
 
@@ -442,8 +443,12 @@ are replaced by Latin ones.
   "!!" site-wide. Links were added on words of the text: "neck pain" → `/neck-chiropractor-arrowhead-az/`,
   "closed head injury" (end of the Headache section) → `/headaches-closed-head-injury/`, "ligament" →
   `/spinal-ligament-injury-treatment/`.
-- **Removed, user's choice:** the old page's YouTube video ("Phoenix Chiropractor | Whiplash Accident Injury",
-  from the "Phoenix Car Accident Chiropractor" channel, not the clinic's).
+- **Video, back at the user's request:** the old page's YouTube video (`30YPCGnBy4A`, "Phoenix Chiropractor |
+  Whiplash Accident Injury | Personal Injury Doctor", from the "Phoenix Car Accident Chiropractor" channel, not
+  the clinic's) sits right under the first heading, as on the old page, in all 5 languages through `<YouTube />`.
+  It was first left out; the user asked for it on 2026-10-30. It works like the no-cost page's video: thumbnail
+  until played, player from youtube-nocookie.com on click. **To check:** YouTube's player shows the video's own
+  "Phoenix" title, and the video is in English on the translated pages too (their accessible title says so).
 - **This brings back claims the cleanup had softened** (see "Claims removed or softened" and "SEO audit changes"
   above). The clinic should confirm them before launch, ideally with a medical reviewer:
   - "The top three auto accident injuries in Glendale Arizona": no source; the SEO cleanup had made it "three of
@@ -468,8 +473,51 @@ are replaced by Latin ones.
   "¡ay, Dios mío!", "oje!", "天哪！" and "trời ơi!", "Doc in a Box clinic" is a walk-in clinic in each language,
   and German adds km/h after the mph figures. Native review needed like the rest.
 
+## No Out-of-Pocket Cost: old text restored (2026-10-30)
+
+At the user's request, the whole body of `/no-cost-for-your-treatment-ever/` ("No out-of-pocket cost when another
+driver is at fault", "How billing works" and the closing links paragraph) was replaced by the old site's text, word
+for word, taken from the live old page on 2026-10-30. Look-alike Cyrillic letters are replaced by Latin ones.
+
+- **Structure:** one subheading, one paragraph and the closing call line, as on the old page. Bodies start at H2, so
+  the old H3 "We Never Look To You As The Glendale Arizona Auto Collision Victim For Payment." is an H2. The old
+  bold-italic closing line stays bold italic. The video sits where it was on the old page, after the paragraph,
+  and `<CallCta />` follows it.
+- **H1:** the old H1, "No Cost Treatment- EVER! For Car Crash Victims" (user's choice). The old one has "EVER!!";
+  it has one "!" because `check:content` rejects repeated "!!" site-wide, as with "oh my!" on Whiplash. Title, meta
+  description, excerpt and nav label are unchanged ("No Out-of-Pocket Car Accident Treatment | Glendale, AZ").
+- **Kept as in the original:** "Glendale Arizona" without a comma, the capitals in the subheading, "and are not at
+  fault you will" (no comma), "no out of pocket fees what so ever", "Call today for a no cost no obligation
+  consultation Call…" (no punctuation).
+- **Changed:** "Dr. Quackenbush" (another clinic's doctor) is "Dr. Vaughn Movses", so it reads "Dr. Vaughn Movses
+  and his knowledgeable chiropractic staff" (user's choice). The old phone 1(623) 400-6362 is the `<Phone />`
+  component: "Call 1 (623) 600-4878". Links were added on words of the text (user's choice): "car accident" → the
+  car accident FAQ, "insurance companies" → the insurance myths post.
+- **Video, back at the user's request:** the old page's YouTube video (`WrqDOxZmRug`, "Phoenix Car Accident
+  Treatment No Cost | 602-456-7252", from the "Phoenix Car Accident Chiropractor" channel) is on the page in all 5
+  languages through the new `<YouTube />` component. It was first left out, as on Whiplash; the user asked for it
+  on 2026-10-30. Until it is played the page shows only the thumbnail (served through `/_next/image`, so the
+  visitor's browser makes no request to YouTube); a click loads the player from youtube-nocookie.com. Without
+  JavaScript the link opens the video on youtube.com. **To check:** YouTube's player shows the video's own title,
+  with the other number 602-456-7252, and the video is in English on the translated pages too (their accessible
+  title says so). The Privacy Policy does not mention embedded YouTube videos (see "Needs legal review").
+- **This brings back claims the cleanup had softened.** The clinic should confirm them before launch:
+  - "No Cost Treatment- EVER!" and "you will have no out of pocket fees what so ever": absolute, with no word on
+    how billing works; the cleanup had said "Call us to discuss your situation and how billing works".
+  - "a no cost no obligation consultation": not said elsewhere on the site.
+  - Gone with the old text: "Health insurance is not necessary", the lien explanation ("ask us about the terms"),
+    "We handle the paperwork" and "over 10 years of experience". The meta description and excerpt still say
+    "We bill the at-fault driver's insurance… wait for payment" and "No health insurance needed", which the body
+    no longer says.
+- **Translations follow the same text** (es, de, zh, vi), with the same heading, links, bold-italic line and
+  components. The H1 keeps the capitals on the "EVER" word ("NUNCA", "NIE", "KHÔNG BAO GIỜ"; Chinese has no
+  capitals, so "永远"); the Vietnamese H1 says "miễn phí" (free) to stay within the 90-character limit. Native
+  review needed like the rest.
+
 ## Needs legal review (§15.4)
 
+- **YouTube embed (2026-10-30):** the no-cost and whiplash pages play a YouTube video after a click (youtube-nocookie.com).
+  The Privacy Policy should say that playing it loads content from YouTube/Google.
 - **Privacy Policy still says "We may share or sell information with third parties
   for marketing or other purposes."** The new site collects names and phone numbers
   through the call-back form, so this sentence should be reviewed before launch.
@@ -481,4 +529,5 @@ are replaced by Latin ones.
 ## Thin pages to expand later
 
 - Pain Management (~110 words of real text).
-- No Out-of-Pocket Cost and Emergency care are short but complete.
+- ~~No Out-of-Pocket Cost and~~ Emergency care ~~are~~ is short but complete. No Out-of-Pocket Cost is the old page's
+  one paragraph since 2026-10-30 (~80 words).

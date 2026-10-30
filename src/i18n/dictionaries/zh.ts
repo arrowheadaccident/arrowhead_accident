@@ -74,6 +74,9 @@ export const zh: Dictionary = {
     link: "预约回电",
     after: "。",
   },
+  video: {
+    play: "播放视频",
+  },
 
   sidebar: {
     label: "联系诊所",

@@ -44,7 +44,8 @@ commit so Vercel picks up the changes.
 - The share image is `/og.png` and the iOS icon `/apple-touch-icon.png` (route handlers in `src/app/`),
   not the `opengraph-image` / `apple-icon` conventions: with `trailingSlash: true` those URLs 308-redirect.
 - Pages are MDX in `content/`. MDX can use `<Phone />`, `<Address />`, `<Hours />`,
-  `<ServiceAreas />`, `<CallCta />`, `<ValueProps />` and `<BusinessName />`.
+  `<ServiceAreas />`, `<CallCta />`, `<ValueProps />`, `<BusinessName />` and
+  `<YouTube id="…" title="…" />` (thumbnail first; the player loads from youtube-nocookie.com on click).
 - Copy `.env.example` to `.env.local` to set the site URL, GA4 ID and Resend keys.
   Without Resend keys the call-back form logs the request in dev and drops it (with a
   warning) in production.
