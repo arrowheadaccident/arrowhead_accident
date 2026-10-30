@@ -28,8 +28,6 @@ export const es: Dictionary = {
     title: "Hablamos español",
     text: "Nuestros médicos y asistentes hablan español.",
     interpreter: "",
-    callToday: "Llámenos para una cita el mismo día o el siguiente día de consulta.",
-    cta: "Llame al {phone}",
   },
 
   nav: {
@@ -136,6 +134,7 @@ export const es: Dictionary = {
     sampleTag: "Perfil de ejemplo",
     sampleBio: "Biografía de ejemplo.",
     roles: {
+      "Founder and Chiropractic Physician": "Fundó la clínica · Quiropráctica",
       "Chiropractic Physician": "Médico quiropráctico",
       "Pain Management Physician": "Médico especialista en manejo del dolor",
     },
@@ -195,14 +194,16 @@ export const es: Dictionary = {
       "Si tiene abogado, podemos aplazar el pago mediante un gravamen (lien) hasta que su caso se resuelva.",
       "Nos encargamos de todo el papeleo.",
     ],
-    careLabel: "Manejo del dolor y atención en español",
-    painTitle: "Manejo del dolor en la misma clínica",
-    painText:
-      "Coordinamos la atención quiropráctica y el manejo médico del dolor, con derivaciones a ortopedia cuando sea necesario. Ofrecemos tratamiento sin costo de su bolsillo cuando otro conductor tiene la culpa. Llámenos para programar una cita y hablar sobre su situación.",
-    painLink: "Sobre el manejo del dolor",
-    teamTitle: "Quiroprácticos y un médico bajo un mismo techo",
-    teamLead: "Cuatro médicos quiroprácticos y un médico especialista en manejo del dolor que tratan lesiones por accidentes de auto todos los días.",
-    teamLink: "Más sobre nuestra clínica",
+    founderEyebrow: "Conozca a quien fundó la clínica",
+    founderCredentials: [
+      "Certificación del American Board of Forensic Professionals (DABFP)",
+      "Certificación en traumatología del latigazo cervical y de lesiones cerebrales",
+      "Certificación en análisis forense de riesgo en colisiones a baja velocidad",
+      "Fellow en acupuntura médica (FIAMA)",
+    ],
+    founderQuote:
+      "Un accidente de auto puede cambiarle la vida en segundos. Mi objetivo es sencillo: un examen minucioso, respuestas honestas y un plan de tratamiento pensado para sus lesiones, para que pueda recuperarse y volver a su rutina.",
+    founderLink: "Ver el perfil completo",
     faqTitle: "Preguntas después de un accidente de auto",
     faqLead: "Respuestas claras sobre las visitas a emergencias, los daños menores del vehículo y los costos del tratamiento.",
     faqLink: "Lea las {count} preguntas",

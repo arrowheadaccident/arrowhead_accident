@@ -29,8 +29,6 @@ export const zh: Dictionary = {
     title: "英语和西班牙语服务",
     text: "我们的医生和工作人员讲英语和西班牙语。电话沟通和就诊均以英语或西班牙语进行。",
     interpreter: "欢迎您带一位能为您翻译的亲友一同前来。",
-    callToday: "",
-    cta: "致电 {phone}",
   },
 
   nav: {
@@ -134,6 +132,7 @@ export const zh: Dictionary = {
     sampleTag: "示例资料",
     sampleBio: "示例简介。",
     roles: {
+      "Founder and Chiropractic Physician": "诊所创始人，整脊医生",
       "Chiropractic Physician": "整脊医生",
       "Pain Management Physician": "疼痛管理医生",
     },
@@ -192,14 +191,16 @@ export const zh: Dictionary = {
       "如果您已聘请律师，我们可通过医疗费用偿付安排（lien）将收款延后至案件结案时。",
       "所有文书工作都由我们为您处理。",
     ],
-    careLabel: "疼痛管理和语言服务",
-    painTitle: "同一诊所提供疼痛管理",
-    painText:
-      "我们协调安排整脊治疗和医学疼痛管理，并在必要时转诊至骨科。如果事故责任在其他司机，治疗可无需您自付费用。请致电预约就诊，并说明您的情况。",
-    painLink: "了解疼痛管理",
-    teamTitle: "整脊医生与临床医生协同诊疗",
-    teamLead: "四位整脊医生和一位疼痛管理医生，每天都在治疗车祸伤。",
-    teamLink: "进一步了解我们的诊所",
+    founderEyebrow: "认识我们的创始人",
+    founderCredentials: [
+      "美国法医专业委员会认证（DABFP）",
+      "挥鞭伤与脑损伤创伤学认证",
+      "低速碰撞法医风险分析认证",
+      "医学针灸学会会士（FIAMA）",
+    ],
+    founderQuote:
+      "一场车祸可能在几秒钟内彻底改变您的生活。我的目标很简单：仔细的检查、坦诚的解答，以及根据您的伤情制定的治疗方案，帮助您康复并回到日常生活。",
+    founderLink: "查看完整简介",
     faqTitle: "车祸后的常见疑问",
     faqLead: "清楚解答有关急诊就诊、轻微车损和治疗费用的问题。",
     faqLink: "阅读全部 {count} 个问题",

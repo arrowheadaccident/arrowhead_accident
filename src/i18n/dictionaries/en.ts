@@ -33,9 +33,6 @@ export const en = {
     text: "Nuestros médicos y asistentes hablan español.",
     /** Only for languages the staff don't speak. */
     interpreter: "",
-    /** Home page card, after `text`. */
-    callToday: "Llámenos para una cita el mismo día o el siguiente día de consulta.",
-    cta: "Llame al {phone}",
   },
 
   nav: {
@@ -145,6 +142,7 @@ export const en = {
     /** Shown instead of a placeholder bio on translated pages. */
     sampleBio: "Sample bio.",
     roles: {
+      "Founder and Chiropractic Physician": "Founder and Chiropractic Physician",
       "Chiropractic Physician": "Chiropractic Physician",
       "Pain Management Physician": "Pain Management Physician",
     } as Record<string, string>,
@@ -205,14 +203,18 @@ export const en = {
       "If you have an attorney, we can defer payment under a lien until your case settles.",
       "All paperwork is handled for you.",
     ],
-    careLabel: "Pain management and Spanish-speaking care",
-    painTitle: "Pain management in the same clinic",
-    painText:
-      "We coordinate chiropractic care and medical pain management, with orthopedic referrals when needed. Treatment is available with no out-of-pocket cost when another driver is at fault. Call us to arrange an appointment and discuss your situation.",
-    painLink: "About pain management",
-    teamTitle: "Chiropractors and a medical doctor under one roof",
-    teamLead: "Four chiropractic physicians and a pain management physician who treat car accident injuries every day.",
-    teamLink: "More about our clinic",
+    founderEyebrow: "Meet our founder",
+    /** From the old site's About page; the clinic should confirm them. */
+    founderCredentials: [
+      "Certified by the American Board of Forensic Professionals (DABFP)",
+      "Certified in whiplash and brain injury traumatology",
+      "Certified in low-speed collision forensic risk analysis",
+      "Fellow in medical acupuncture (FIAMA)",
+    ],
+    /** Drafted for the clinic: Dr. Movses must approve it (docs/CONTENT-NOTES.md). */
+    founderQuote:
+      "A car accident can turn your life upside down in seconds. My goal is simple: a careful exam, honest answers and a treatment plan built around your injuries, so you can recover and get back to your routine.",
+    founderLink: "Read the full profile",
     faqTitle: "Questions after a car accident",
     faqLead: "Clear answers about ER visits, minor vehicle damage and treatment costs.",
     faqLink: "Read all {count} questions",

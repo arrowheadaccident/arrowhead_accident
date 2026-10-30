@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Check, Languages, Pill } from "lucide-react";
-import { business, telHref } from "@/config/business";
+import { Check, Languages } from "lucide-react";
+import { founder } from "@/config/business";
 import { ServiceAreas } from "@/components/BusinessInfo";
 import { CallButton, buttonStyles } from "@/components/Button";
 import { ConditionCard, ConditionGrid, PostCard } from "@/components/Cards";
@@ -12,7 +13,7 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { HowItWorks } from "@/components/HowItWorks";
 import { JsonLd } from "@/components/JsonLd";
 import { OpenStatus } from "@/components/OpenStatus";
-import { TeamGrid } from "@/components/Team";
+import { initials } from "@/components/Team";
 import { LOCALES, isLocale, localePath, type Locale } from "@/i18n/config";
 import { fill } from "@/i18n/fill";
 import { getDictionary } from "@/i18n";
@@ -108,7 +109,62 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
       {/* 2. How it works */}
       <HowItWorks />
 
-      {/* 3. Injuries we treat */}
+      {/* 3. The founder. Phone: small portrait beside the name. sm: portrait beside name and credentials.
+          lg: full-height portrait flush with the card's left edge | name and credentials | quote (keeps the card low). */}
+      <section aria-labelledby="founder-title" className="border-b border-line">
+        <div className="wrap py-12 md:py-20">
+          <article className="grid grid-cols-[auto_minmax(0,1fr)] items-center gap-x-4 gap-y-5 overflow-hidden rounded-card border border-line bg-surface p-6 sm:items-start sm:gap-x-7 sm:gap-y-4 md:p-8 lg:grid-cols-[15rem_minmax(0,1fr)_minmax(0,1fr)] lg:gap-x-10 lg:gap-y-5 lg:p-10">
+            <div className="relative aspect-[4/5] w-20 overflow-hidden rounded-card ring-4 ring-sky-100 sm:row-span-2 sm:w-40 lg:-my-10 lg:-ml-10 lg:aspect-auto lg:w-auto lg:self-stretch lg:rounded-none lg:ring-0">
+              {founder.photo ? (
+                <Image
+                  src={founder.photo}
+                  alt={founder.name}
+                  fill
+                  sizes="(min-width: 1024px) 280px, (min-width: 640px) 160px, 80px"
+                  className="object-cover object-top"
+                />
+              ) : (
+                // Initials until a real, consented photo exists (photo === null).
+                <span
+                  aria-hidden="true"
+                  className="flex size-full items-center justify-center bg-navy-900 font-display text-2xl font-extrabold text-white sm:text-4xl lg:text-6xl"
+                >
+                  {initials(founder.name)}
+                </span>
+              )}
+            </div>
+            <div className="min-w-0 lg:col-start-2 lg:row-start-1">
+              <p className="font-display text-lg font-bold text-navy-500">{t.home.founderEyebrow}</p>
+              <h2 id="founder-title" className="mt-1 text-2xl font-extrabold md:text-3xl">{founder.name}</h2>
+              <p className="mt-1 text-[0.9375rem] font-semibold text-muted">{founder.postNominals}</p>
+            </div>
+            <ul className="col-span-2 grid gap-2 sm:col-span-1 sm:col-start-2 lg:row-start-2">
+              {t.home.founderCredentials.map((credential) => (
+                <li key={credential} className="flex items-start gap-2.5 text-[0.9375rem] leading-snug text-ink">
+                  <Check aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-success" strokeWidth={3} />
+                  {credential}
+                </li>
+              ))}
+            </ul>
+            <div className="col-span-2 flex flex-col sm:mt-4 lg:col-span-1 lg:col-start-3 lg:row-span-2 lg:row-start-1 lg:mt-0 lg:self-center">
+              <figure className="border-l-2 border-navy-500 pl-5">
+                <blockquote className="text-lg leading-relaxed font-semibold text-navy-900 md:text-xl lg:text-lg">
+                  <p>{t.home.founderQuote}</p>
+                </blockquote>
+                <figcaption className="mt-3 text-[0.9375rem] text-muted">{founder.name}</figcaption>
+              </figure>
+              <Link
+                href={href(`/about-us/#${founder.slug}`)}
+                className="mt-5 inline-flex min-h-11 items-center self-end font-semibold text-navy-500 underline underline-offset-4 hover:decoration-2"
+              >
+                {t.home.founderLink}
+              </Link>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      {/* 4. Injuries we treat */}
       <section aria-labelledby="injuries-title">
         <div className="wrap py-12 md:py-20">
           <SectionHeading
@@ -125,7 +181,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         </div>
       </section>
 
-      {/* 4. No out-of-pocket cost */}
+      {/* 5. No out-of-pocket cost */}
       <section aria-labelledby="cost-title" className="bg-sky-100">
         <div className="wrap grid gap-8 py-12 md:py-20 lg:grid-cols-2 lg:gap-16">
           <div>
@@ -146,46 +202,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         </div>
       </section>
 
-      {/* 5. Pain management + the languages the staff speak ("Hablamos Español" in English and Spanish) */}
-      <section aria-label={t.home.careLabel}>
-        <div className="wrap grid gap-6 py-12 md:py-20 lg:grid-cols-2">
-          <div className="rounded-card border border-line p-6 md:p-8">
-            <Pill aria-hidden="true" className="size-7 text-navy-500" />
-            <h2 className="mt-4 text-2xl font-extrabold md:text-3xl">{t.home.painTitle}</h2>
-            <p className="mt-3">{t.home.painText}</p>
-            <Link href={href("/pain-management/")} className="mt-5 inline-flex min-h-11 items-center font-semibold text-navy-500 underline underline-offset-4 hover:decoration-2">
-              {t.home.painLink}
-            </Link>
-          </div>
-          <div lang={t.spoken.lang} className="on-dark rounded-card bg-navy-900 p-6 md:p-8">
-            <Languages aria-hidden="true" className="size-7 text-lane" />
-            <h2 className="mt-4 text-2xl font-extrabold md:text-3xl">{t.spoken.title}</h2>
-            <p className="mt-3 text-navy-200">{[t.spoken.text, t.spoken.interpreter, t.spoken.callToday].filter(Boolean).join(locale === "zh" ? "" : " ")}</p>
-            <a href={telHref} data-cta-location="content" className={`${buttonStyles.call} mt-6`}>
-              {fill(t.spoken.cta, { phone: business.phone.display })}
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Team */}
-      <section aria-labelledby="team-title" className="border-t border-line bg-surface">
-        <div className="wrap py-12 md:py-20">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              id="team-title"
-              title={t.home.teamTitle}
-              lead={t.home.teamLead}
-            />
-            <Link href={href("/about-us/#team")} className="inline-flex min-h-11 shrink-0 items-center font-semibold text-navy-500 underline underline-offset-4 hover:decoration-2">
-              {t.home.teamLink}
-            </Link>
-          </div>
-          <TeamGrid className="mt-8" />
-        </div>
-      </section>
-
-      {/* 7. FAQ teaser */}
+      {/* 6. FAQ teaser */}
       <section aria-labelledby="faq-title">
         <div className="wrap grid gap-8 py-12 md:py-20 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
           <div>
@@ -201,7 +218,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         </div>
       </section>
 
-      {/* 8. Areas we serve */}
+      {/* 7. Areas we serve */}
       <section aria-labelledby="areas-title" className="border-t border-line bg-surface">
         <div className="wrap py-12 md:py-20">
           <SectionHeading
@@ -213,7 +230,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         </div>
       </section>
 
-      {/* 9. From the blog */}
+      {/* 8. From the blog */}
       {posts.length ? (
         <section aria-labelledby="blog-title">
           <div className="wrap py-12 md:py-20">
@@ -234,7 +251,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         </section>
       ) : null}
 
-      {/* 10. */}
+      {/* 9. */}
       <CtaBand />
     </>
   );

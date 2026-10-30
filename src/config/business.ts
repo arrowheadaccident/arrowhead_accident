@@ -37,15 +37,28 @@ export type TeamMember = {
   slug: string;
   name: string;
   credential: "DC" | "MD";
+  postNominals?: string; // every letter after the name, when there is more than `credential`
   role: string;
   bio: string;
   photo: string | null; // null => initials avatar
   isPlaceholder: boolean;
 };
 
+/** Owner and founder, featured on the home page. Credentials from the old site's About page: confirm them. */
+export const founder: TeamMember = {
+  slug: "vaughn-movses",
+  name: "Dr. Vaughn Movses",
+  credential: "DC",
+  postNominals: "DC, DABFP, FIAMA",
+  role: "Founder and Chiropractic Physician",
+  bio: "Founder of Arrowhead Injury Care. Certified by the American Board of Forensic Professionals, a Fellow in medical acupuncture, and certified in whiplash and brain injury traumatology and in low-speed collision forensic risk analysis.",
+  photo: "/founder.png", // 341×511 from the clinic; has a Zocdoc watermark at the bottom, cropped off by object-top
+  isPlaceholder: false,
+};
+
 // PLACEHOLDER: the old site listed 4 chiropractors (DC) + 1 pain management MD. Mirror that shape.
 export const team: TeamMember[] = [
-  { slug: "jane-doe", name: "Dr. Jane Doe", credential: "DC", role: "Chiropractic Physician", bio: "Sample bio: training, years treating auto-injury patients, approach to care.", photo: null, isPlaceholder: true },
+  founder,
   { slug: "john-doe", name: "Dr. John Doe", credential: "DC", role: "Chiropractic Physician", bio: "Sample bio.", photo: null, isPlaceholder: true },
   { slug: "alex-sample", name: "Dr. Alex Sample", credential: "DC", role: "Chiropractic Physician", bio: "Sample bio.", photo: null, isPlaceholder: true },
   { slug: "chris-sample", name: "Dr. Chris Sample", credential: "DC", role: "Chiropractic Physician", bio: "Sample bio.", photo: null, isPlaceholder: true },

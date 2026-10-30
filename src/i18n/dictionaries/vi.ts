@@ -30,8 +30,6 @@ export const vi: Dictionary = {
     title: "Tiếng Anh và tiếng Tây Ban Nha",
     text: "Bác sĩ và nhân viên của chúng tôi nói tiếng Anh và tiếng Tây Ban Nha. Các cuộc gọi và buổi khám đều bằng tiếng Anh hoặc tiếng Tây Ban Nha.",
     interpreter: "Quý vị có thể đi cùng người thân hoặc bạn bè để thông dịch.",
-    callToday: "",
-    cta: "Gọi {phone}",
   },
 
   nav: {
@@ -140,6 +138,7 @@ export const vi: Dictionary = {
     sampleTag: "Hồ sơ mẫu",
     sampleBio: "Tiểu sử mẫu.",
     roles: {
+      "Founder and Chiropractic Physician": "Người sáng lập, bác sĩ nắn chỉnh cột sống",
       "Chiropractic Physician": "Bác sĩ nắn chỉnh cột sống",
       "Pain Management Physician": "Bác sĩ điều trị giảm đau",
     },
@@ -199,14 +198,16 @@ export const vi: Dictionary = {
       "Nếu có luật sư, quý vị có thể được hoãn thanh toán theo thỏa thuận thanh toán từ khoản bồi thường (lien) đến khi hồ sơ được giải quyết.",
       "Mọi giấy tờ đều do chúng tôi lo.",
     ],
-    careLabel: "Điều trị giảm đau và ngôn ngữ",
-    painTitle: "Điều trị giảm đau ngay tại phòng khám",
-    painText:
-      "Chúng tôi phối hợp nắn chỉnh cột sống với điều trị giảm đau bằng các phương pháp y khoa, và giới thiệu khám chỉnh hình khi cần. Quý vị có thể được điều trị mà không phải tự chi trả khi tài xế khác có lỗi. Hãy gọi để đặt lịch khám và trao đổi về trường hợp của quý vị.",
-    painLink: "Về điều trị giảm đau",
-    teamTitle: "Bác sĩ nắn chỉnh cột sống và bác sĩ y khoa tại cùng phòng khám",
-    teamLead: "Bốn bác sĩ nắn chỉnh cột sống và một bác sĩ điều trị giảm đau thường xuyên chăm sóc bệnh nhân bị chấn thương do tai nạn xe hơi.",
-    teamLink: "Tìm hiểu thêm về phòng khám",
+    founderEyebrow: "Gặp gỡ người sáng lập",
+    founderCredentials: [
+      "Chứng nhận của American Board of Forensic Professionals (DABFP)",
+      "Chứng nhận về chấn thương học chấn thương giật cổ (whiplash) và chấn thương não",
+      "Chứng nhận về phân tích rủi ro pháp y trong va chạm tốc độ thấp",
+      "Hội viên (Fellow) về châm cứu y khoa (FIAMA)",
+    ],
+    founderQuote:
+      "Một vụ tai nạn xe có thể đảo lộn cuộc sống của quý vị chỉ trong vài giây. Mục tiêu của tôi rất đơn giản: khám kỹ lưỡng, giải thích trung thực và lập kế hoạch điều trị phù hợp với chấn thương của quý vị, để quý vị hồi phục và trở lại nhịp sống thường ngày.",
+    founderLink: "Xem hồ sơ đầy đủ",
     faqTitle: "Thắc mắc sau tai nạn xe hơi",
     faqLead: "Giải đáp rõ ràng về việc đi cấp cứu, xe hư hại nhẹ và chi phí điều trị.",
     faqLink: "Đọc cả {count} câu hỏi",

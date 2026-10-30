@@ -29,8 +29,6 @@ export const de: Dictionary = {
     title: "Englisch und Spanisch",
     text: "Unsere Ärzte und Mitarbeiter sprechen Englisch und Spanisch. Telefonate und Termine finden auf Englisch oder Spanisch statt.",
     interpreter: "Sie können gern jemanden mitbringen, der für Sie dolmetscht.",
-    callToday: "",
-    cta: "Anrufen: {phone}",
   },
 
   nav: {
@@ -139,6 +137,7 @@ export const de: Dictionary = {
     sampleTag: "Beispielprofil",
     sampleBio: "Beispielbiografie.",
     roles: {
+      "Founder and Chiropractic Physician": "Gründung der Praxis · Chiropraktik",
       "Chiropractic Physician": "Chiropraktiker",
       "Pain Management Physician": "Arzt für Schmerztherapie",
     },
@@ -198,14 +197,16 @@ export const de: Dictionary = {
       "Wenn Sie einen Anwalt haben, können wir die Zahlung über einen Lien bis zum Abschluss Ihres Falls aufschieben.",
       "Wir erledigen den gesamten Papierkram für Sie.",
     ],
-    careLabel: "Schmerztherapie und Sprachen",
-    painTitle: "Schmerztherapie in derselben Praxis",
-    painText:
-      "Wir stimmen Chiropraktik und medizinische Schmerztherapie aufeinander ab und überweisen bei Bedarf zur Orthopädie. Hat ein anderer Fahrer den Unfall verursacht, ist die Behandlung ohne eigene Kosten möglich. Rufen Sie uns für einen Termin an und besprechen Sie Ihre Situation mit uns.",
-    painLink: "Mehr zur Schmerztherapie",
-    teamTitle: "Chiropraktiker und ein Arzt unter einem Dach",
-    teamLead: "Vier Chiropraktiker und ein Arzt für Schmerztherapie, die jeden Tag Verletzungen durch Autounfälle behandeln.",
-    teamLink: "Mehr über unsere Praxis",
+    founderEyebrow: "Wer hinter der Praxis steht",
+    founderCredentials: [
+      "Zertifizierung durch das American Board of Forensic Professionals (DABFP)",
+      "Zertifizierung in Schleudertrauma- und Hirnverletzungstraumatologie",
+      "Zertifizierung in forensischer Risikoanalyse bei Kollisionen mit geringer Geschwindigkeit",
+      "Fellowship in medizinischer Akupunktur (FIAMA)",
+    ],
+    founderQuote:
+      "Ein Autounfall kann Ihr Leben in Sekunden auf den Kopf stellen. Mein Ziel ist einfach: eine gründliche Untersuchung, ehrliche Antworten und ein Behandlungsplan, der auf Ihre Verletzungen zugeschnitten ist, damit Sie sich erholen und in Ihren Alltag zurückkehren können.",
+    founderLink: "Zum vollständigen Profil",
     faqTitle: "Fragen nach einem Autounfall",
     faqLead: "Klare Antworten zu Besuchen in der Notaufnahme, geringen Fahrzeugschäden und Behandlungskosten.",
     faqLink: "Alle {count} Fragen lesen",

@@ -164,6 +164,46 @@ The site belongs to Dr. Vaughn Movses. Changes in `src/config/business.ts` and t
   disclaimer ("This website provides general information… call 911.") was removed at the owner's request.
   Translations need native review.
 
+## Home: founder section (2026-10-30)
+
+The home page section "Pain management and Spanish-speaking care" was replaced by a founder card: Dr.
+Vaughn Movses (portrait, credentials) and the vision quote with a link to the full profile. It is its own
+section between "Your care, from examination to recovery" and "Car accident injuries we treat". At the
+user's request, to keep the home page light:
+
+- **The dark "Hablamos español" card was removed from the home page.** Spanish is still announced by the
+  hero badge next to the call button, the footer and the contact page. The `spoken.callToday` and
+  `spoken.cta` strings were only used by that card and were deleted.
+- **The "Pain management in the same clinic" card was removed from the home page.** Pain management is
+  still in the main menu and on its own page.
+- **The team section ("Chiropractors and a medical doctor under one roof") was removed from the home
+  page.** The full team stays on About (`/about-us/#team`). Its strings and the pain card's strings
+  (`home.team*`, `home.pain*`, `home.careLabel`) were deleted in all five languages.
+- **Dr. Vaughn Movses is now a real team member** (`founder` in `business.ts`, `isPlaceholder: false`). The
+  card replaces the placeholder "Dr. Jane Doe", so the team still has four chiropractors and one MD. Team
+  cards now show every letter after the name (`postNominals`: "DC, DABFP, FIAMA").
+- **Credentials come from the old site's About page and need the clinic's confirmation:** certified by the
+  American Board of Forensic Professionals (DABFP), certified in whiplash and brain injury traumatology and in
+  low-speed motor vehicle forensic risk analysis (the old site credited both to "SRISD", left out here),
+  and "Fellow International American Medical Acupuncture" (FIAMA), shortened to "Fellow in medical
+  acupuncture". The old address on that page (17100 N 67th Lane, Suite 300) was not used.
+- **The vision quote was written by Claude, not by Dr. Movses.** Dr. Movses must approve or rewrite it
+  before launch: "A car accident can turn your life upside down in seconds. My goal is simple: a careful
+  exam, honest answers and a treatment plan built around your injuries, so you can recover and get back to
+  your routine."
+- **Photo:** `public/founder.png`, supplied by the user on 2026-10-30 (`custommer photos/Founder.png`). It
+  shows on the home page and on the About team card (team cards now show `photo` when it is set; the others
+  keep their initials). **Two problems to fix with a better file:** it is only 341×511 px, so it looks soft
+  on high-density screens at the desktop size (280×364 CSS px), and it carries a **"ZocDoc" watermark** in
+  the lower left. The layouts crop from the top, so the watermark is not visible anywhere on the site, but
+  the file itself still contains it (and, after launch, the Physician JSON-LD links to it). Please ask the
+  clinic for the original portrait, at least 800 px wide, without a watermark.
+- **Gendered wording avoided:** the old site called Dr. Movses both "his" and "her", so no translation uses a
+  pronoun or a gendered noun for Dr. Movses. Spanish and German use neutral phrasings ("Conozca a quien fundó
+  la clínica", "Wer hinter der Praxis steht", role "Fundó la clínica · Quiropráctica" / "Gründung der Praxis ·
+  Chiropraktik"). Once the clinic confirms, the native reviewer can switch to the natural gendered forms.
+- The full bio on About stays in English on translated pages, like every real bio.
+
 ## Needs legal review (§15.4)
 
 - **Privacy Policy still says "We may share or sell information with third parties
