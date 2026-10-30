@@ -121,18 +121,6 @@ export const de: Dictionary = {
     ],
   },
 
-  valueProps: [
-    { title: "Zeitnahe Termine", text: "Rufen Sie an, und ein Arzt untersucht Sie am selben oder nächsten Praxistag." },
-    { title: "Keine Kosten für Sie", text: "Wenn ein anderer Fahrer Ihren Unfall verursacht hat, rechnen wir mit dessen Versicherung ab und warten auf die Zahlung." },
-    { title: "Keine Krankenversicherung nötig", text: "Sie können auch ohne Krankenversicherung behandelt werden." },
-    { title: "Wir arbeiten mit Ihrem Anwalt zusammen", text: "Wir können die Zahlung über einen Lien aufschieben und Behandlungsunterlagen an Ihren Anwalt weitergeben." },
-    { title: "Chiropraktiker und Ärzte", text: "Abgestimmte Chiropraktik und Schmerztherapie, bei Bedarf mit Überweisung zur Orthopädie." },
-    {
-      title: "Englisch und Spanisch",
-      text: "Unsere Ärzte und Mitarbeiter sprechen Englisch und Spanisch. Sie können gern jemanden mitbringen, der für Sie dolmetscht.",
-    },
-  ],
-
   team: {
     sampleTag: "Beispielprofil",
     sampleBio: "Beispielbiografie.",

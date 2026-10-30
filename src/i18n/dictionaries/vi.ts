@@ -122,18 +122,6 @@ export const vi: Dictionary = {
     ],
   },
 
-  valueProps: [
-    { title: "Hẹn khám sớm", text: "Gọi cho chúng tôi và gặp bác sĩ trong ngày hoặc vào ngày làm việc kế tiếp của phòng khám." },
-    { title: "Không phải tự chi trả", text: "Nếu tài xế khác gây ra tai nạn, chúng tôi gửi hóa đơn cho bảo hiểm của họ và chờ thanh toán." },
-    { title: "Không cần bảo hiểm sức khỏe", text: "Quý vị vẫn được điều trị dù không có bảo hiểm sức khỏe." },
-    { title: "Làm việc với luật sư của quý vị", text: "Chúng tôi có thể hoãn thu tiền theo thỏa thuận thanh toán từ khoản bồi thường (lien) và chia sẻ hồ sơ điều trị với luật sư của quý vị." },
-    { title: "Bác sĩ nắn chỉnh cột sống và bác sĩ y khoa", text: "Phối hợp nắn chỉnh cột sống và điều trị giảm đau, kèm giới thiệu khám chỉnh hình khi cần." },
-    {
-      title: "Tiếng Anh và tiếng Tây Ban Nha",
-      text: "Bác sĩ và nhân viên của chúng tôi nói tiếng Anh và tiếng Tây Ban Nha. Quý vị có thể đi cùng người thân hoặc bạn bè để thông dịch.",
-    },
-  ],
-
   team: {
     sampleTag: "Hồ sơ mẫu",
     sampleBio: "Tiểu sử mẫu.",

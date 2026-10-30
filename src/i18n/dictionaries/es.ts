@@ -121,15 +121,6 @@ export const es: Dictionary = {
     ],
   },
 
-  valueProps: [
-    { title: "Citas sin demora", text: "Llámenos y vea a un médico el mismo día o el siguiente día de consulta." },
-    { title: "Sin costo de su bolsillo", text: "Si otro conductor causó su accidente, facturamos a su seguro y esperamos el pago." },
-    { title: "No necesita seguro médico", text: "Puede recibir tratamiento aunque no tenga seguro médico." },
-    { title: "Trabajamos con su abogado", text: "Podemos aplazar el pago mediante un gravamen (lien) y compartir los expedientes de tratamiento con su abogado." },
-    { title: "Quiroprácticos y médicos", text: "Atención quiropráctica y manejo del dolor coordinados, con derivaciones a ortopedia cuando sea necesario." },
-    { title: "Hablamos español", text: "Nuestros médicos y asistentes hablan español." },
-  ],
-
   team: {
     sampleTag: "Perfil de ejemplo",
     sampleBio: "Biografía de ejemplo.",

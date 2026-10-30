@@ -122,15 +122,12 @@ function ServiceTemplate({ entry, t }: { entry: Entry; t: Dictionary }) {
   );
 }
 
-/** About opens with the founder's story; the team grid below leaves the founder out. */
+/** About opens with the founder's story, then the rest of the team (without the founder), then the page text. */
 function AboutTemplate({ entry, t }: { entry: Entry; t: Dictionary }) {
   return (
     <>
       <FounderStory t={t} />
-      <div className="wrap py-12 md:py-16">
-        <MdxContent source={entry.body} />
-      </div>
-      <section id="team" aria-labelledby="team-title" className="scroll-mt-28 border-t border-line bg-surface">
+      <section id="team" aria-labelledby="team-title" className="scroll-mt-28 border-b border-line bg-surface">
         <div className="wrap py-12 md:py-20">
           <h2 id="team-title" className="text-2xl font-extrabold md:text-3xl">
             {t.page.ourDoctors}
@@ -139,6 +136,9 @@ function AboutTemplate({ entry, t }: { entry: Entry; t: Dictionary }) {
           <TeamGrid members={team.filter((member) => member !== founder)} className="mt-8" />
         </div>
       </section>
+      <div className="wrap py-12 md:py-16">
+        <MdxContent source={entry.body} />
+      </div>
     </>
   );
 }

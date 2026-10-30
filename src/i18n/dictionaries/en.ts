@@ -1,8 +1,6 @@
 // Interface copy in English. Page text lives in content/*.mdx; translations of both are in
 // src/i18n/dictionaries/<locale>.ts and content/<locale>/. Placeholders such as {phone} are filled with fill().
 
-type ValueProp = { title: string; text: string; /** set when the item is in another language than the page */ lang?: string };
-
 export const en = {
   meta: {
     homeTitle: "Car Accident Chiropractor in Glendale, AZ | Prompt Care",
@@ -126,16 +124,6 @@ export const en = {
       },
     ],
   },
-
-  // The old site's own claims (confirm before launch, SITE-BRIEF §15).
-  valueProps: [
-    { title: "Prompt appointments", text: "Call us and see a doctor the same day or on the next clinic day." },
-    { title: "No out-of-pocket cost", text: "If another driver caused your accident, we bill their insurance and wait for payment." },
-    { title: "No health insurance needed", text: "You can be treated even if you don't have health insurance." },
-    { title: "We work with your attorney", text: "We can defer payment under a lien and share treatment records with your attorney." },
-    { title: "Chiropractors and medical doctors", text: "Coordinated chiropractic care and pain management, with orthopedic referrals when needed." },
-    { title: "Hablamos español", text: "Nuestros médicos y asistentes hablan español.", lang: "es" },
-  ] as ValueProp[],
 
   team: {
     sampleTag: "Sample profile",

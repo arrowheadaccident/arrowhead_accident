@@ -59,7 +59,8 @@ pain management on site.
 - `/neck-pain-whiplash/` merged into `/whiplash-injury/` (texts were ~98% identical;
   the merged page keeps the brand-free wording from `/neck-pain-whiplash/`).
 - About: the first-visit checklist and service areas became their own sections; the
-  benefits list renders from `valueProps` in the dictionaries (`src/i18n/dictionaries/`).
+  benefits list rendered from `valueProps` in the dictionaries (`src/i18n/dictionaries/`).
+  All three were replaced by the old site's text on 2026-10-30 (see the About sections below).
 - FAQ: the 8 Q&As moved to frontmatter (`faqs`), which feeds both the accordion and
   the `FAQPage` JSON-LD. Q8 was rephrased as a question.
 - No Out-of-Pocket Cost: the home page's billing paragraph was added as a list.
@@ -225,6 +226,63 @@ to a shared `founder` group in every dictionary.
   team grid still show his card (with the short `bio` from `business.ts`).
 - Meta descriptions of the five About pages now name the founder ("Meet founder Dr. Vaughn Movses, DC, and our
   Glendale team. …").
+
+## About: old intro text restored (2026-10-30)
+
+At the user's request, the sections "Injury chiropractors serving auto accident victims throughout Glendale" and
+"What to bring to your first visit" were replaced by the old site's section, word for word from two photos of
+`/about-us/` (`custommer photos/custommer photos/about us/1 processed-7B7A2775-….jpeg` and
+`2 processed-AD93C07D-….jpeg`): the heading "We are Arrowhead Glendale Arizona Injury Chiropractors Serving Auto
+Accident Victims throughout the greater Glendale, Arizona." and five paragraphs, up to "…can help you today!".
+"What to bring" is gone as a list; the same items are in the second paragraph. `<CallCta />` stays after it.
+
+- **Kept as in the original, at the user's request:** "Then you are in the right place Arrowhead…" (run-on),
+  "to get you get medical attention", "the know how", "your phoenix car accident injuries" (lowercase, and the
+  clinic is in Glendale), the old names "Arrowhead Glendale Arizona chiropractic auto injury clinic" and
+  "Arrowhead Glendale Az Injury Chiropractic" (the site is now Arrowhead Injury Care), the "!" and the curly
+  apostrophes (’, the rest of the site uses ').
+- **This brings back claims the cleanup had softened** (SEO audit, compliance): "we take immediate action…
+  right away!", "you will receive treatment right away", "We always wait until after your case has been settled
+  to get paid", "making sure you don't pay any out-of-pocket costs". The clinic should confirm it stands behind
+  them.
+- Links were added on words of the original text, without changing it: "whiplash" → `/whiplash-injury/`, "back
+  related injuries" → `/low-back-pain/`, "out-of-pocket costs" → the no-cost page (check:content needs at least
+  two body links per page).
+- **Translations follow the same text.** Spelling slips that can't be translated are not copied: "phoenix" is
+  written "Phoenix" (zh 凤凰城), and "get you get" reads normally.
+
+## About: "What makes … different?" restored (2026-10-30)
+
+At the user's request, "Areas we serve" and "What makes our car accident chiropractors different?" were
+replaced by the old site's section, word for word from photos 2 and 3 of `/about-us/`
+(`… about us/2 processed-AD93C07D-….jpeg`, `3 processed-19A346D1-….jpeg`): the heading "What makes our
+Arrowhead Car Accident Chiropractors different?", the intro paragraph, the bold "You will enjoy the following
+benefits…", eight bullets, the "Contact us today…" paragraph and the neighborhoods paragraph. The page text ends
+there, followed by "Our doctors".
+
+- **"Areas we serve" was removed from About** (user's choice): the neighborhoods are listed once, in the old
+  paragraph. The home page keeps its "Areas we serve" section.
+- **The eight benefits keep the earlier look** (user's request): `<ValueProps>` now wraps the Markdown list in
+  the MDX and shows it as the two-column grid with an icon per item (calendar, shield, wallet, receipt,
+  handshake, scales, stethoscope, languages, by position). The text stays in the content files, word for word.
+  The old dictionary `valueProps` (title + text) were deleted in all five languages.
+- **Left out, user's choice:** the bold "Amberwood North, Paradise Gates and Yorkshire Estates" and the three
+  paragraphs that follow it on the old page ("Thank you for visiting…", "One of the most important things for
+  us…", "At www.arrowheadcaraccidentchiropractor.com we are committed…"). They were added below the team for a
+  while on 2026-10-30, then removed at the user's request. So the neighborhoods paragraph now ends at "Western
+  Meadows", and Amberwood North, Paradise Gates and Yorkshire Estates aren't named on About (the home page's
+  "Areas we serve" still lists them). SITE-BRIEF §7.2, rule 4 also said to remove those paragraphs.
+- **Kept as in the original:** "physicianshave", "Hundeds", "nieghborhoods", "Lexington place" and "Hidden Manor"
+  listed twice, "Woodridge Vi" (truncated), the capitals in "No cost No out of pocket appointment" and "Doctors of
+  chiropractic", "Liaison- we", the curly quotes in “at the fault party”, the "!".
+- **Brings back what earlier cleanups removed:** a patient count ("Hundeds of injured people", removed site-wide
+  on 2026-10-26 at the user's request), "Same Day Appointment" (the site says same or next clinic day), "No
+  out-of-pocket costs in all cases we accept", and "Law center for car accident injuries" (the clinic is not a
+  law office). The clinic should confirm these before launch.
+- The phone number is the `<Phone />` component (a tap-to-call link showing "(623) 600-4878"), so the sentence
+  still reads "Contact us today at 1 (623) 600-4878 …"; check:content doesn't allow numbers typed into content.
+- "Hablamos Español" stays in Spanish on every page, marked `lang="es"`. Translations follow the same text;
+  neighborhood names stay in English.
 
 ## Needs legal review (§15.4)
 
