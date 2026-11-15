@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
 import { CallTracker } from "@/components/CallTracker";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -32,6 +33,7 @@ export function SiteShell({ locale, children }: { locale: Locale; children: Reac
         <Footer />
         <MobileCallBar />
         <CallTracker />
+        <Analytics />
       </body>
       {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
     </html>
